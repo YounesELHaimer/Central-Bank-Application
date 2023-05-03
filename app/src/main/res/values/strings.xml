@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Central Bank</string>
+    <string name="ek_img_content">ExportKit Image</string>
+    <string name="se_connecter_string">SE CONNECTER</string>
+    <string name="creer_un_compte_string">CREER UN COMPTE</string>
+    <string name="sos_string">SOS</string>
+    <string name="agences_string">AGENCES</string>
+    <string name="se_souvenir_de_moi_string">Se souvenir de moi</string>
+    <string name="mot_de_passe_oubli____string"><u>Mot de passe oublié?</u></string>
+
+    <string name="compte_cheque_string">COMPTE CHEQUE</string>
+    <string name="rib_string">008002022</string>
+    <string name="numero_de_compte">Numéro de compte</string>
+    <string name="password">Password</string>
+    <string name="______string">*,**</string>
+    <string name="mes_derni_res__transactions_string">Mes dernires  transactions</string>
+    <string name="_17_avril_string">17 Avril</string>
+    <string name="_2023_string">2023</string>
+    <string name="type_de_la_transactions_string">Type de la transactions</string>
+    <string name="sold_mad_string">+ 10000 MAD</string>
+    <string name="title_activity_page_card">page_card</string>
+
+</resources>

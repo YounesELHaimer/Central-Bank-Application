@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="_bg__first_page_ek2_color">#ffffff</color>
+    <color name="rectangle_1_color">#fafafa</color>
+    <color name="se_connecter_color">#3b98fa</color>
+    <color name="rectangle_1_ek1_color">#3899f8</color>
+    <color name="creer_un_compte_color">#ffffff</color>
+
+
+    <color name="_bg__page_home_color">#fafafa</color>
+    <color name="rectangle_4_color">#ffffff</color>
+    <color name="rectangle_5_color">#2f8be4</color>
+    <color name="compte_cheque_color">#707070</color>
+    <color name="rib_color">#9a9a9a</color>
+    <color name="______color">#2f8be4</color>
+    <color name="mes_derni_res__transactions_color">#6c6c6c</color>
+    <color name="sold_mad_color">#18a325</color>
+
+    <color name="_bg__page_virement_color">#fafafa</color>
+
+</resources>
