@@ -19,5 +19,28 @@
     <string name="type_de_la_transactions_string">Type de la transactions</string>
     <string name="sold_mad_string">+ 10000 MAD</string>
     <string name="title_activity_page_card">page_card</string>
+    <string name="MesParametres_string">MES PARAMÈTRES</string>
+    <string name="Mon_empreinte_string">Mon empreinte digitale</string>
+    <string name="emp_digitale_string">Empreinte digitale</string>
+    <string name="emp_texte_string">Associez votre empreinte à votre compte</string>
+    <string name="password_string">Changer mon mot de passe</string>
+    <string name="notif_string">Paramétrage des notifications</string>
+    <string name="gestion_des_notif_string">GESTION DES NOTIFICATIONS</string>
+    <string name="perso__lesnotif_string">Personnaliser les notifications pour chaque type d\'opération</string>
+    <string name="gestion_mon_emp">GESTION DE L\'EMPREINTE</string>
+    <string name="enregistrer_string">Enregistrer les modifictions</string>
+    <string name="emp_alert_string">Voulez-vous associer votre empreinte à votre compte ?</string>
+    <string name="pwd_title_settings">CHANGEMENT DU MOT DE PASSE</string>
+    <string name="mon_ancien_pwd_string">Mon ancien mot de passe</string>
+    <string name="mon_nv_pwd_string">Mon nouveau mot de passe</string>
+    <string name="confirmer_pwd_string">Confirmer mon nouveau mot de passe</string>
+    <string name="mesure_securite_string">Mesure de sécurité</string>
+    <string name="les_mesure_string">Le mot de passe doit se composer d\'au moins 6 chiffres.\nVotre compte sera temporairement bloqué au bout de 3 tentatives erronées.\nVotre nouveau mot de passe ne doit pas être similaire à vos mots de passes utilisés.</string>
+    <string name="account_number_string">Account Number</string>
+    <string name="deconnecter_alert_string">Vous êtes sur le point de vous déconnecter</string>
+    <string name="mon_rib_string">MON RIB</string>
+    <string name="compte_cheque_partic_string">COMPTE CHEQUE DE PARTICULIERS</string>
+    <string name="info_compte_string">Informations du compte</string>
+
 
 </resources>

@@ -1,311 +1,342 @@
-<HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
-	android:layout_width="match_parent" android:layout_height="wrap_content" >
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+android:id="@+id/drawer_layout"
+android:layout_width="match_parent"
+android:layout_height="match_parent">
 
-	<ScrollView android:id="@+id/page_home" 
-		android:layout_width="wrap_content" 
-		android:layout_height="match_parent" >
+<!-- Main content of your app -->
+<LinearLayout
+	android:id="@+id/main_content"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical">
 
-		<RelativeLayout android:id="@+id/content_container" 
-			android:layout_width="wrap_content" 
-			android:layout_height="wrap_content" >
+	<HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
+		android:layout_width="match_parent" android:layout_height="wrap_content" >
 
-			<View
-				android:id="@+id/_bg__page_home"
-				android:layout_width="412dp"
-				android:layout_height="846dp"
-				android:layout_marginLeft="0dp"
-				android:layout_marginTop="0dp"
-				android:background="@drawable/_bg__page_home_shape" />
+		<ScrollView android:id="@+id/page_home"
+			android:layout_width="wrap_content"
+			android:layout_height="match_parent" >
 
-			<View   android:id="@+id/rectangle_4"
-				android:background="@drawable/rectangle_4_shape"
-				 android:layout_marginLeft="0dp"
-				android:layout_marginTop="769dp"
-				android:layout_width="414dp"
-				android:layout_height="82dp" />
-
-			<View   android:id="@+id/rectangle_5"
-				android:background="@drawable/rectangle_5_shape"
-				 android:layout_marginLeft="0dp"
-				android:layout_marginTop="0dp"
-				android:layout_width="412dp"
-				android:layout_height="60dp" />
-
-			<ImageView android:id="@+id/free_sample_by_wix"
-				android:src="@drawable/logo"
-				android:contentDescription="free_sample_by_wix"
-				 android:layout_marginLeft="139dp"
-				android:layout_marginTop="10dp"
-				android:layout_width="134dp"
-				android:layout_height="40dp" />
-
-			<RelativeLayout android:id="@+id/groupe_6"
-				android:layout_marginTop="782dp"
-				android:layout_marginLeft="25dp"
+			<RelativeLayout android:id="@+id/content_container"
 				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				/>
+				android:layout_height="wrap_content" >
 
-			<ImageView android:id="@+id/transaction__2_"
-				android:src="@drawable/virements_icon"
-				android:contentDescription="_transaction__2_"
-				 android:layout_marginLeft="149dp"
-				android:layout_marginTop="789dp"
-				android:layout_width="42dp"
-				android:layout_height="42dp" />
-
-
-			<RelativeLayout android:id="@+id/home__1__ek1"
-				android:layout_marginTop="787dp"
-				android:layout_marginLeft="55dp"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				>
-
-				<ImageView android:id="@+id/cercle"
-					android:src="@drawable/cercle_icon"
-					android:contentDescription="credit_card"
-					android:layout_marginLeft="0dp"
-					android:layout_marginTop="2dp"
-					android:layout_width="44dp"
-					android:layout_height="44dp" />
-
-				<ImageView android:id="@+id/home10"
-					android:src="@drawable/white_home"
-					android:contentDescription="home__1__ek2"
-					android:layout_marginLeft="8dp"
-					android:layout_marginTop="10dp"
-					android:layout_width="28dp"
-					android:layout_height="28dp" />
-
-			</RelativeLayout>
-
-			<ImageView android:id="@+id/credit_card"
-				android:src="@drawable/card_payment_icon"
-				android:contentDescription="credit_card"
-				 android:layout_marginLeft="238dp"
-				android:layout_marginTop="792dp"
-				android:layout_width="40dp"
-				android:layout_height="40dp" />
-
-			<ImageView android:id="@+id/invoice"
-				android:src="@drawable/content_icon"
-				android:contentDescription="invoice"
-				 android:layout_marginLeft="322dp"
-				android:layout_marginTop="792dp"
-				android:layout_width="40dp"
-				android:layout_height="40dp" />
-
-			<ImageView android:id="@+id/_power"
-				android:src="@drawable/white_power_icon"
-				android:contentDescription="_power"
-				 android:layout_marginLeft="372dp"
-				android:layout_marginTop="18dp"
-				android:layout_width="26dp"
-				android:layout_height="26dp" />
-
-			<ImageView android:id="@+id/bell"
-				android:src="@drawable/notifications_icon"
-				android:contentDescription="bell"
-				 android:layout_marginLeft="330dp"
-				android:layout_marginTop="18dp"
-				android:layout_width="26dp"
-				android:layout_height="26dp" />
-
-			<ImageView android:id="@+id/gears"
-				android:src="@drawable/white_settings_icon"
-				android:contentDescription="gears"
-				 android:layout_marginLeft="57dp"
-				android:layout_marginTop="18dp"
-				android:layout_width="25dp"
-				android:layout_height="25dp" />
-
-			<ImageView
-				android:id="@+id/menu"
-				android:layout_width="29dp"
-				android:layout_height="28dp"
-				android:layout_marginLeft="15dp"
-				android:layout_marginTop="17dp"
-				android:contentDescription="menu"
-				android:src="@drawable/menu_icon" />
-
-			<View   android:id="@+id/rectangle_6"
-				android:background="@drawable/rectangle_6_shape"
-				 android:layout_marginLeft="51dp"
-				android:layout_marginTop="110dp"
-				android:layout_width="311dp"
-				android:layout_height="117dp" />
-
-			<TextView android:id="@+id/compte_cheque"
-				android:textStyle="bold"
-				android:textSize="14sp"
-				android:textColor="@color/compte_cheque_color"
-				android:layout_marginLeft="139dp"
-				android:layout_marginTop="129dp"
-				android:layout_width="212dp"
-				android:layout_height="26dp"
-				android:text="@string/compte_cheque_string"
-				 />
-
-			<ImageView android:id="@+id/account"
-				android:src="@drawable/account_wallet"
-				android:contentDescription="account"
-				 android:layout_marginLeft="70dp"
-				android:layout_marginTop="149dp"
-				android:layout_width="40dp"
-				android:layout_height="40dp" />
-
-			<TextView android:id="@+id/rib"
-				android:textStyle="bold"
-				android:textSize="14sp"
-				android:textColor="@color/rib_color"
-				android:layout_marginLeft="139dp"
-				android:layout_marginTop="152dp"
-				android:layout_width="185dp"
-				android:layout_height="26dp"
-				android:text="@string/rib_string"
-				 />
-
-			<TextView android:id="@+id/solde1"
-				android:textStyle="bold"
-				android:textSize="20sp"
-				android:textColor="@color/______color"
-				android:layout_marginLeft="139dp"
-				android:layout_marginTop="189dp"
-				android:layout_width="115dp"
-				android:layout_height="37dp"
-				android:text="*,**"
-				 />
-
-
-
-
-
-			<RelativeLayout android:id="@+id/hidden"
-				android:layout_marginTop="187dp"
-				android:layout_marginLeft="311dp"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				>
-
-
-				<ImageView android:id="@+id/HiddenEye"
-					android:src="@drawable/red_eye_off"
+				<View
+					android:id="@+id/_bg__page_home"
+					android:layout_width="412dp"
+					android:layout_height="846dp"
 					android:layout_marginLeft="0dp"
 					android:layout_marginTop="0dp"
-					android:layout_width="28dp"
-					android:layout_height="28dp"
+					android:background="@drawable/_bg__page_home_shape" />
+
+				<View   android:id="@+id/rectangle_4"
+					android:background="@drawable/rectangle_4_shape"
+					android:layout_marginLeft="0dp"
+					android:layout_marginTop="769dp"
+					android:layout_width="414dp"
+					android:layout_height="82dp" />
+
+				<View   android:id="@+id/rectangle_5"
+					android:background="@drawable/rectangle_5_shape"
+					android:layout_marginLeft="0dp"
+					android:layout_marginTop="0dp"
+					android:layout_width="412dp"
+					android:layout_height="60dp" />
+
+				<ImageView android:id="@+id/free_sample_by_wix"
+					android:src="@drawable/logo"
+					android:contentDescription="free_sample_by_wix"
+					android:layout_marginLeft="139dp"
+					android:layout_marginTop="10dp"
+					android:layout_width="134dp"
+					android:layout_height="40dp" />
+
+				<RelativeLayout android:id="@+id/groupe_6"
+					android:layout_marginTop="782dp"
+					android:layout_marginLeft="25dp"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
 					/>
 
-			</RelativeLayout>
-
-			<TextView android:id="@+id/mes_derni_res__transactions"
-				android:textStyle="bold"
-				android:textSize="18sp"
-				android:textColor="@color/mes_derni_res__transactions_color"
-				android:layout_marginLeft="18dp"
-				android:layout_marginTop="246dp"
-				android:layout_width="321dp"
-				android:layout_height="34dp"
-				android:text="@string/mes_derni_res__transactions_string"
-				 />
+				<ImageView android:id="@+id/transaction__2_"
+					android:src="@drawable/virements_icon"
+					android:contentDescription="_transaction__2_"
+					android:layout_marginLeft="149dp"
+					android:layout_marginTop="789dp"
+					android:layout_width="42dp"
+					android:layout_height="42dp" />
 
 
-			<RelativeLayout android:id="@+id/groupe_9"
-				android:layout_marginTop="300dp"
-				android:layout_marginLeft="18dp"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				>
+				<RelativeLayout android:id="@+id/home__1__ek1"
+					android:layout_marginTop="787dp"
+					android:layout_marginLeft="55dp"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					>
 
-				<View   android:id="@+id/rectangle_7"
-					android:background="@drawable/rectangle_7_shape"
-					 android:layout_marginLeft="0dp"
-					android:layout_marginTop="0dp"
-					android:layout_width="376dp"
-					android:layout_height="57dp" />
+					<ImageView android:id="@+id/cercle"
+						android:src="@drawable/cercle_icon"
+						android:contentDescription="credit_card"
+						android:layout_marginLeft="0dp"
+						android:layout_marginTop="2dp"
+						android:layout_width="44dp"
+						android:layout_height="44dp" />
 
-				<View   android:id="@+id/rectangle_12"
-					android:background="@drawable/rectangle_12_shape"
-					 android:layout_marginLeft="3dp"
-					android:layout_marginTop="10dp"
-					android:layout_width="73dp"
+					<ImageView android:id="@+id/home10"
+						android:src="@drawable/white_home"
+						android:contentDescription="home__1__ek2"
+						android:layout_marginLeft="8dp"
+						android:layout_marginTop="10dp"
+						android:layout_width="28dp"
+						android:layout_height="28dp" />
+
+				</RelativeLayout>
+
+				<ImageView android:id="@+id/credit_card"
+					android:src="@drawable/card_payment_icon"
+					android:contentDescription="credit_card"
+					android:layout_marginLeft="238dp"
+					android:layout_marginTop="792dp"
+					android:layout_width="40dp"
 					android:layout_height="40dp" />
 
-				<TextView android:id="@+id/date"
-					android:textStyle="bold"
-					android:layout_gravity="center_horizontal|center"
-					android:gravity="center"
-					android:textSize="12sp"
-					android:textColor="@color/______color"
-					android:layout_marginLeft="5dp"
-					android:layout_marginTop="11dp"
-					android:layout_width="70dp"
-					android:layout_height="22dp"
-					android:text="@string/_17_avril_string"
-					 />
-
-				<TextView android:id="@+id/annee"
-					android:textStyle="bold"
-					android:layout_gravity="center_horizontal|center"
-					android:gravity="center"
-					android:textSize="12sp"
-					android:textColor="@color/______color"
-					android:layout_marginLeft="5dp"
-					android:layout_marginTop="25dp"
-					android:layout_width="70dp"
-					android:layout_height="22dp"
-					android:text="@string/_2023_string"
-					 />
-
-				<ImageView android:id="@+id/trac__1"
-					android:src="@drawable/trac__1"
-					android:contentDescription="trac__1"
-					 android:layout_marginLeft="73dp"
-					android:layout_marginTop="9dp"
-					android:layout_width="1dp"
+				<ImageView android:id="@+id/invoice"
+					android:src="@drawable/content_icon"
+					android:contentDescription="invoice"
+					android:layout_marginLeft="322dp"
+					android:layout_marginTop="792dp"
+					android:layout_width="40dp"
 					android:layout_height="40dp" />
 
-				<View   android:id="@+id/rectangle_13"
-					android:background="@drawable/rectangle_13_shape"
-					 android:layout_marginLeft="77dp"
-					android:layout_marginTop="11dp"
-					android:layout_width="209dp"
-					android:layout_height="35dp" />
+				<ImageView android:id="@+id/_power"
+					android:src="@drawable/white_power_icon"
+					android:contentDescription="_power"
+					android:layout_marginLeft="372dp"
+					android:layout_marginTop="18dp"
+					android:layout_width="26dp"
+					android:layout_height="26dp" />
 
-				<TextView android:id="@+id/type_de_la_transactions"
-					android:textSize="12sp"
+				<ImageView android:id="@+id/bell"
+					android:src="@drawable/notifications_icon"
+					android:contentDescription="bell"
+					android:layout_marginLeft="330dp"
+					android:layout_marginTop="18dp"
+					android:layout_width="26dp"
+					android:layout_height="26dp" />
+
+				<ImageView android:id="@+id/gears"
+					android:src="@drawable/white_settings_icon"
+					android:contentDescription="gears"
+					android:layout_marginLeft="57dp"
+					android:layout_marginTop="18dp"
+					android:layout_width="25dp"
+					android:layout_height="25dp" />
+
+				<ImageView
+					android:id="@+id/menu"
+					android:layout_width="29dp"
+					android:layout_height="28dp"
+					android:layout_marginLeft="15dp"
+					android:layout_marginTop="17dp"
+					android:contentDescription="menu"
+					android:src="@drawable/menu_icon"
+					android:onClick="showSidebar"/>
+
+				<View   android:id="@+id/rectangle_6"
+					android:background="@drawable/rectangle_6_shape"
+					android:layout_marginLeft="51dp"
+					android:layout_marginTop="110dp"
+					android:layout_width="311dp"
+					android:layout_height="117dp" />
+
+				<TextView android:id="@+id/compte_cheque"
+					android:textStyle="bold"
+					android:textSize="14sp"
+					android:textColor="@color/compte_cheque_color"
+					android:layout_marginLeft="139dp"
+					android:layout_marginTop="129dp"
+					android:layout_width="212dp"
+					android:layout_height="26dp"
+					android:text="@string/compte_cheque_string"
+					/>
+
+				<ImageView android:id="@+id/account"
+					android:src="@drawable/account_wallet"
+					android:contentDescription="account"
+					android:layout_marginLeft="70dp"
+					android:layout_marginTop="149dp"
+					android:layout_width="40dp"
+					android:layout_height="40dp" />
+
+				<TextView android:id="@+id/rib"
+					android:textStyle="bold"
+					android:textSize="14sp"
+					android:textColor="@color/rib_color"
+					android:layout_marginLeft="139dp"
+					android:layout_marginTop="152dp"
+					android:layout_width="185dp"
+					android:layout_height="26dp"
+					android:text="@string/rib_string"
+					/>
+
+				<TextView android:id="@+id/solde1"
+					android:textStyle="bold"
+					android:textSize="20sp"
+					android:textColor="@color/______color"
+					android:layout_marginLeft="139dp"
+					android:layout_marginTop="189dp"
+					android:layout_width="115dp"
+					android:layout_height="37dp"
+					android:text="*,**"
+					/>
+
+
+
+
+
+				<RelativeLayout android:id="@+id/hidden"
+					android:layout_marginTop="187dp"
+					android:layout_marginLeft="311dp"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					>
+
+
+					<ImageView android:id="@+id/HiddenEye"
+						android:src="@drawable/red_eye_off"
+						android:layout_marginLeft="0dp"
+						android:layout_marginTop="0dp"
+						android:layout_width="28dp"
+						android:layout_height="28dp"
+						/>
+
+				</RelativeLayout>
+
+				<TextView android:id="@+id/mes_derni_res__transactions"
+					android:textStyle="bold"
+					android:textSize="18sp"
 					android:textColor="@color/mes_derni_res__transactions_color"
-					android:layout_marginLeft="80dp"
-					android:layout_marginTop="18dp"
-					android:layout_width="217dp"
-					android:layout_height="22dp"
-					android:text="@string/type_de_la_transactions_string"
-					 />
+					android:layout_marginLeft="18dp"
+					android:layout_marginTop="246dp"
+					android:layout_width="321dp"
+					android:layout_height="34dp"
+					android:text="@string/mes_derni_res__transactions_string"
+					/>
 
-				<View   android:id="@+id/rectangle_14"
-					android:background="@drawable/rectangle_14_shape"
-					 android:layout_marginLeft="290dp"
-					android:layout_marginTop="11dp"
-					android:layout_width="80dp"
-					android:layout_height="35dp" />
 
-				<TextView android:id="@+id/sold_mad"
-					android:textStyle="bold"
-					android:layout_gravity="center_vertical|end"
-					android:gravity="end"
-					android:textSize="12sp"
-					android:textColor="@color/sold_mad_color"
-					android:layout_marginLeft="287dp"
-					android:layout_marginTop="18dp"
-					android:layout_width="79dp"
-					android:layout_height="22dp"
-					android:text="@string/sold_mad_string"
-					 />
+				<RelativeLayout android:id="@+id/groupe_9"
+					android:layout_marginTop="300dp"
+					android:layout_marginLeft="18dp"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					>
+
+					<View   android:id="@+id/rectangle_7"
+						android:background="@drawable/rectangle_7_shape"
+						android:layout_marginLeft="0dp"
+						android:layout_marginTop="0dp"
+						android:layout_width="376dp"
+						android:layout_height="57dp" />
+
+					<View   android:id="@+id/rectangle_12"
+						android:background="@drawable/rectangle_12_shape"
+						android:layout_marginLeft="3dp"
+						android:layout_marginTop="10dp"
+						android:layout_width="73dp"
+						android:layout_height="40dp" />
+
+					<TextView android:id="@+id/date"
+						android:textStyle="bold"
+						android:layout_gravity="center_horizontal|center"
+						android:gravity="center"
+						android:textSize="12sp"
+						android:textColor="@color/______color"
+						android:layout_marginLeft="5dp"
+						android:layout_marginTop="11dp"
+						android:layout_width="70dp"
+						android:layout_height="22dp"
+						android:text="@string/_17_avril_string"
+						/>
+
+					<TextView android:id="@+id/annee"
+						android:textStyle="bold"
+						android:layout_gravity="center_horizontal|center"
+						android:gravity="center"
+						android:textSize="12sp"
+						android:textColor="@color/______color"
+						android:layout_marginLeft="5dp"
+						android:layout_marginTop="25dp"
+						android:layout_width="70dp"
+						android:layout_height="22dp"
+						android:text="@string/_2023_string"
+						/>
+
+					<ImageView android:id="@+id/trac__1"
+						android:src="@drawable/trac__1"
+						android:contentDescription="trac__1"
+						android:layout_marginLeft="73dp"
+						android:layout_marginTop="9dp"
+						android:layout_width="1dp"
+						android:layout_height="40dp" />
+
+					<View   android:id="@+id/rectangle_13"
+						android:background="@drawable/rectangle_13_shape"
+						android:layout_marginLeft="77dp"
+						android:layout_marginTop="11dp"
+						android:layout_width="209dp"
+						android:layout_height="35dp" />
+
+					<TextView android:id="@+id/type_de_la_transactions"
+						android:textSize="12sp"
+						android:textColor="@color/mes_derni_res__transactions_color"
+						android:layout_marginLeft="80dp"
+						android:layout_marginTop="18dp"
+						android:layout_width="217dp"
+						android:layout_height="22dp"
+						android:text="@string/type_de_la_transactions_string"
+						/>
+
+					<View   android:id="@+id/rectangle_14"
+						android:background="@drawable/rectangle_14_shape"
+						android:layout_marginLeft="290dp"
+						android:layout_marginTop="11dp"
+						android:layout_width="80dp"
+						android:layout_height="35dp" />
+
+					<TextView android:id="@+id/sold_mad"
+						android:textStyle="bold"
+						android:layout_gravity="center_vertical|end"
+						android:gravity="end"
+						android:textSize="12sp"
+						android:textColor="@color/sold_mad_color"
+						android:layout_marginLeft="287dp"
+						android:layout_marginTop="18dp"
+						android:layout_width="79dp"
+						android:layout_height="22dp"
+						android:text="@string/sold_mad_string"
+						/>
+
+				</RelativeLayout>
 
 			</RelativeLayout>
 
-		</RelativeLayout>
+		</ScrollView>
+	</HorizontalScrollView>
+</LinearLayout>
 
-	</ScrollView>
-</HorizontalScrollView>
+<!-- Sidebar -->
+<LinearLayout
+	android:id="@+id/sidebar"
+	android:layout_width="280dp"
+	android:layout_height="match_parent"
+	android:layout_gravity="start"
+	android:orientation="vertical"
+	android:background="@color/white">
+
+	<!-- Sidebar contents -->
+
+</LinearLayout>
+
+</androidx.drawerlayout.widget.DrawerLayout>

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:layout_margin="16dp">
+
+    <TextView
+        android:id="@+id/dialog_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/emp_alert_string"
+        android:textSize="16sp"
+        android:textColor="@color/blue_string"
+        android:gravity="center"
+        android:padding="10dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:layout_marginBottom="15dp">
+
+        <RelativeLayout android:id="@+id/button_Annuler"
+            android:layout_marginTop="0dp"
+            android:layout_marginLeft="0dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            >
+
+
+            <RelativeLayout android:id="@+id/composant_2___1"
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="0dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                >
+
+                <View   android:id="@+id/white_bg"
+                    android:background="@drawable/button_annuler_dialog"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_width="155dp"
+                    android:layout_height="50dp" />
+
+
+
+            </RelativeLayout>
+
+            <TextView android:id="@+id/annuler"
+                android:textStyle="bold"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center_horizontal|center"
+                android:gravity="center"
+                android:textSize="18sp"
+                android:textColor="@color/gray"
+                android:layout_marginLeft="46dp"
+                android:layout_marginTop="13dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Annuler"
+                />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout android:id="@+id/button_OK"
+            android:layout_marginTop="0dp"
+            android:layout_marginLeft="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            >
+
+
+            <RelativeLayout android:id="@+id/composant_2___2"
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="0dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                >
+
+                <View   android:id="@+id/blue_bg"
+                    android:background="@drawable/button_ok_dialog"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_width="170dp"
+                    android:layout_height="50dp" />
+
+
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/ok"
+                android:layout_width="248dp"
+                android:layout_height="34dp"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center_horizontal|center"
+                android:layout_marginLeft="46dp"
+                android:layout_marginTop="13dp"
+                android:gravity="center"
+                android:text="OUI"
+                android:textColor="@color/creer_un_compte_color"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,105 @@
+<HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <ScrollView android:id="@+id/page_home"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <RelativeLayout android:id="@+id/content_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <View
+                android:id="@+id/_bg__page_home"
+                android:layout_width="412dp"
+                android:layout_height="846dp"
+                android:layout_marginLeft="0dp"
+                android:layout_marginTop="0dp"
+                android:background="@drawable/_bg__page_home_shape" />
+
+            <View
+                android:id="@+id/rectangle_5"
+                android:layout_width="412dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="0dp"
+                android:layout_marginTop="0dp"
+                android:background="@drawable/rectangle_5_shape" />
+
+            <ImageView android:id="@+id/free_sample_by_wix"
+                android:src="@drawable/logo"
+                android:layout_marginLeft="139dp"
+                android:layout_marginTop="10dp"
+                android:layout_width="134dp"
+                android:layout_height="40dp" />
+
+            <ImageView android:id="@+id/_power"
+                android:src="@drawable/white_power_icon"
+                android:layout_marginLeft="372dp"
+                android:layout_marginTop="18dp"
+                android:layout_width="26dp"
+                android:layout_height="26dp" />
+
+            <ImageView
+                android:id="@+id/arrow_back"
+                android:layout_width="34dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="16dp"
+                android:src="@drawable/arrow_back" />
+
+            <View
+                android:id="@+id/rectangle_1"
+                android:layout_width="412dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="0dp"
+                android:layout_marginTop="060dp"
+                android:background="@drawable/rectangle_11_shape" />
+
+            <TextView
+                android:id="@+id/se_connecter"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="90dp"
+                android:layout_marginTop="77dp"
+                android:text="@string/gestion_mon_emp"
+                android:textColor="@color/rectangle_5_color"
+                android:textSize="19sp"
+                android:textStyle="bold"
+                android:layout_centerHorizontal="true"/>
+
+            <RelativeLayout android:id="@+id/empreinte_container"
+                android:layout_width="320dp"
+                android:layout_height="105dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="160dp"
+                android:background="@drawable/rectangle_6_shape">
+
+                <TextView
+                    android:id="@+id/emp_digitale"
+                    android:layout_width="match_parent"
+                    android:layout_height="26dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/emp_digitale_string"
+                    android:textColor="@color/emp_digital_color"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <Switch
+                    android:id="@+id/switch_emp"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="50dp"
+                    android:text="@string/emp_texte_string"
+                    android:theme="@style/SCBSwitch"/>
+
+
+            </RelativeLayout>
+
+
+
+        </RelativeLayout>
+
+    </ScrollView>
+</HorizontalScrollView>

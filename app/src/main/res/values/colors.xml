@@ -10,6 +10,9 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="gray">#63808080</color>
+    <color name="red">#FF0000</color>
+    <color name="blue">#0000FF</color>
 
     <color name="_bg__first_page_ek2_color">#ffffff</color>
     <color name="rectangle_1_color">#fafafa</color>
@@ -18,15 +21,27 @@
     <color name="creer_un_compte_color">#ffffff</color>
 
 
-    <color name="_bg__page_home_color">#fafafa</color>
+    <color name="_bg__page_home_color">#F7F7F7</color>
     <color name="rectangle_4_color">#ffffff</color>
     <color name="rectangle_5_color">#2f8be4</color>
-    <color name="compte_cheque_color">#707070</color>
+    <color name="blue_string">#2F86E4</color>
+    <color name="blue_chiffre">#1C77DA</color>
+    <color name="rectangle_10_color">#E1F0FF</color>
+    <color name="compte_cheque_color">#636363</color>
     <color name="rib_color">#9a9a9a</color>
     <color name="______color">#2f8be4</color>
     <color name="mes_derni_res__transactions_color">#6c6c6c</color>
     <color name="sold_mad_color">#18a325</color>
+    <color name="annuler_color">#BEDEFF</color>
 
     <color name="_bg__page_virement_color">#fafafa</color>
+
+    <color name="rectangle_settings">#ffffff</color>
+    <color name="emp_digital_color">#555555</color>
+    <color name="gray_string">#757575</color>
+    <color name="dark_blue">#00427A</color>
+    <color name="light_blue">#005FAF</color>
+    <color name="gray_exp">#E6E6E6</color>
+
 
 </resources>

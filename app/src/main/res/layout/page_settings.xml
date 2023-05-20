@@ -1,0 +1,186 @@
+<HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+  <ScrollView android:id="@+id/page_home"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent" >
+
+    <RelativeLayout android:id="@+id/content_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+      <View
+          android:id="@+id/_bg__page_home"
+          android:layout_width="412dp"
+          android:layout_height="846dp"
+          android:layout_marginLeft="0dp"
+          android:layout_marginTop="0dp"
+          android:background="@drawable/_bg__page_home_shape" />
+
+      <View
+          android:id="@+id/rectangle_5"
+          android:layout_width="412dp"
+          android:layout_height="60dp"
+          android:layout_marginLeft="0dp"
+          android:layout_marginTop="0dp"
+          android:background="@drawable/rectangle_5_shape" />
+
+      <ImageView android:id="@+id/free_sample_by_wix"
+          android:src="@drawable/logo"
+          android:layout_marginLeft="139dp"
+          android:layout_marginTop="10dp"
+          android:layout_width="134dp"
+          android:layout_height="40dp" />
+
+      <ImageView android:id="@+id/_power"
+          android:src="@drawable/white_power_icon"
+          android:layout_marginLeft="372dp"
+          android:layout_marginTop="18dp"
+          android:layout_width="26dp"
+          android:layout_height="26dp" />
+
+      <ImageView
+          android:id="@+id/arrow_back"
+          android:layout_width="34dp"
+          android:layout_height="30dp"
+          android:layout_marginLeft="12dp"
+          android:layout_marginTop="16dp"
+          android:src="@drawable/arrow_back" />
+
+      <View
+          android:id="@+id/rectangle_1"
+          android:layout_width="412dp"
+          android:layout_height="60dp"
+          android:layout_marginLeft="0dp"
+          android:layout_marginTop="060dp"
+          android:background="@drawable/rectangle_11_shape" />
+
+      <TextView
+          android:id="@+id/se_connecter"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:layout_marginLeft="127dp"
+          android:layout_marginTop="77dp"
+          android:text="@string/MesParametres_string"
+          android:textColor="@color/rectangle_5_color"
+          android:textSize="19sp"
+          android:textStyle="bold" />
+    <RelativeLayout android:id="@+id/settings_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="240dp">
+      <RelativeLayout
+          android:id="@+id/notif_container"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/cercle_notif"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="160dp"
+            android:src="@drawable/cercle_white" />
+
+        <ImageView
+            android:id="@+id/settings_notif"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="17.5dp"
+            android:layout_marginTop="178dp"
+            android:src="@drawable/notifications_icon_settings" />
+
+        <TextView
+            android:id="@+id/notif_string"
+            android:layout_width="240dp"
+            android:layout_height="26dp"
+            android:layout_marginLeft="85dp"
+            android:layout_marginTop="180dp"
+            android:text="@string/notif_string"
+            android:textColor="@color/rib_color"
+            android:textSize="18sp"
+            android:textStyle="normal" />
+
+      </RelativeLayout>
+
+      <RelativeLayout android:id="@+id/password_container"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content" >
+        <ImageView android:id="@+id/cercle_password"
+            android:src="@drawable/cercle_white"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="80dp"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            />
+
+        <ImageView android:id="@+id/settings_password"
+            android:src="@drawable/password_icon"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="98dp"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            />
+        <TextView
+            android:id="@+id/password_string"
+            android:layout_width="240dp"
+            android:layout_height="26dp"
+            android:layout_marginLeft="85dp"
+            android:layout_marginTop="98dp"
+            android:text="@string/password_string"
+            android:textColor="@color/rib_color"
+            android:textSize="18sp"
+            android:textStyle="normal" />
+      </RelativeLayout>
+
+      <RelativeLayout android:id="@+id/empreinte_container"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content" >
+        <ImageView android:id="@+id/cercle_empreinte"
+            android:src="@drawable/cercle_white"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="0dp"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            />
+
+        <ImageView
+            android:id="@+id/settings_fingerprint"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="17.5dp"
+            android:layout_marginTop="18dp"
+            android:src="@drawable/fingerprint_icon" />
+        <TextView
+            android:id="@+id/Mon_empreinte"
+            android:layout_width="240dp"
+            android:layout_height="26dp"
+            android:layout_marginLeft="85dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/Mon_empreinte_string"
+            android:textColor="@color/rib_color"
+            android:textSize="18sp"
+            android:textStyle="normal" />
+      </RelativeLayout>
+
+
+      </RelativeLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </RelativeLayout>
+
+  </ScrollView>
+</HorizontalScrollView>

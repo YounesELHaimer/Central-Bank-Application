@@ -84,17 +84,35 @@
 					>
 
 					<View   android:id="@+id/rectangle_1"
-						android:background="@drawable/rectangle_1_shape"
+						android:background="@drawable/rectangle_10_shape"
 						android:layout_marginLeft="0dp"
 						android:layout_marginTop="0dp"
 						android:layout_width="340dp"
 						android:layout_height="61dp" />
 
+					<View   android:id="@+id/rectangle_emp"
+						android:background="@drawable/rectangle_1_ek1_shape"
+						android:layout_marginLeft="280dp"
+						android:layout_marginTop="0dp"
+						android:layout_width="60dp"
+						android:layout_height="61dp"
+						android:visibility="invisible"/>
+
+					<ImageView android:id="@+id/emp_icon"
+						android:src="@drawable/fingerprint_white"
+						android:layout_marginLeft="292dp"
+						android:layout_marginTop="12dp"
+						android:layout_width="38dp"
+						android:layout_height="38dp"
+						android:visibility="invisible"/>
+
+
+
+
 				</RelativeLayout>
 
 				<TextView android:id="@+id/se_connecter"
 					android:textStyle="bold"
-					android:layout_gravity="center_horizontal|center"
 					android:gravity="center"
 					android:textSize="18sp"
 					android:textColor="@color/se_connecter_color"
@@ -129,6 +147,7 @@
 						android:layout_marginTop="0dp"
 						android:layout_width="340dp"
 						android:layout_height="61dp" />
+
 
 
 				</RelativeLayout>

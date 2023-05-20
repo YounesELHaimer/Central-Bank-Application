@@ -3,40 +3,41 @@ package com.example.centralbank;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.ClipData;
-import android.content.ClipboardManager;
-import android.content.Context;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
-import android.widget.Toast;
 
-public class page_card extends AppCompatActivity {
+public class page_rib extends AppCompatActivity {
+
     private ImageView home;
     private ImageView card;
     private ImageView power;
     private ImageView _transaction__2_;
     private ImageView invoice;
     private ImageView settings;
-    private Button copier_button;
-    private TextView card_id;
-
+    private ImageView telecharger_btn;
+    private ProgressDialog progressDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.page_card);
+        setContentView(R.layout.page_rib);
+
         home = findViewById(R.id.home);
         power = findViewById(R.id._power);
         card = findViewById(R.id.credit_card);
         _transaction__2_ = (ImageView) findViewById(R.id._transaction__2_);
         invoice = findViewById(R.id.invoice);
         settings = findViewById(R.id.gears);
-        copier_button = findViewById(R.id.copier_button);
-        card_id = findViewById(R.id.card_id);
+        telecharger_btn = findViewById(R.id.telecharger_btn);
+
+        progressDialog = new ProgressDialog(page_rib.this);
+        progressDialog.setMessage("Chargement...");
+        progressDialog.setCancelable(false);
+
 
         home.setOnClickListener(new View.OnClickListener() {
 
@@ -76,7 +77,7 @@ public class page_card extends AppCompatActivity {
 
             public void onClick(View v) {
 
-                AlertDialog.Builder adb = new AlertDialog.Builder(page_card.this, R.style.CustomAlertDialogStyle);
+                AlertDialog.Builder adb = new AlertDialog.Builder(page_rib.this, R.style.CustomAlertDialogStyle);
                 View view = getLayoutInflater().inflate(R.layout.logout_alert_dialog, null);
                 RelativeLayout button_ok = view.findViewById(R.id.button_OK);
                 RelativeLayout button_annuler = view.findViewById(R.id.button_Annuler);
@@ -128,22 +129,16 @@ public class page_card extends AppCompatActivity {
             }
         });
 
-        copier_button.setOnClickListener(new View.OnClickListener() {
+        telecharger_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String textToCopy = card_id.getText().toString();
+                progressDialog.show();
+                Intent nextScreen = new Intent(getApplicationContext(), rip_pdf.class);
+                startActivity(nextScreen);
+                progressDialog.dismiss();
 
-                // Copy the text to the clipboard
-                ClipboardManager clipboardManager = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
-                ClipData clipData = ClipData.newPlainText("TextView Text", textToCopy);
-                clipboardManager.setPrimaryClip(clipData);
-
-                // Show a toast message to indicate the text has been copied
-                Toast.makeText(getApplicationContext(), "Texte copié dans le presse-papiers", Toast.LENGTH_SHORT).show();
             }
         });
-
-
 
     }
 }
