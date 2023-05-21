@@ -1,38 +1,22 @@
-
-	 
-	/*
-	 *	This content is generated from the API File Info.
-	 *	(Alt+Shift+Ctrl+I).
-	 *
-	 *	@desc 		
-	 *	@file 		page_home
-	 *	@date 		Sunday 30th of April 2023 09:40:08 PM
-	 *	@title 		First Page
-	 *	@author 	
-	 *	@keywords 	
-	 *	@generator 	Export Kit v1.3.xd
-	 *
-	 */
-	
-
 package com.example.centralbank;
 
-import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
-
-
 import android.view.View;
 import android.widget.ImageView;
-import android.content.Intent;
-import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
-import androidx.core.view.GravityCompat;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-	public class page_home_activity extends Activity {
+import java.util.ArrayList;
+import java.util.HashMap;
+
+	public class page_home_activity extends AppCompatActivity {
 
 
 		private View _bg__page_home;
@@ -54,21 +38,12 @@ import androidx.drawerlayout.widget.DrawerLayout;
 		private ImageView account;
 		private TextView rib;
 		private TextView mes_derni_res__transactions;
-		private View rectangle_7;
-		private View rectangle_12;
-		private TextView _17_avril;
-		private TextView _2023;
-		private ImageView trac__1;
-		private View rectangle_13;
-		private TextView type_de_la_transactions;
-		private View rectangle_14;
-		private TextView ___10000_mad;
 		private TextView solde;
 		private ImageView eye;
 		private ImageView card;
 		private ImageView settings;
 		private DrawerLayout drawerLayout;
-		private LinearLayout sidebar;
+		private ListView L;
 
 		@Override
 		public void onCreate(Bundle savedInstanceState) {
@@ -86,22 +61,12 @@ import androidx.drawerlayout.widget.DrawerLayout;
 			home__1__ek2 = (ImageView) findViewById(R.id.home10);
 			invoice = (ImageView) findViewById(R.id.invoice);
 			_power = (ImageView) findViewById(R.id._power);
-			menu = (ImageView) findViewById(R.id.menu);
 			bell = (ImageView) findViewById(R.id.bell);
 			rectangle_6 = (View) findViewById(R.id.rectangle_6);
 			compte_cheque = (TextView) findViewById(R.id.compte_cheque);
 			account = (ImageView) findViewById(R.id.account);
 			rib = (TextView) findViewById(R.id.rib);
 			mes_derni_res__transactions = (TextView) findViewById(R.id.mes_derni_res__transactions);
-			rectangle_7 = (View) findViewById(R.id.rectangle_7);
-			rectangle_12 = (View) findViewById(R.id.rectangle_12);
-			_17_avril = (TextView) findViewById(R.id.date);
-			_2023 = (TextView) findViewById(R.id.annee);
-			trac__1 = (ImageView) findViewById(R.id.trac__1);
-			rectangle_13 = (View) findViewById(R.id.rectangle_13);
-			type_de_la_transactions = (TextView) findViewById(R.id.type_de_la_transactions);
-			rectangle_14 = (View) findViewById(R.id.rectangle_14);
-			___10000_mad = (TextView) findViewById(R.id.sold_mad);
 			solde =  (TextView) findViewById(R.id.solde1);
 			card = findViewById(R.id.credit_card);
 			settings = findViewById(R.id.gears);
@@ -109,8 +74,77 @@ import androidx.drawerlayout.widget.DrawerLayout;
 			eye = (ImageView) findViewById(R.id.HiddenEye);
 			solde.setText("*,**");
 			drawerLayout = findViewById(R.id.drawer_layout);
-			sidebar = findViewById(R.id.sidebar);
+			L = findViewById(R.id.listView);
 
+			ArrayList<HashMap<String, String>> Element = new ArrayList<HashMap<String, String>>();
+			HashMap<String, String> map;
+
+			map = new HashMap<String, String>();
+			map.put("date", "17 Avril");
+			map.put("type_de_la_transactions", "Type de la transaction");
+			map.put("sold_mad", "+ 1394 MAD");
+			Element.add(map);
+
+			map = new HashMap<String, String>();
+			map.put("date", "17 Avril");
+			map.put("type_de_la_transactions", "Type de la transaction");
+			map.put("sold_mad", "+ 14 MAD");
+			Element.add(map);
+
+			map = new HashMap<String, String>();
+			map.put("date", "17 Avril 2013");
+			map.put("type_de_la_transactions", "Type de la transaction");
+			map.put("sold_mad", "+ 139384 MAD");
+			Element.add(map);
+
+			map = new HashMap<String, String>();
+			map.put("date", "17 Avril");
+			map.put("type_de_la_transactions", "Type de la transaction");
+			map.put("sold_mad", "+ 1394 MAD");
+			Element.add(map);
+
+			map = new HashMap<String, String>();
+			map.put("date", "17 Avril");
+			map.put("type_de_la_transactions", "Type de la transaction");
+			map.put("sold_mad", "+ 1394 MAD");
+			Element.add(map);
+
+			map = new HashMap<String, String>();
+			map.put("date", "17 Avril");
+			map.put("type_de_la_transactions", "Type de la transaction");
+			map.put("sold_mad", "+ 1394 MAD");
+			Element.add(map);
+
+			map = new HashMap<String, String>();
+			map.put("date", "17 Avril");
+			map.put("type_de_la_transactions", "Type de la transaction");
+			map.put("sold_mad", "+ 1394 MAD");
+			Element.add(map);
+
+			map = new HashMap<String, String>();
+			map.put("date", "17 Avril");
+			map.put("type_de_la_transactions", "Type de la transaction");
+			map.put("sold_mad", "+ 1394 MAD");
+			Element.add(map);
+
+			map = new HashMap<String, String>();
+			map.put("date", "17 Avril");
+			map.put("type_de_la_transactions", "Type de la transaction");
+			map.put("sold_mad", "+ 1394 MAD");
+			Element.add(map);
+
+			map = new HashMap<String, String>();
+			map.put("date", "17 Avril");
+			map.put("type_de_la_transactions", "Type de la transaction");
+			map.put("sold_mad", "+ 1394 MAD");
+			Element.add(map);
+
+
+
+			SimpleAdapter Adp = new SimpleAdapter (this.getBaseContext(), Element,
+					R.layout.affichage_listview, new String[] {"date", "type_de_la_transactions","sold_mad"},
+					new int[] {R.id.date, R.id.type_de_la_transactions,R.id.sold_mad});
+			L.setAdapter(Adp);
 
 			eye.setOnClickListener(new View.OnClickListener() {
 				@Override
@@ -206,10 +240,6 @@ import androidx.drawerlayout.widget.DrawerLayout;
 			});
 
 
-		}
-
-		public void showSidebar(View view) {
-			drawerLayout.openDrawer(GravityCompat.START);
 		}
 
 

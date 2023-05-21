@@ -29,6 +29,7 @@ public class rip_pdf extends AppCompatActivity {
     private static final int FILE_PICKER_REQUEST_CODE = 2;
     private String selectedDirectoryPath;
     private RelativeLayout layout;
+    private ImageView arrow_back;
 
 
     @Override
@@ -37,6 +38,18 @@ public class rip_pdf extends AppCompatActivity {
         setContentView(R.layout.rip_pdf);
         telecharger_btn = findViewById(R.id.telecharger_btn);
         layout = findViewById(R.id.content_container);
+        arrow_back = findViewById(R.id.arrow_back);
+
+
+        arrow_back.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+
+                onBackPressed();
+
+
+            }
+        });
 
 
 

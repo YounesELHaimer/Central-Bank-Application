@@ -2,56 +2,31 @@
 
 package com.example.centralbank;
 
-import android.app.Activity;
 import android.app.KeyguardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.hardware.fingerprint.FingerprintManager;
-import android.os.Build;
 import android.os.Bundle;
-
-
-import android.security.keystore.KeyProperties;
+import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.text.method.HideReturnsTransformationMethod;
 import android.widget.Toast;
-
-import androidx.annotation.DrawableRes;
-
-import com.google.android.material.textfield.TextInputLayout;
-
-import java.io.IOException;
-import java.security.InvalidKeyException;
-import java.security.KeyStore;
-import java.security.KeyStoreException;
-import java.security.NoSuchAlgorithmException;
-import java.security.UnrecoverableKeyException;
-import java.security.cert.CertificateException;
-
-import javax.crypto.Cipher;
-import javax.crypto.NoSuchPaddingException;
-import javax.crypto.SecretKey;
-
-import androidx.annotation.NonNull;
-import androidx.core.content.ContextCompat;
-import androidx.fragment.app.Fragment;
-import  java.lang.Object.*;
-import java.util.concurrent.Executor;
-
-import androidx.biometric.FingerprintDialogFragment;
 
 import androidx.biometric.BiometricManager;
 import androidx.biometric.BiometricPrompt;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentActivity;
+
+import java.security.KeyStore;
+import java.util.concurrent.Executor;
+
+import javax.crypto.Cipher;
 
 // define a BiometricPrompt instance variable
 
@@ -257,6 +232,6 @@ import androidx.fragment.app.FragmentActivity;
 			return (int) (dp * ((float) metrics.densityDpi / DisplayMetrics.DENSITY_DEFAULT));
 		}
 
-
+ 
 	}
 

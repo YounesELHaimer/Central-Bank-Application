@@ -136,19 +136,12 @@
                 android:layout_marginTop="18dp"
                 android:layout_width="26dp"
                 android:layout_height="26dp" />
-            <ImageView
-                android:id="@+id/menu"
-                android:src="@drawable/menu_icon"
-                android:layout_width="29dp"
-                android:layout_height="28dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="17dp"
-                />
+
             <ImageView android:id="@+id/gears"
                 android:src="@drawable/white_settings_icon"
                 android:contentDescription="gears"
-                android:layout_marginLeft="57dp"
-                android:layout_marginTop="18dp"
+                android:layout_marginLeft="17dp"
+                android:layout_marginTop="17dp"
                 android:layout_width="25dp"
                 android:layout_height="25dp" />
 

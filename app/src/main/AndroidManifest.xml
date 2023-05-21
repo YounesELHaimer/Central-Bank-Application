@@ -17,6 +17,9 @@
         android:theme="@style/Theme.CentralBank"
         tools:targetApi="31">
         <activity
+            android:name=".virement_verification"
+            android:exported="false" />
+        <activity
             android:name=".rip_pdf"
             android:exported="false" />
         <activity
