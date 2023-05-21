@@ -29,4 +29,8 @@
 
     <color name="_bg__page_virement_color">#fafafa</color>
 
+
+    <color name="colortextfirst">#000000</color>
+    <color name="colortextsecond">#777474</color>
+
 </resources>

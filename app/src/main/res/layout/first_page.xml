@@ -83,6 +83,13 @@
 					android:layout_height="wrap_content"
 					>
 
+					<ProgressBar
+						android:id="@+id/progressBar"
+						android:layout_width="wrap_content"
+						android:visibility="gone"
+
+						android:layout_height="wrap_content"/>
+
 					<View   android:id="@+id/rectangle_1"
 						android:background="@drawable/rectangle_1_shape"
 						android:layout_marginLeft="0dp"
@@ -132,6 +139,7 @@
 
 
 				</RelativeLayout>
+
 
 				<TextView android:id="@+id/creer_un_compte"
 					android:textStyle="bold"
@@ -255,7 +263,7 @@
 					android:layout_marginTop="0dp"
 					android:background="@null"
 					android:hint="@string/numero_de_compte"
-					android:inputType="number"
+
 					android:textSize="15sp"
 
 					/>
