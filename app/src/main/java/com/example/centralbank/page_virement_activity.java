@@ -17,16 +17,16 @@
 
 package com.example.centralbank;
 
-import android.app.Activity;
-import android.os.Bundle;
+	import android.app.Activity;
+	import android.content.Intent;
+	import android.os.Bundle;
+	import android.view.View;
+	import android.widget.ImageView;
+	import android.widget.RadioButton;
+	import android.widget.RadioGroup;
+	import android.widget.RelativeLayout;
 
-
-import android.view.View;
-import android.widget.ImageView;
-import android.content.Intent;
-import android.widget.RelativeLayout;
-
-import androidx.appcompat.app.AlertDialog;
+	import androidx.appcompat.app.AlertDialog;
 
 	public class page_virement_activity extends Activity {
 
@@ -47,6 +47,14 @@ import androidx.appcompat.app.AlertDialog;
 	private ImageView invoice;
 	private ImageView card;
 	private ImageView home10;
+	private RadioButton radioButton1;
+	private RadioButton radioButton2;
+	private RadioGroup radioGroup;
+	private RelativeLayout relativeLayout_Central_bank;
+	private RelativeLayout relativeLayout_autre_banque;
+	private RelativeLayout button;
+	private RelativeLayout button_autre_bank;
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 
@@ -61,12 +69,21 @@ import androidx.appcompat.app.AlertDialog;
 		rectangle_5 = (View) findViewById(R.id.rectangle_5);
 		free_sample_by_wix = (ImageView) findViewById(R.id.free_sample_by_wix);
 		_power = (ImageView) findViewById(R.id._power);
-		menu = (ImageView) findViewById(R.id.menu);
 		bell = (ImageView) findViewById(R.id.bell);
 		credit_card = (ImageView) findViewById(R.id.credit_card);
 		invoice = (ImageView) findViewById(R.id.invoice);
 		card = findViewById(R.id.credit_card);
 		settings = findViewById(R.id.gears);
+		radioButton1 = findViewById(R.id.RadioButton1);
+		radioButton2 = findViewById(R.id.RadioButton2);
+		radioGroup = findViewById(R.id.RadioGroup);
+		Boolean RadioButtonState1 = radioButton1.isChecked();
+		Boolean RadioButtonState2 = radioButton2.isChecked();
+		relativeLayout_Central_bank = findViewById(R.id.central_bank_layout);
+		relativeLayout_autre_banque = findViewById(R.id.autre_banque_layout);
+		button = findViewById(R.id.button);
+		button_autre_bank = findViewById(R.id.button_autre_bank);
+
 
 		home10.setOnClickListener(new View.OnClickListener() {
 		
@@ -151,8 +168,52 @@ import androidx.appcompat.app.AlertDialog;
 			}
 		});
 
+		radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
 
-	
+			@Override
+			public void onCheckedChanged(RadioGroup group, int checkedId) {
+				Boolean RadioButtonState1 = radioButton1.isChecked();
+				Boolean RadioButtonState2 = radioButton2.isChecked();
+				if (RadioButtonState2){
+					relativeLayout_autre_banque.setVisibility(View.VISIBLE);
+					relativeLayout_Central_bank.setVisibility(View.INVISIBLE);
+				}else {
+					relativeLayout_autre_banque.setVisibility(View.INVISIBLE);
+					relativeLayout_Central_bank.setVisibility(View.VISIBLE);
+				}
+			}
+		});
+
+		radioButton1.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				radioButton1.setChecked(true);
+			}
+		});
+
+		radioButton2.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				radioButton2.setChecked(true);
+			}
+		});
+
+		button.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent nextScreen = new Intent(getApplicationContext(), virement_verification.class);
+				startActivity(nextScreen);
+			}
+		});
+
+		button_autre_bank.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent nextScreen = new Intent(getApplicationContext(), virement_verification.class);
+				startActivity(nextScreen);
+			}
+		});
+
 	}
 }
 	

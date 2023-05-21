@@ -55,6 +55,9 @@
         <activity
 
 
+            android:name=".virement_verification"
+            android:exported="false" />
+        <activity
             android:name=".rip_pdf"
             android:exported="false" />
         <activity

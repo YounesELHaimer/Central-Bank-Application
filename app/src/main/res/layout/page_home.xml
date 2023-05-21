@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.drawerlayout.widget.DrawerLayout
 xmlns:android="http://schemas.android.com/apk/res/android"
-android:id="@+id/drawer_layout"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:id="@+id/drawer_layout"
 android:layout_width="match_parent"
 android:layout_height="match_parent">
 
@@ -12,7 +13,7 @@ android:layout_height="match_parent">
 	android:layout_height="match_parent"
 	android:orientation="vertical">
 
-	<HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
+	<HorizontalScrollView
 		android:layout_width="match_parent" android:layout_height="wrap_content" >
 
 		<ScrollView android:id="@+id/page_home"
@@ -129,20 +130,10 @@ android:layout_height="match_parent">
 				<ImageView android:id="@+id/gears"
 					android:src="@drawable/white_settings_icon"
 					android:contentDescription="gears"
-					android:layout_marginLeft="57dp"
-					android:layout_marginTop="18dp"
+					android:layout_marginLeft="17dp"
+					android:layout_marginTop="17dp"
 					android:layout_width="25dp"
 					android:layout_height="25dp" />
-
-				<ImageView
-					android:id="@+id/menu"
-					android:layout_width="29dp"
-					android:layout_height="28dp"
-					android:layout_marginLeft="15dp"
-					android:layout_marginTop="17dp"
-					android:contentDescription="menu"
-					android:src="@drawable/menu_icon"
-					android:onClick="showSidebar"/>
 
 				<View   android:id="@+id/rectangle_6"
 					android:background="@drawable/rectangle_6_shape"
@@ -226,7 +217,7 @@ android:layout_height="match_parent">
 					/>
 
 
-				<RelativeLayout android:id="@+id/groupe_9"
+				<!--RelativeLayout android:id="@+id/groupe_9"
 					android:layout_marginTop="300dp"
 					android:layout_marginLeft="18dp"
 					android:layout_width="wrap_content"
@@ -318,25 +309,47 @@ android:layout_height="match_parent">
 						android:text="@string/sold_mad_string"
 						/>
 
-				</RelativeLayout>
+				</RelativeLayout-->
+
+
+				<ListView
+					android:id="@+id/listView"
+					android:layout_width="match_parent"
+					android:layout_height="450dp"
+					android:layout_marginTop="280dp"
+					android:layout_centerHorizontal="true"
+
+					/>
+
+				<!--LinearLayout
+					android:orientation="vertical"
+					android:layout_width="match_parent"
+					android:layout_height="450dp"
+					android:layout_marginTop="280dp"
+					android:layout_centerHorizontal="true">
+
+					<HorizontalScrollView
+						android:layout_width="match_parent"
+						android:layout_height="match_parent">
+
+						<ScrollView
+							android:id="@+id/page_home_scroll_view"
+							android:layout_width="match_parent"
+							android:layout_height="match_parent">
+
+							<ListView
+								android:id="@+id/listView"
+								android:layout_width="match_parent"
+								android:layout_height="fill_parent" />
+
+						</ScrollView>
+					</HorizontalScrollView>
+
+				</LinearLayout-->
 
 			</RelativeLayout>
 
 		</ScrollView>
 	</HorizontalScrollView>
 </LinearLayout>
-
-<!-- Sidebar -->
-<LinearLayout
-	android:id="@+id/sidebar"
-	android:layout_width="280dp"
-	android:layout_height="match_parent"
-	android:layout_gravity="start"
-	android:orientation="vertical"
-	android:background="@color/white">
-
-	<!-- Sidebar contents -->
-
-</LinearLayout>
-
 </androidx.drawerlayout.widget.DrawerLayout>

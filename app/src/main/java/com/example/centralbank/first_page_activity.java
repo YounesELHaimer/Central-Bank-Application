@@ -2,7 +2,6 @@
 
 package com.example.centralbank;
 
-import android.app.Activity;
 import android.app.KeyguardManager;
 import android.content.Context;
 import android.content.Intent;
@@ -14,11 +13,8 @@ import android.os.Bundle;
 import android.text.TextUtils;
 
 import android.hardware.fingerprint.FingerprintManager;
-import android.os.Build;
 import android.os.Bundle;
-
-
-import android.security.keystore.KeyProperties;
+import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -28,7 +24,6 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.text.method.HideReturnsTransformationMethod;
 import android.widget.Toast;
 
 import androidx.annotation.DrawableRes;
@@ -69,6 +64,11 @@ import androidx.biometric.BiometricManager;
 import androidx.biometric.BiometricPrompt;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentActivity;
+
+import java.security.KeyStore;
+import java.util.concurrent.Executor;
+
+import javax.crypto.Cipher;
 
 // define a BiometricPrompt instance variable
 
@@ -405,6 +405,7 @@ public class first_page_activity extends FragmentActivity {
 				Toast.makeText(first_page_activity.this, "Error: " + databaseError.getMessage(), Toast.LENGTH_SHORT).show();
 			}
 		});
+
 	}
 
 
