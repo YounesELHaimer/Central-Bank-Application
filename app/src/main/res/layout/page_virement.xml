@@ -9,7 +9,13 @@
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content" >
 
-
+			<View
+				android:id="@+id/_bg__page_home"
+				android:layout_width="412dp"
+				android:layout_height="846dp"
+				android:layout_marginLeft="0dp"
+				android:layout_marginTop="0dp"
+				android:background="@drawable/_bg__page_home_shape" />
 
 			<View   android:id="@+id/rectangle_4"
 				android:background="@drawable/rectangle_4_shape"

@@ -26,6 +26,7 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.io.ByteArrayOutputStream;
+import java.util.Random;
 
 public class SignatureActivity extends AppCompatActivity {
 
@@ -41,6 +42,7 @@ public class SignatureActivity extends AppCompatActivity {
         btnSave = findViewById(R.id.btnSave);
 
 
+
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -48,6 +50,132 @@ public class SignatureActivity extends AppCompatActivity {
                     Toast.makeText(SignatureActivity.this, "No signature captured.", Toast.LENGTH_SHORT).show();
                 } else {
                     saveSignature();
+                    Random random = new Random();
+
+                    int num1 = random.nextInt(8999) + 1000;
+                    int num2 = random.nextInt(8999) + 1000;
+                    int num3 = random.nextInt(8999) + 1000;
+
+                    // Create the account number string with the specified format
+                    String accountNumber = "5321  " + num1 + "  " + num2 + "  " + num3 ;
+
+                    String email = getIntent().getStringExtra("email");
+
+                    // Set the dateExp
+                    String dateExp = "      01/28";
+
+                    // Get the user email
+                    String user = "Mr " + getIntent().getStringExtra("name") +" "+ getIntent().getStringExtra("lastName");
+
+                    // Set the boolean attributes
+                    boolean isBlocked = true;
+                    boolean isSansContactEnabled = true;
+
+                    // Create a new Card object
+                    Card card = new Card(email,accountNumber, dateExp, user, isBlocked, isSansContactEnabled);
+
+                    // Create a reference to the 'cards' node in the database
+                    DatabaseReference cardsRef = FirebaseDatabase.getInstance().getReference().child("cards");
+
+                    // Push the card to the database
+                    String cardId = cardsRef.push().getKey(); // Generate a unique key for the card
+                    DatabaseReference cardRef = cardsRef.child(cardId);
+                    cardRef.setValue(card)
+                            .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void aVoid) {
+                                    // Card saved successfully
+                                    Toast.makeText(SignatureActivity.this, "Card saved successfully", Toast.LENGTH_SHORT).show();
+                                    finish();
+                                }
+                            })
+                            .addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    // Failed to save card
+                                    Toast.makeText(SignatureActivity.this, "Failed to save card", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+
+                    // Generate random values for the RIB fields
+
+                    String codeBanque = "112";
+                    String codeVille = "112";
+                    String prefixe = "3428";
+                    String numeroDeCompte = String.format("%012d", random.nextInt(1000000000));
+                    String chiffresCles = String.format("%02d", random.nextInt(100));
+
+// Create a new RIB object with the generated values
+                    RIB rib = new RIB(email, codeBanque, codeVille, prefixe, numeroDeCompte, chiffresCles, user);
+
+// Get the reference to the "ribs" node in the database
+                    DatabaseReference ribRef = FirebaseDatabase.getInstance().getReference().child("ribs");
+
+// Generate a new unique key for the RIB entry
+                    String ribKey = ribRef.push().getKey();
+
+// Save the RIB object to the database
+                    ribRef.child(ribKey).setValue(rib)
+                            .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void aVoid) {
+                                    // RIB data saved successfully
+                                    Toast.makeText(SignatureActivity.this, "RIB saved successfully", Toast.LENGTH_SHORT).show();
+
+                                    // You can perform any additional actions or show a success message here
+                                }
+                            })
+                            .addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    // An error occurred while saving the RIB data
+                                    // Handle the error or show an error message here
+                                }
+                            });
+
+                    FirebaseDatabase database = FirebaseDatabase.getInstance();
+                    DatabaseReference usersRef = database.getReference("users");
+
+                    usersRef.orderByChild("email").equalTo(email).addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            if (dataSnapshot.exists()) {
+                                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                                    String userId = snapshot.getKey();
+                                    usersRef.child(userId).child("numeroDeCompte").setValue(numeroDeCompte)
+                                            .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                @Override
+                                                public void onSuccess(Void aVoid) {
+                                                    // Numerodecompte added successfully for the user
+                                                    Toast.makeText(SignatureActivity.this, "Numerodecompte added successfully", Toast.LENGTH_SHORT).show();
+
+                                                    // Proceed with your desired action
+                                                    // e.g., start a new activity or perform additional operations
+                                                }
+                                            })
+                                            .addOnFailureListener(new OnFailureListener() {
+                                                @Override
+                                                public void onFailure(@NonNull Exception e) {
+                                                    // An error occurred while adding numerodecompte for the user
+                                                    // Handle the error or show an error message here
+                                                }
+                                            });
+                                }
+                            } else {
+                                // User with the specified email does not exist
+                                // Handle the case where user is not found
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+                            // An error occurred while querying the database
+                            // Handle the error or show an error message here
+                        }
+                    });
+
+
+
                     Intent intent = new Intent(getApplicationContext(), first_page_activity.class);
 
 

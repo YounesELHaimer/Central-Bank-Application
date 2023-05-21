@@ -9,6 +9,9 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-permission android:name="android.permission.USE_BIOMETRIC" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
@@ -50,7 +53,21 @@
             android:name=".firstpageRegister"
             android:exported="false" />
         <activity
-            android:name=".page_facture"
+
+
+            android:name=".rip_pdf"
+            android:exported="false" />
+        <activity
+            android:name=".page_settings_notif"
+            android:exported="false" />
+        <activity
+            android:name=".page_empreinte"
+            android:exported="false" />
+        <activity
+            android:name=".page_settings"
+            android:exported="false" />
+        <activity
+            android:name=".page_rib"
             android:exported="false" />
         <activity
             android:name=".first_page_activity"

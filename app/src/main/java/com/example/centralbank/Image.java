@@ -65,7 +65,10 @@ public class Image extends AppCompatActivity {
 //        FirebaseDatabase database = FirebaseDatabase.getInstance();
 //        usersRef = database.getReference("users");
         String email = getIntent().getStringExtra("email");
+        String name = getIntent().getStringExtra("name");
 
+
+        String lastName = getIntent().getStringExtra("lastName");
 
         captureTxt = findViewById(R.id.textView3);
         captureImage = findViewById(R.id.imageView2);
@@ -78,6 +81,8 @@ public class Image extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), AdditionalData.class);
                 intent.putExtra("email", email);
+                intent.putExtra("lastName", lastName);
+                intent.putExtra("name", name);
                 startActivity(intent);
                 finish();
 

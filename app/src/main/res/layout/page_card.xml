@@ -9,6 +9,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" >
 
+            <View
+                android:id="@+id/_bg__page_home"
+                android:layout_width="412dp"
+                android:layout_height="846dp"
+                android:layout_marginLeft="0dp"
+                android:layout_marginTop="0dp"
+                android:background="@drawable/_bg__page_home_shape" />
 
             <View
                 android:id="@+id/rectangle_4"
@@ -123,13 +130,209 @@
                 android:layout_width="25dp"
                 android:layout_height="25dp" />
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="90dp"
+                android:layout_marginLeft="20dp"
+                android:text="Ma Carte"
+                android:textColor="@color/dark_blue"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                />
 
-            <RelativeLayout android:id="@+id/hidden"
-                android:layout_marginTop="187dp"
-                android:layout_marginLeft="311dp"
+            <RelativeLayout android:id="@+id/card_layout"
+                android:layout_marginLeft="55dp"
+                android:layout_width="wrap_content"
+                android:layout_height="200dp"
+                android:layout_marginTop="140dp"
+                android:layout_centerHorizontal="true"
+
+                >
+
+
+                <View
+                    android:id="@+id/card_view"
+                    android:layout_width="350dp"
+                    android:layout_height="200dp"
+                    android:background="@drawable/background_rounded" />
+
+                <ImageView
+                    android:id="@+id/logo_card"
+                    android:layout_width="91dp"
+                    android:layout_height="33dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:src="@drawable/free_sample" />
+
+                <TextView
+                    android:id="@+id/account_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="58dp"
+                    android:layout_marginLeft="20dp"
+                    android:text="@string/account_number_string"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:textSize="13dp"
+                    />
+
+                <TextView
+                    android:id="@+id/card_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="80dp"
+                    android:layout_marginLeft="20dp"
+                    android:text="5321  9294  3838  8283"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:fontFamily="sans-serif"
+                    android:letterSpacing="0.2"
+                    android:textSize="19dp"
+                    />
+
+                <RelativeLayout
+                    android:id="@+id/copier_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="220dp"
+                    android:layout_marginTop="50dp"
+                    android:layout_alignRight="@id/card_id"
+                    >
+
+                    <Button
+                        android:id="@+id/copier_button"
+                        android:layout_width="63dp"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="20dp"
+                        android:text="Copier"
+                        style="@style/Widget.MaterialComponents.Button.TextButton"
+                        android:textColor="@color/white"
+                        android:padding="0px"
+                        android:textSize="12dp"
+                        android:textAllCaps="false"
+                        android:drawableLeft="@drawable/copy_icon"
+
+                        />
+
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/date_exp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="130dp"
+                    android:text="05/29"
+                    android:textColor="@color/white"
+                    android:textSize="16dp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.2"
+                    android:layout_alignRight="@id/id_name"
+
+                    />
+
+                <TextView
+                    android:id="@+id/exp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="110dp"
+                    android:layout_marginTop="132dp"
+                    android:text="Exp :"
+                    android:textColor="@color/gray_exp"
+                    android:textSize="14dp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/id_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="45dp"
+                    android:layout_marginLeft="20dp"
+                    android:text="MR EL HAIMER YOUNES"
+                    android:textColor="@color/white"
+                    android:layout_alignParentBottom="true"
+                    android:textStyle="bold"
+                    android:textSize="17dp"
+                    />
+
+                <ImageView android:id="@+id/mastercard"
+                    android:src="@drawable/mastercard"
+                    android:contentDescription="bell"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:layout_marginLeft="250dp"
+                    android:layout_alignParentBottom="true"
+                    />
+
+
+
+            </RelativeLayout>
+
+            <RelativeLayout android:id="@+id/groupe_blocage"
+                android:layout_marginTop="380dp"
+                android:layout_marginLeft="18dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                />
+                android:layout_centerHorizontal="true"
+                >
+
+                <View   android:id="@+id/rectangle_blocage"
+                    android:background="@drawable/rectangle_7_card"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_width="376dp"
+                    android:layout_height="57dp" />
+
+                <Switch
+                    android:id="@+id/switch_blocage"
+                    android:layout_width="340dp"
+                    android:layout_height="wrap_content"
+                    android:text="Blocage"
+                    android:layout_marginLeft="0dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:textSize="19dp"
+                    android:drawableLeft="@drawable/block_icon"
+                    android:drawablePadding="12dp"
+                    android:checked="true"
+                    android:theme="@style/SCBSwitch"
+                    />
+
+            </RelativeLayout>
+
+            <RelativeLayout android:id="@+id/groupe_paiement_sans_contact"
+                android:layout_marginTop="455dp"
+                android:layout_marginLeft="18dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                >
+
+                <View   android:id="@+id/rectangle_sans_contact"
+                    android:background="@drawable/rectangle_7_card"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_width="376dp"
+                    android:layout_height="57dp" />
+
+                <Switch
+                    android:id="@+id/switch_paiement_sans_contact"
+                    android:layout_width="340dp"
+                    android:layout_height="wrap_content"
+                    android:text="Paiement sans contact"
+                    android:layout_marginLeft="0dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:textSize="19dp"
+                    android:drawableLeft="@drawable/contactless_icon"
+                    android:drawablePadding="12dp"
+                    android:checked="true"
+                    android:theme="@style/SCBSwitch"
+                    />
+
+
+            </RelativeLayout>
+
 
 
         </RelativeLayout>

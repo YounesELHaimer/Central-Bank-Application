@@ -94,6 +94,8 @@ public class register extends AppCompatActivity {
 
                 String verifyPassword = verifyPasswordEditText.getText().toString();
                 String email = getIntent().getStringExtra("email");
+                String name = getIntent().getStringExtra("firstName");
+                String lastName = getIntent().getStringExtra("lastName");
 
                 String password = editTextPassword.getText().toString();
 
@@ -126,6 +128,8 @@ public class register extends AppCompatActivity {
                                                 Toast.LENGTH_SHORT).show();
                                         Intent intent = new Intent(getApplicationContext(), Image.class);
                                         intent.putExtra("email", email);
+                                        intent.putExtra("lastName", lastName);
+                                        intent.putExtra("name", name);
                                         startActivity(intent);
                                         finish();
                                     } else {

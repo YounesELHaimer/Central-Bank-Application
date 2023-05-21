@@ -18,15 +18,17 @@
 package com.example.centralbank;
 
 import android.app.Activity;
-import android.media.Image;
 import android.os.Bundle;
 
 
 import android.view.View;
 import android.widget.ImageView;
 import android.content.Intent;
+import android.widget.RelativeLayout;
 
-public class page_virement_activity extends Activity {
+import androidx.appcompat.app.AlertDialog;
+
+	public class page_virement_activity extends Activity {
 
 	
 	private View _bg__page_virement;
@@ -40,7 +42,7 @@ public class page_virement_activity extends Activity {
 	private ImageView _power;
 	private ImageView menu;
 	private ImageView bell;
-	private ImageView gears;
+	private ImageView settings;
 	private ImageView credit_card;
 	private ImageView invoice;
 	private ImageView card;
@@ -53,22 +55,25 @@ public class page_virement_activity extends Activity {
 
 		invoice = findViewById(R.id.invoice);
 		home10 = findViewById(R.id.home10);
+		String email = getIntent().getStringExtra("email");
+
 		rectangle_4 = (View) findViewById(R.id.rectangle_4);
 		rectangle_5 = (View) findViewById(R.id.rectangle_5);
 		free_sample_by_wix = (ImageView) findViewById(R.id.free_sample_by_wix);
 		_power = (ImageView) findViewById(R.id._power);
 		menu = (ImageView) findViewById(R.id.menu);
 		bell = (ImageView) findViewById(R.id.bell);
-		gears = (ImageView) findViewById(R.id.gears);
 		credit_card = (ImageView) findViewById(R.id.credit_card);
 		invoice = (ImageView) findViewById(R.id.invoice);
 		card = findViewById(R.id.credit_card);
-		
+		settings = findViewById(R.id.gears);
+
 		home10.setOnClickListener(new View.OnClickListener() {
 		
 			public void onClick(View v) {
 				
 				Intent nextScreen = new Intent(getApplicationContext(), page_home_activity.class);
+				nextScreen.putExtra("email", email);
 				startActivity(nextScreen);
 			
 		
@@ -80,6 +85,7 @@ public class page_virement_activity extends Activity {
 			public void onClick(View v) {
 
 				Intent nextScreen = new Intent(getApplicationContext(), page_card.class);
+				nextScreen.putExtra("email", email);
 				startActivity(nextScreen);
 
 			}
@@ -89,9 +95,33 @@ public class page_virement_activity extends Activity {
 		_power.setOnClickListener(new View.OnClickListener() {
 		
 			public void onClick(View v) {
-				
-				Intent nextScreen = new Intent(getApplicationContext(), first_page_activity.class);
-				startActivity(nextScreen);
+
+				AlertDialog.Builder adb = new AlertDialog.Builder(page_virement_activity.this, R.style.CustomAlertDialogStyle);
+				View view = getLayoutInflater().inflate(R.layout.logout_alert_dialog, null);
+				RelativeLayout button_ok = view.findViewById(R.id.button_OK);
+				RelativeLayout button_annuler = view.findViewById(R.id.button_Annuler);
+
+				adb.setView(view);
+				adb.setCancelable(false);
+
+				AlertDialog alert= adb.create();
+				alert.show();
+
+				button_ok.setOnClickListener(new View.OnClickListener() {
+					@Override
+					public void onClick(View v) {
+						Intent nextScreen = new Intent(getApplicationContext(), first_page_activity.class);
+						nextScreen.putExtra("email", email);
+						startActivity(nextScreen);
+					}
+				});
+
+				button_annuler.setOnClickListener(new View.OnClickListener() {
+					@Override
+					public void onClick(View v) {
+						alert.dismiss();
+					}
+				});
 			
 		
 			}
@@ -101,15 +131,27 @@ public class page_virement_activity extends Activity {
 
 			public void onClick(View v) {
 
-				Intent nextScreen = new Intent(getApplicationContext(), page_facture.class);
+				Intent nextScreen = new Intent(getApplicationContext(), page_rib.class);
+				nextScreen.putExtra("email", email);
 				startActivity(nextScreen);
 
 
 			}
 		});
-		
-		
-		//custom code goes here
+
+
+		settings.setOnClickListener(new View.OnClickListener() {
+
+			public void onClick(View v) {
+
+				Intent nextScreen = new Intent(getApplicationContext(), page_settings.class);
+				nextScreen.putExtra("email", email);
+				startActivity(nextScreen);
+
+			}
+		});
+
+
 	
 	}
 }

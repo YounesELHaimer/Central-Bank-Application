@@ -11,6 +11,35 @@ public class User {
 
     private String backCIN;
 
+    private String numeroDeCompte;
+
+    public User(String name, String lastName, String phone, String operator, String frontCIN, String backCIN, String numeroDeCompte, String signatureImageUrl, Agency agency, String address, String dateOfBirth, String familyStatus, String professionalStatus, String face, String email, String password) {
+        this.name = name;
+        this.lastName = lastName;
+        this.phone = phone;
+        this.operator = operator;
+        this.frontCIN = frontCIN;
+        this.backCIN = backCIN;
+        this.numeroDeCompte = numeroDeCompte;
+        this.signatureImageUrl = signatureImageUrl;
+        this.agency = agency;
+        this.address = address;
+        this.dateOfBirth = dateOfBirth;
+        this.familyStatus = familyStatus;
+        this.professionalStatus = professionalStatus;
+        this.face = face;
+        this.email = email;
+        this.password = password;
+    }
+
+    public String getNumeroDeCompte() {
+        return numeroDeCompte;
+    }
+
+    public void setNumeroDeCompte(String numeroDeCompte) {
+        this.numeroDeCompte = numeroDeCompte;
+    }
+
     private String signatureImageUrl;
 
     public User(String name, String lastName, String phone, String operator, String frontCIN, String backCIN, String signatureImageUrl, Agency agency, String address, String dateOfBirth, String familyStatus, String professionalStatus, String face, String email, String password) {

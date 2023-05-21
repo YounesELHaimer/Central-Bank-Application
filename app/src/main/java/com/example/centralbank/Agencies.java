@@ -57,6 +57,10 @@ public class Agencies extends AppCompatActivity {
         });
         // Replace the hardcoded email with your email string variable
         final String email = getIntent().getStringExtra("email");
+        String name = getIntent().getStringExtra("name");
+
+
+        String lastName = getIntent().getStringExtra("lastName");
 
         Button btnNext = findViewById(R.id.btn_Nex);
         btnNext.setOnClickListener(new View.OnClickListener() {
@@ -81,6 +85,8 @@ public class Agencies extends AppCompatActivity {
                                 Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(getApplicationContext(), SignatureActivity.class);
                         intent.putExtra("email", email);
+                        intent.putExtra("lastName", lastName);
+                        intent.putExtra("name", name);
 
                         startActivity(intent);
                         finish();

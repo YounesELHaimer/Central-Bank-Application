@@ -1,0 +1,134 @@
+<HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:id="@+id/page_home"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/content_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <View
+                android:id="@+id/_bg__page_home"
+                android:layout_width="412dp"
+                android:layout_height="846dp"
+                android:layout_marginLeft="0dp"
+                android:layout_marginTop="0dp"
+                android:background="@drawable/_bg__page_home_shape" />
+
+            <View
+                android:id="@+id/rectangle_5"
+                android:layout_width="412dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="0dp"
+                android:layout_marginTop="0dp"
+                android:background="@drawable/rectangle_5_shape" />
+
+            <ImageView
+                android:id="@+id/free_sample_by_wix"
+                android:layout_width="134dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="139dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/logo" />
+
+            <ImageView
+                android:id="@+id/_power"
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:layout_marginLeft="372dp"
+                android:layout_marginTop="18dp"
+                android:src="@drawable/white_power_icon" />
+
+            <ImageView
+                android:id="@+id/arrow_back"
+                android:layout_width="34dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="16dp"
+                android:src="@drawable/arrow_back" />
+
+            <View
+                android:id="@+id/rectangle_1"
+                android:layout_width="412dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="0dp"
+                android:layout_marginTop="060dp"
+                android:background="@drawable/rectangle_11_shape" />
+
+            <TextView
+                android:id="@+id/gestion_des_notif"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="73dp"
+                android:layout_marginTop="77dp"
+                android:text="@string/gestion_des_notif_string"
+                android:textColor="@color/rectangle_5_color"
+                android:textSize="19sp"
+                android:textStyle="bold"
+                android:layout_centerHorizontal="true"/>
+
+            <TextView
+                android:id="@+id/notif_textView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="7dp"
+                android:layout_marginTop="150dp"
+                android:gravity="center_horizontal"
+                android:text="@string/perso__lesnotif_string"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:textStyle="normal" />
+
+            <!--Button
+                android:id="@+id/button"
+                style="@style/notif_button"
+                android:layout_width="380dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="774dp"
+                android:background="@drawable/rectangle_1_ek1_shape"
+                android:text="Enregistrer les modifictions"
+                android:textAllCaps="false"
+                android:textIsSelectable="false" -->
+
+            <RelativeLayout android:id="@+id/composant_2___1"
+                android:layout_marginTop="774dp"
+                android:layout_marginLeft="15dp"
+                android:layout_width="380dp"
+                android:layout_height="wrap_content"
+                >
+
+                <View   android:id="@+id/rectangle_1_ek1"
+                    android:background="@drawable/rectangle_1_ek1_shape"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_width="380dp"
+                    android:layout_height="50dp" />
+
+                <TextView android:id="@+id/creer_un_compte"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_horizontal|center"
+                    android:gravity="center"
+                    android:textSize="16sp"
+                    android:textColor="@color/creer_un_compte_color"
+                    android:layout_marginLeft="70dp"
+                    android:layout_marginTop="7dp"
+                    android:layout_width="248dp"
+                    android:layout_height="34dp"
+                    android:text="@string/enregistrer_string"
+                    />
+
+
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+
+    </ScrollView>
+</HorizontalScrollView>

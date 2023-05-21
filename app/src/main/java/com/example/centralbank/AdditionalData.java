@@ -43,6 +43,10 @@ public class AdditionalData extends AppCompatActivity {
 
         // Retrieve the user's email from the EditText field
         String userEmail = getIntent().getStringExtra("email");
+        String name = getIntent().getStringExtra("name");
+
+
+        String lastName = getIntent().getStringExtra("lastName");
 
         // Update the user's additional data in the database
         Button btnSaveData = findViewById(R.id.btn_Next);
@@ -81,6 +85,9 @@ public class AdditionalData extends AppCompatActivity {
                 });
                 Intent intent = new Intent(getApplicationContext(), Agencies.class);
                 intent.putExtra("email", email);
+                intent.putExtra("lastName", lastName);
+                intent.putExtra("name", name);
+
                 startActivity(intent);
                 finish();
             }

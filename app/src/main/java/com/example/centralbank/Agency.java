@@ -6,6 +6,21 @@ public class Agency {
     private String city;
     private List<String> names;
     private String name;
+    private String idVille;
+
+    public Agency(String city, List<String> names, String name) {
+        this.city = city;
+        this.names = names;
+        this.name = name;
+    }
+
+    public String getIdVille() {
+        return idVille;
+    }
+
+    public void setIdVille(String idVille) {
+        this.idVille = idVille;
+    }
 
     public Agency(String city, String name) {
         this.city = city;

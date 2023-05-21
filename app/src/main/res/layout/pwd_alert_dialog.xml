@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:layout_margin="16dp">
+
+    <TextView
+        android:id="@+id/dialog_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/pwd_title_settings"
+        android:textSize="19sp"
+        android:textColor="@color/blue_string"
+        android:gravity="center"
+        android:padding="10dp"/>
+
+    <RelativeLayout android:id="@+id/ancien_pwd"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="0dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        >
+
+        <View   android:id="@+id/rectangle_pwd"
+            android:background="@drawable/rectangle_pwd_settings"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="0dp"
+            android:layout_width="340dp"
+            android:layout_height="40dp" />
+
+        <EditText
+            android:id="@+id/mon_ancien_pwd"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="0dp"
+            android:background="@android:color/transparent"
+            android:hint="@string/mon_ancien_pwd_string"
+            android:inputType="number"
+            android:password="true"
+            android:textSize="14sp" />
+
+        <ImageView android:id="@+id/HiddenEye1"
+            android:src="@drawable/eye_off"
+            android:layout_marginLeft="290dp"
+            android:layout_marginTop="6dp"
+            android:layout_width="28dp"
+            android:layout_height="28dp"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout android:id="@+id/nv_pwd"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="0dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        >
+
+        <View   android:id="@+id/rectangle_nv_pwd"
+            android:background="@drawable/rectangle_pwd_settings"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="0dp"
+            android:layout_width="340dp"
+            android:layout_height="40dp" />
+
+        <EditText
+            android:id="@+id/mon_nv_password"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="0dp"
+            android:background="@android:color/transparent"
+            android:hint="@string/mon_nv_pwd_string"
+            android:inputType="number"
+            android:password="true"
+            android:textSize="14sp" />
+
+        <ImageView android:id="@+id/HiddenEye2"
+            android:src="@drawable/eye_off"
+            android:layout_marginLeft="290dp"
+            android:layout_marginTop="6dp"
+            android:layout_width="28dp"
+            android:layout_height="28dp"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout android:id="@+id/confirmer_pwd"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="0dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        >
+
+        <View   android:id="@+id/rectangle_confirmer_pwd"
+            android:background="@drawable/rectangle_pwd_settings"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="0dp"
+            android:layout_width="340dp"
+            android:layout_height="40dp" />
+
+        <EditText
+            android:id="@+id/confirmer_password"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="0dp"
+            android:background="@android:color/transparent"
+            android:hint="@string/confirmer_pwd_string"
+            android:inputType="number"
+            android:password="true"
+            android:textSize="14sp" />
+
+        <ImageView android:id="@+id/HiddenEye3"
+            android:src="@drawable/eye_off"
+            android:layout_marginLeft="290dp"
+            android:layout_marginTop="6dp"
+            android:layout_width="28dp"
+            android:layout_height="28dp"/>
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/mesure"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="left"
+        android:padding="10dp"
+        android:textStyle="bold"
+        android:text="@string/mesure_securite_string"
+        android:textColor="@color/blue_string"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/les_mesures"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:gravity="left"
+        android:padding="10dp"
+        android:textStyle="normal"
+        android:text="@string/les_mesure_string"
+        android:textColor="@color/gray_string"
+        android:textSize="15sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:layout_marginBottom="15dp">
+
+        <RelativeLayout android:id="@+id/button_Annuler"
+            android:layout_marginTop="0dp"
+            android:layout_marginLeft="0dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            >
+
+
+            <RelativeLayout android:id="@+id/composant_2___1"
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="0dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                >
+
+                <View
+                    android:id="@+id/white_bg"
+                    android:layout_width="158dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="0dp"
+                    android:background="@drawable/button_annuler_dialog" />
+
+
+
+            </RelativeLayout>
+
+            <TextView android:id="@+id/annuler"
+                android:textStyle="bold"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center_horizontal|center"
+                android:gravity="center"
+                android:textSize="18sp"
+                android:textColor="@color/annuler_color"
+                android:layout_marginLeft="46dp"
+                android:layout_marginTop="13dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Annuler"
+                />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout android:id="@+id/button_OK"
+            android:layout_marginTop="0dp"
+            android:layout_marginLeft="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            >
+
+
+            <RelativeLayout android:id="@+id/composant_2___2"
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="0dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                >
+
+                <View   android:id="@+id/blue_bg"
+                    android:background="@drawable/button_ok_dialog"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_width="167dp"
+                    android:layout_height="50dp" />
+
+
+
+            </RelativeLayout>
+
+            <TextView android:id="@+id/ok"
+                android:textStyle="bold"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center_horizontal|center"
+                android:gravity="center"
+                android:textSize="18sp"
+                android:textColor="@color/creer_un_compte_color"
+                android:layout_marginLeft="46dp"
+                android:layout_marginTop="13dp"
+                android:layout_width="248dp"
+                android:layout_height="34dp"
+                android:text="OK"
+                />
+
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

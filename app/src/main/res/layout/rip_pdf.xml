@@ -1,0 +1,109 @@
+<HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent" android:layout_height="wrap_content" >
+
+    <ScrollView android:id="@+id/page_home"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent" >
+
+        <RelativeLayout android:id="@+id/content_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <View
+                android:id="@+id/_bg__page_home"
+                android:layout_width="412dp"
+                android:layout_height="846dp"
+                android:layout_marginLeft="0dp"
+                android:layout_marginTop="0dp"
+                android:background="@drawable/_bg__page_home_shape" />
+
+            <View
+                android:id="@+id/rectangle_1"
+                android:layout_width="412dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="0dp"
+                android:layout_marginTop="0dp"
+                android:background="@drawable/rectangle_11_shape" />
+
+            <TextView
+                android:id="@+id/visualisation_rib"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="90dp"
+                android:layout_marginTop="17dp"
+                android:text="VISUALISATION RIB"
+                android:textColor="@color/rectangle_5_color"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_centerHorizontal="true"/>
+
+            <ImageView
+                android:id="@+id/arrow_back"
+                android:layout_width="34dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="16dp"
+                android:src="@drawable/arrow_back_blue" />
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                >
+
+                <View
+                    android:id="@+id/rectangle_2"
+                    android:layout_width="412dp"
+                    android:layout_height="100dp"
+                    android:background="@color/blue_string" />
+
+
+                <RelativeLayout android:id="@+id/telecharger_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_centerVertical="true"
+                    >
+
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <View   android:id="@+id/rectangle"
+                            android:background="@drawable/rectangle_telecharger"
+                            android:layout_marginLeft="0dp"
+                            android:layout_marginTop="0dp"
+                            android:layout_width="140dp"
+                            android:layout_height="50dp" />
+
+                        <TextView android:id="@+id/se_connecter"
+                            android:textStyle="bold"
+                            android:gravity="center"
+                            android:textSize="14sp"
+                            android:textColor="@color/se_connecter_color"
+                            android:layout_marginLeft="46dp"
+                            android:layout_marginTop="13dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Télécharger"
+                            android:layout_centerVertical="true"
+                            android:layout_centerHorizontal="true"
+                            />
+
+                    </RelativeLayout>
+
+
+
+                </RelativeLayout>
+
+
+            </RelativeLayout>
+
+
+
+
+
+        </RelativeLayout>
+
+    </ScrollView>
+</HorizontalScrollView>
