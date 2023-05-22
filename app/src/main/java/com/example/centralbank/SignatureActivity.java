@@ -65,7 +65,7 @@ public class SignatureActivity extends AppCompatActivity {
                     String dateExp = "      01/28";
 
                     // Get the user email
-                    String user = "Mr " + getIntent().getStringExtra("name") +" "+ getIntent().getStringExtra("lastName");
+                    String user =  getIntent().getStringExtra("name") +" "+ getIntent().getStringExtra("lastName");
 
                     // Set the boolean attributes
                     boolean isBlocked = true;
@@ -99,6 +99,7 @@ public class SignatureActivity extends AppCompatActivity {
 
                     // Generate random values for the RIB fields
 
+                    Float Solde = Float.valueOf(1000);
                     String codeBanque = "112";
                     String codeVille = "112";
                     String prefixe = "3428";
@@ -157,6 +158,51 @@ public class SignatureActivity extends AppCompatActivity {
                                                 @Override
                                                 public void onFailure(@NonNull Exception e) {
                                                     // An error occurred while adding numerodecompte for the user
+                                                    // Handle the error or show an error message here
+                                                }
+                                            });
+                                }
+                            } else {
+                                // User with the specified email does not exist
+                                // Handle the case where user is not found
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+                            // An error occurred while querying the database
+                            // Handle the error or show an error message here
+                        }
+                    });
+// Assuming you have already initialized your Firebase Database reference
+// and other necessary variables
+
+                    usersRef.orderByChild("email").equalTo(email).addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            if (dataSnapshot.exists()) {
+                                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                                    String userId = snapshot.getKey();
+
+                                    // Convert the Solde string to float
+                                    float soldeValue = Float.parseFloat(String.valueOf(Solde));
+
+                                    // Set the value of the "Solde" attribute as float
+                                    usersRef.child(userId).child("Solde").setValue(soldeValue)
+                                            .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                @Override
+                                                public void onSuccess(Void aVoid) {
+                                                    // Solde added successfully for the user
+                                                    Toast.makeText(SignatureActivity.this, "Solde added successfully", Toast.LENGTH_SHORT).show();
+
+                                                    // Proceed with your desired action
+                                                    // e.g., start a new activity or perform additional operations
+                                                }
+                                            })
+                                            .addOnFailureListener(new OnFailureListener() {
+                                                @Override
+                                                public void onFailure(@NonNull Exception e) {
+                                                    // An error occurred while adding Solde for the user
                                                     // Handle the error or show an error message here
                                                 }
                                             });

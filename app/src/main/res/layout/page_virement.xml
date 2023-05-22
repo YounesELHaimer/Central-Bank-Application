@@ -468,7 +468,7 @@
 							android:layout_height="35dp" />
 
 						<EditText
-							android:id="@+id/numéro_de_compte"
+							android:id="@+id/edit_numero_de_compte"
 							android:layout_width="320dp"
 							android:layout_height="35dp"
 							android:layout_marginLeft="10dp"

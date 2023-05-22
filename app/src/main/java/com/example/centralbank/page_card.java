@@ -74,7 +74,7 @@ public class page_card extends AppCompatActivity {
                         // Update the UI with the card details
                         if (card != null) {
                             card_id.setText(card.getAccountNumber());
-                            id_name.setText(card.getUser());
+                            id_name.setText("Mr " +card.getUser());
                             date_exp.setText(card.getDateExp());
 
                             // Update the switches based on the card details
