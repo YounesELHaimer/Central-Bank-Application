@@ -54,7 +54,6 @@
             android:id="@+id/txtmobileno"
             android:textColor="@color/colortextsecond"/>
 
-        //#############################
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -62,11 +61,12 @@
             android:gravity="center"
             android:orientation="horizontal"
             >
+
             <EditText
-                android:background="@drawable/backgroundbox"
+                android:id="@+id/inputotp1"
                 android:layout_width="40dp"
                 android:layout_height="46dp"
-                android:id="@+id/inputotp1"
+                android:background="@drawable/backgroundbox"
                 android:gravity="center"
                 android:imeOptions="actionNext"
                 android:importantForAutofill="no"
@@ -75,7 +75,7 @@
                 android:textColor="@color/colortextfirst"
                 android:textSize="24sp"
                 android:textStyle="bold"
-                tools:ignore="Lable1For"/>
+                tools:ignore="Lable1For" />
 
             <EditText
                 android:background="@drawable/backgroundbox"
