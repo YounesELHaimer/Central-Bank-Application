@@ -36,12 +36,18 @@
 
     <color name="_bg__page_virement_color">#fafafa</color>
 
+
+
+    <color name="colortextfirst">#000000</color>
+    <color name="colortextsecond">#777474</color>
+
     <color name="rectangle_settings">#ffffff</color>
     <color name="emp_digital_color">#555555</color>
     <color name="gray_string">#757575</color>
     <color name="dark_blue">#00427A</color>
     <color name="light_blue">#005FAF</color>
     <color name="gray_exp">#E6E6E6</color>
+
 
 
 </resources>

@@ -45,6 +45,8 @@ import java.util.HashMap;
 		private DrawerLayout drawerLayout;
 		private ListView L;
 
+		private String email;
+
 		@Override
 		public void onCreate(Bundle savedInstanceState) {
 
@@ -74,6 +76,9 @@ import java.util.HashMap;
 			eye = (ImageView) findViewById(R.id.HiddenEye);
 			solde.setText("*,**");
 			drawerLayout = findViewById(R.id.drawer_layout);
+
+			email = getIntent().getStringExtra("email");
+
 			L = findViewById(R.id.listView);
 
 			ArrayList<HashMap<String, String>> Element = new ArrayList<HashMap<String, String>>();
@@ -167,6 +172,8 @@ import java.util.HashMap;
 				public void onClick(View v) {
 
 					Intent nextScreen = new Intent(getApplicationContext(), page_card.class);
+					nextScreen.putExtra("email", email);
+
 					startActivity(nextScreen);
 
 				}
@@ -177,6 +184,7 @@ import java.util.HashMap;
 				public void onClick(View v) {
 
 					Intent nextScreen = new Intent(getApplicationContext(), page_virement_activity.class);
+					nextScreen.putExtra("email", email);
 					startActivity(nextScreen);
 
 
@@ -202,6 +210,7 @@ import java.util.HashMap;
 						@Override
 						public void onClick(View v) {
 							Intent nextScreen = new Intent(getApplicationContext(), first_page_activity.class);
+							nextScreen.putExtra("email", email);
 							startActivity(nextScreen);
 						}
 					});
@@ -223,6 +232,7 @@ import java.util.HashMap;
 				public void onClick(View v) {
 
 					Intent nextScreen = new Intent(getApplicationContext(), page_rib.class);
+					nextScreen.putExtra("email", email);
 					startActivity(nextScreen);
 
 
@@ -235,6 +245,7 @@ import java.util.HashMap;
 				public void onClick(View v) {
 
 					Intent nextScreen = new Intent(getApplicationContext(), page_settings.class);
+					nextScreen.putExtra("email", email);
 					startActivity(nextScreen);
 
 

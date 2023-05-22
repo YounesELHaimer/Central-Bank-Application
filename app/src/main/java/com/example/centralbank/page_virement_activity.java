@@ -63,6 +63,8 @@ package com.example.centralbank;
 
 		invoice = findViewById(R.id.invoice);
 		home10 = findViewById(R.id.home10);
+		String email = getIntent().getStringExtra("email");
+
 		rectangle_4 = (View) findViewById(R.id.rectangle_4);
 		rectangle_5 = (View) findViewById(R.id.rectangle_5);
 		free_sample_by_wix = (ImageView) findViewById(R.id.free_sample_by_wix);
@@ -88,6 +90,7 @@ package com.example.centralbank;
 			public void onClick(View v) {
 				
 				Intent nextScreen = new Intent(getApplicationContext(), page_home_activity.class);
+				nextScreen.putExtra("email", email);
 				startActivity(nextScreen);
 			
 		
@@ -99,6 +102,7 @@ package com.example.centralbank;
 			public void onClick(View v) {
 
 				Intent nextScreen = new Intent(getApplicationContext(), page_card.class);
+				nextScreen.putExtra("email", email);
 				startActivity(nextScreen);
 
 			}
@@ -124,6 +128,7 @@ package com.example.centralbank;
 					@Override
 					public void onClick(View v) {
 						Intent nextScreen = new Intent(getApplicationContext(), first_page_activity.class);
+						nextScreen.putExtra("email", email);
 						startActivity(nextScreen);
 					}
 				});
@@ -144,6 +149,7 @@ package com.example.centralbank;
 			public void onClick(View v) {
 
 				Intent nextScreen = new Intent(getApplicationContext(), page_rib.class);
+				nextScreen.putExtra("email", email);
 				startActivity(nextScreen);
 
 
@@ -156,6 +162,7 @@ package com.example.centralbank;
 			public void onClick(View v) {
 
 				Intent nextScreen = new Intent(getApplicationContext(), page_settings.class);
+				nextScreen.putExtra("email", email);
 				startActivity(nextScreen);
 
 			}

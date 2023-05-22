@@ -21,6 +21,8 @@ public class page_settings_notif extends AppCompatActivity {
 
         arrow_back = findViewById(R.id.arrow_back);
         power = (ImageView) findViewById(R.id._power);
+        String email = getIntent().getStringExtra("email");
+
 
         arrow_back.setOnClickListener(new View.OnClickListener() {
 
@@ -51,6 +53,7 @@ public class page_settings_notif extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         Intent nextScreen = new Intent(getApplicationContext(), first_page_activity.class);
+                        nextScreen.putExtra("email", email);
                         startActivity(nextScreen);
                     }
                 });

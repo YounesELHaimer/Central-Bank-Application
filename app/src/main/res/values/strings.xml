@@ -43,4 +43,14 @@
     <string name="info_compte_string">Informations du compte</string>
 
 
+    <string name="register">register</string>
+    <string name="email">email</string>
+    <string name="click_to_login">Click to Login</string>
+
+    <string-array name="options">
+        <item>Maroc Telecom</item>
+        <item>Orange</item>
+        <item>Inwi</item>
+    </string-array>
+
 </resources>

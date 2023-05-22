@@ -9,9 +9,20 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 public class page_settings extends AppCompatActivity {
     private RelativeLayout emp_container;
@@ -35,6 +46,7 @@ public class page_settings extends AppCompatActivity {
         power = (ImageView) findViewById(R.id._power);
         password_container = findViewById(R.id.password_container);
         notif_container = findViewById(R.id.notif_container);
+        String email = getIntent().getStringExtra("email");
 
 
 
@@ -69,6 +81,7 @@ public class page_settings extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         Intent nextScreen = new Intent(getApplicationContext(), first_page_activity.class);
+                        nextScreen.putExtra("email", email);
                         startActivity(nextScreen);
                     }
                 });
@@ -89,6 +102,7 @@ public class page_settings extends AppCompatActivity {
             public void onClick(View v) {
 
                 Intent nextScreen = new Intent(getApplicationContext(), page_empreinte.class);
+                nextScreen.putExtra("email", email);
                 startActivity(nextScreen);
 
 
@@ -96,7 +110,6 @@ public class page_settings extends AppCompatActivity {
         });
 
         password_container.setOnClickListener(new View.OnClickListener() {
-
             public void onClick(View v) {
                 AlertDialog.Builder adb = new AlertDialog.Builder(page_settings.this);
                 View view = getLayoutInflater().inflate(R.layout.pwd_alert_dialog, null);
@@ -106,7 +119,7 @@ public class page_settings extends AppCompatActivity {
                 adb.setView(view);
                 adb.setCancelable(false);
 
-                AlertDialog alert= adb.create();
+                AlertDialog alert = adb.create();
                 alert.show();
 
                 eye1 = view.findViewById(R.id.HiddenEye1);
@@ -119,40 +132,84 @@ public class page_settings extends AppCompatActivity {
                 eye1.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        hideOrShow(eye1,ancien_pwd);
+                        hideOrShow(eye1, ancien_pwd);
                     }
                 });
 
                 eye2.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        hideOrShow(eye2,nv_pwd);
+                        hideOrShow(eye2, nv_pwd);
                     }
                 });
 
                 eye3.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        hideOrShow(eye3,confirmer_pwd);
+                        hideOrShow(eye3, confirmer_pwd);
                     }
                 });
 
                 button_ok.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        String email = "badralqaraoui@gmail.com";  // Email to search for in the database
+                        String oldPassword = ancien_pwd.getText().toString();
+                        String newPassword = nv_pwd.getText().toString();
+                        String confirmPassword = confirmer_pwd.getText().toString();
 
-                        alert.dismiss();
+                        // Check if the new password and confirmation match
+                        if (!newPassword.equals(confirmPassword)) {
+                            Toast.makeText(page_settings.this, "Passwords do not match", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+
+                        // Retrieve the user from the database
+                        DatabaseReference usersRef = FirebaseDatabase.getInstance().getReference("users");
+                        Query query = usersRef.orderByChild("email").equalTo(email);
+                        query.addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                for (DataSnapshot userSnapshot : dataSnapshot.getChildren()) {
+                                    User user = userSnapshot.getValue(User.class);
+                                    if (user != null && user.getPassword().equals(oldPassword)) {
+                                        // Old password is correct, update the password
+                                        userSnapshot.getRef().child("password").setValue(newPassword)
+                                                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                    @Override
+                                                    public void onSuccess(Void aVoid) {
+                                                        Toast.makeText(page_settings.this, "Password changed successfully", Toast.LENGTH_SHORT).show();
+                                                        alert.dismiss();
+                                                    }
+                                                })
+                                                .addOnFailureListener(new OnFailureListener() {
+                                                    @Override
+                                                    public void onFailure(@NonNull Exception e) {
+                                                        Toast.makeText(page_settings.this, "Failed to change password: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                                                    }
+                                                });
+                                        return;
+                                    }
+                                }
+
+                                // No user found with the specified email or incorrect old password
+                                Toast.makeText(page_settings.this, "Invalid email or old password", Toast.LENGTH_SHORT).show();
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError databaseError) {
+                                Toast.makeText(page_settings.this, "Database error: " + databaseError.getMessage(), Toast.LENGTH_SHORT).show();
+                            }
+                        });
                     }
                 });
 
                 button_annuler.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-
                         alert.dismiss();
                     }
                 });
-
             }
         });
 
@@ -161,6 +218,7 @@ public class page_settings extends AppCompatActivity {
             public void onClick(View v) {
 
                 Intent nextScreen = new Intent(getApplicationContext(), page_settings_notif.class);
+                nextScreen.putExtra("email", email);
                 startActivity(nextScreen);
 
 
