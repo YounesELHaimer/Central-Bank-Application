@@ -21,12 +21,23 @@ package com.example.centralbank;
 	import android.content.Intent;
 	import android.os.Bundle;
 	import android.view.View;
+	import android.widget.EditText;
 	import android.widget.ImageView;
 	import android.widget.RadioButton;
 	import android.widget.RadioGroup;
 	import android.widget.RelativeLayout;
+	import android.widget.Toast;
 
+	import androidx.annotation.NonNull;
 	import androidx.appcompat.app.AlertDialog;
+
+	import com.google.android.gms.tasks.OnFailureListener;
+	import com.google.android.gms.tasks.OnSuccessListener;
+	import com.google.firebase.database.DataSnapshot;
+	import com.google.firebase.database.DatabaseError;
+	import com.google.firebase.database.DatabaseReference;
+	import com.google.firebase.database.FirebaseDatabase;
+	import com.google.firebase.database.ValueEventListener;
 
 	public class page_virement_activity extends Activity {
 
@@ -83,6 +94,18 @@ package com.example.centralbank;
 		relativeLayout_autre_banque = findViewById(R.id.autre_banque_layout);
 		button = findViewById(R.id.button);
 		button_autre_bank = findViewById(R.id.button_autre_bank);
+
+		EditText numeroDeCompteEditText = findViewById(R.id.edit_numero_de_compte);
+		String numeroDeCompte = numeroDeCompteEditText.getText().toString();
+
+		EditText nomEditText = findViewById(R.id.nom);
+		String nomBeneficiaire = nomEditText.getText().toString();
+
+		EditText montantEditText = findViewById(R.id.montant);
+
+
+
+
 
 
 		home10.setOnClickListener(new View.OnClickListener() {
@@ -201,7 +224,108 @@ package com.example.centralbank;
 		button.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
+				String email = getIntent().getStringExtra("email");
+				String numeroDeCompte = numeroDeCompteEditText.getText().toString();
+
+
+
+				String montantStr = montantEditText.getText().toString();
+
+// Convert the montant string to float
+
+				float montant = Float.parseFloat(montantStr);
+				FirebaseDatabase database = FirebaseDatabase.getInstance();
+				DatabaseReference usersRef = database.getReference("users");
+				// Find the user with the specified numeroDeCompte
+				usersRef.orderByChild("numeroDeCompte").equalTo(numeroDeCompte).addListenerForSingleValueEvent(new ValueEventListener() {
+					@Override
+					public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+						if (dataSnapshot.exists()) {
+							for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+								String userId = snapshot.getKey();
+
+								// Get the current Solde value from the user account
+								float currentSolde = snapshot.child("Solde").getValue(Float.class);
+
+								// Calculate the new Solde value
+								float newSolde = currentSolde + montant;
+
+								// Set the new Solde value in the Firebase Realtime Database
+								usersRef.child(userId).child("Solde").setValue(newSolde)
+										.addOnSuccessListener(new OnSuccessListener<Void>() {
+											@Override
+											public void onSuccess(Void aVoid) {
+												// New Solde value added successfully for the user
+												Toast.makeText(page_virement_activity.this, "New Solde value added successfully", Toast.LENGTH_SHORT).show();
+											}
+										})
+										.addOnFailureListener(new OnFailureListener() {
+											@Override
+											public void onFailure(@NonNull Exception e) {
+												// An error occurred while adding the new Solde value for the user
+												// Handle the error or show an error message here
+											}
+										});
+							}
+						} else {
+							// User with the specified numeroDeCompte does not exist
+							// Handle the case where user is not found
+						}
+
+						// Find the connected user based on the email
+						usersRef.orderByChild("email").equalTo(email).addListenerForSingleValueEvent(new ValueEventListener() {
+							@Override
+							public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+								if (dataSnapshot.exists()) {
+									for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+										String connectedUserId = snapshot.getKey();
+
+										// Get the current Solde value from the connected user's account
+										float connectedUserSolde = snapshot.child("Solde").getValue(Float.class);
+
+										// Calculate the updated Solde value
+										float updatedConnectedUserSolde = connectedUserSolde - montant;
+
+										// Set the updated Solde value in the Firebase Realtime Database for the connected user
+										usersRef.child(connectedUserId).child("Solde").setValue(updatedConnectedUserSolde)
+												.addOnSuccessListener(new OnSuccessListener<Void>() {
+													@Override
+													public void onSuccess(Void aVoid) {
+														// Updated Solde value for the connected user added successfully
+														Toast.makeText(page_virement_activity.this, "Updated Solde value for connected user added successfully", Toast.LENGTH_SHORT).show();
+													}
+												})
+												.addOnFailureListener(new OnFailureListener() {
+													@Override
+													public void onFailure(@NonNull Exception e) {
+														// An error occurred while adding the updated Solde value for the connected user
+														// Handle the error or show an error message here
+													}
+												});
+									}
+								} else {
+									// Connected user with the specified email does not exist
+									// Handle the case where connected user is not found
+								}
+							}
+
+							@Override
+							public void onCancelled(@NonNull DatabaseError databaseError) {
+								// An error occurred while querying the database for the connected user
+								// Handle the error or show an error message here
+							}
+						});
+					}
+
+					@Override
+					public void onCancelled(@NonNull DatabaseError databaseError) {
+						// An error occurred while querying the database for the user
+						// Handle the error or show an error message here
+					}
+				});
 				Intent nextScreen = new Intent(getApplicationContext(), virement_verification.class);
+				nextScreen.putExtra("email", email);
+
 				startActivity(nextScreen);
 			}
 		});
@@ -210,6 +334,8 @@ package com.example.centralbank;
 			@Override
 			public void onClick(View v) {
 				Intent nextScreen = new Intent(getApplicationContext(), virement_verification.class);
+				nextScreen.putExtra("email", email);
+
 				startActivity(nextScreen);
 			}
 		});

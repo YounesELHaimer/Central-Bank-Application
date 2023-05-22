@@ -13,6 +13,36 @@ public class User {
 
     private String numeroDeCompte;
 
+    private Float Solde;
+
+    public User(String name, String lastName, String phone, String operator, String frontCIN, String backCIN, String numeroDeCompte, Float solde, String signatureImageUrl, Agency agency, String address, String dateOfBirth, String familyStatus, String professionalStatus, String face, String email, String password) {
+        this.name = name;
+        this.lastName = lastName;
+        this.phone = phone;
+        this.operator = operator;
+        this.frontCIN = frontCIN;
+        this.backCIN = backCIN;
+        this.numeroDeCompte = numeroDeCompte;
+        Solde = solde;
+        this.signatureImageUrl = signatureImageUrl;
+        this.agency = agency;
+        this.address = address;
+        this.dateOfBirth = dateOfBirth;
+        this.familyStatus = familyStatus;
+        this.professionalStatus = professionalStatus;
+        this.face = face;
+        this.email = email;
+        this.password = password;
+    }
+
+    public Float getSolde() {
+        return Solde;
+    }
+
+    public void setSolde(Float solde) {
+        Solde = solde;
+    }
+
     public User(String name, String lastName, String phone, String operator, String frontCIN, String backCIN, String numeroDeCompte, String signatureImageUrl, Agency agency, String address, String dateOfBirth, String familyStatus, String professionalStatus, String face, String email, String password) {
         this.name = name;
         this.lastName = lastName;
