@@ -44,6 +44,51 @@
                 android:layout_marginLeft="12dp"
                 android:layout_marginTop="16dp"
                 android:src="@drawable/arrow_back_blue" />
+
+
+
+            <RelativeLayout
+                android:id="@+id/rip_pdf_layout"
+                android:layout_width="380dp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="170dp"
+                >
+
+
+                <ImageView android:id="@+id/free_sample_by_wix_ek1"
+                    android:src="@drawable/free_sample_by_wix_ek1"
+                    android:layout_marginLeft="0dp"
+                    android:layout_width="90dp"
+                    android:layout_height="80dp" />
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="55dp"
+                    android:text="Relevé d'identité bancaire"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_centerHorizontal="true"/>
+
+                <TextView
+                    android:id="@+id/identifiant_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="105dp"
+                    android:text="Identifiant national de compte bancaire"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+
+            </RelativeLayout>
+
+
+
+
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

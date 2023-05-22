@@ -139,11 +139,12 @@ import java.util.HashMap;
 			map.put("sold_mad", "+ 1394 MAD");
 			Element.add(map);
 
-
+			L.setDivider(getResources().getDrawable(R.drawable.divider_empty));
 
 			SimpleAdapter Adp = new SimpleAdapter (this.getBaseContext(), Element,
 					R.layout.affichage_listview, new String[] {"date", "type_de_la_transactions","sold_mad"},
 					new int[] {R.id.date, R.id.type_de_la_transactions,R.id.sold_mad});
+
 			L.setAdapter(Adp);
 
 			eye.setOnClickListener(new View.OnClickListener() {
@@ -151,6 +152,7 @@ import java.util.HashMap;
 				public void onClick(View v) {
 					if(solde.getText().toString() == "*,**"){
 						solde.setText("10000 MAD");
+						solde.setTextSize(18);
 						eye.setImageResource(R.drawable.blue_eye_);
 					}
 					else{

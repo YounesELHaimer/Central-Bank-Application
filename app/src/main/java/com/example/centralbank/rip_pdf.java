@@ -37,7 +37,7 @@ public class rip_pdf extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.rip_pdf);
         telecharger_btn = findViewById(R.id.telecharger_btn);
-        layout = findViewById(R.id.content_container);
+        layout = findViewById(R.id.rip_pdf_layout);
         arrow_back = findViewById(R.id.arrow_back);
 
 

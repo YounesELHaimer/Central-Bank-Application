@@ -151,7 +151,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="30dp"
-                android:layout_marginTop="140dp"
+                android:layout_marginTop="160dp"
                 android:text="@string/compte_cheque_partic_string"
                 android:textColor="@color/gray_string"
                 android:textSize="15.5sp"/>
@@ -161,7 +161,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="30dp"
-                android:layout_marginTop="160dp"
+                android:layout_marginTop="180dp"
                 android:text="00800123456"
                 android:textColor="@color/compte_cheque_color"
                 android:textStyle="bold"
@@ -172,7 +172,7 @@
                 android:id="@+id/solde"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="160dp"
+                android:layout_marginTop="180dp"
                 android:paddingRight="30dp"
                 android:text="0,00 MAD"
                 android:textColor="@color/blue_string"
@@ -186,19 +186,28 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="20dp"
-                android:layout_marginTop="200dp"
+                android:layout_marginTop="230dp"
                 android:text="@string/info_compte_string"
                 android:textColor="@color/blue_string"
                 android:textSize="15.5sp"
                 />
 
+
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
-                android:layout_marginTop="240dp"
+                android:layout_marginTop="270dp"
                 android:layout_centerHorizontal="true"
                 android:layout_marginRight="20dp">
+
+                <View   android:id="@+id/rectangle_6_gray"
+                    android:background="@drawable/rectangle_6_gray"
+                    android:layout_marginTop="5dp"
+                    android:layout_width="360dp"
+                    android:layout_height="240dp"
+                    android:layout_centerHorizontal="true"
+                    />
 
                 <View   android:id="@+id/rectangle_6"
                     android:background="@drawable/rectangle_6_shape"
@@ -394,7 +403,7 @@
                     android:layout_marginTop="137dp"
                     android:text="Younes EL HAIMER"
                     android:textColor="@color/black"
-                    android:textStyle="bold"
+                    android:textStyle="normal"
                     android:textSize="16sp"
                     android:layout_centerHorizontal="true"
                     />
