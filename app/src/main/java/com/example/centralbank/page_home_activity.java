@@ -125,7 +125,7 @@ import java.util.HashMap;
 // Create a formatted date string with only the day, month, and year
 						String formattedDate = day + "/" + month + "/" + year;
 
-
+			L.setDivider(getResources().getDrawable(R.drawable.divider_empty));
 
 
 						// Add the formatted date to the map
@@ -156,12 +156,18 @@ import java.util.HashMap;
 				}
 			});
 
+			SimpleAdapter Adp = new SimpleAdapter (this.getBaseContext(), Element,
+					R.layout.affichage_listview, new String[] {"date", "type_de_la_transactions","sold_mad"},
+					new int[] {R.id.date, R.id.type_de_la_transactions,R.id.sold_mad});
+
+			L.setAdapter(Adp);
 
 			eye.setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View v) {
 					if(solde.getText().toString() == "*,**"){
 						solde.setText("10000 MAD");
+						solde.setTextSize(18);
 						eye.setImageResource(R.drawable.blue_eye_);
 					}
 					else{

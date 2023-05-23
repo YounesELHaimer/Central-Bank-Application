@@ -53,8 +53,6 @@
             android:name=".firstpageRegister"
             android:exported="false" />
         <activity
-
-
             android:name=".virement_verification"
             android:exported="false" />
         <activity

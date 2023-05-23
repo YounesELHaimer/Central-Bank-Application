@@ -6,14 +6,9 @@ import android.app.KeyguardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-
-import android.os.Bundle;
-
-
-import android.text.TextUtils;
-
 import android.hardware.fingerprint.FingerprintManager;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 import android.util.DisplayMetrics;
@@ -25,47 +20,22 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.Switch;
+
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
+import androidx.biometric.BiometricManager;
+import androidx.biometric.BiometricPrompt;
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.FragmentActivity;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.android.material.textfield.TextInputLayout;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
-import java.io.IOException;
-import java.security.InvalidKeyException;
-import java.security.KeyStore;
-import java.security.KeyStoreException;
-import java.security.NoSuchAlgorithmException;
-import java.security.UnrecoverableKeyException;
-import java.security.cert.CertificateException;
-
-import javax.crypto.Cipher;
-import javax.crypto.NoSuchPaddingException;
-import javax.crypto.SecretKey;
-
-import androidx.annotation.NonNull;
-import androidx.core.content.ContextCompat;
-import androidx.fragment.app.Fragment;
-import  java.lang.Object.*;
-import java.util.concurrent.Executor;
-
-import androidx.biometric.FingerprintDialogFragment;
-
-import androidx.biometric.BiometricManager;
-import androidx.biometric.BiometricPrompt;
-import androidx.core.content.ContextCompat;
-import androidx.fragment.app.FragmentActivity;
 
 import java.security.KeyStore;
 import java.util.concurrent.Executor;
@@ -96,7 +66,6 @@ public class first_page_activity extends FragmentActivity {
 	private ImageView free_sample_by_wix_ek1;
 	private View rectangle_1;
 	private TextView se_connecter;
-	private View rectangle_1_ek1;
 	private TextView creer_un_compte;
 	private ImageView pngfind_com_contact_icon_png_666635;
 	private TextView sos;
@@ -143,7 +112,6 @@ public class first_page_activity extends FragmentActivity {
 		free_sample_by_wix_ek1 = (ImageView) findViewById(R.id.free_sample_by_wix_ek1);
 		rectangle_1 = (View) findViewById(R.id.rectangle_1);
 		se_connecter = (TextView) findViewById(R.id.se_connecter);
-		rectangle_1_ek1 = (View) findViewById(R.id.rectangle_1_ek1);
 		creer_un_compte = (TextView) findViewById(R.id.creer_un_compte);
 		pngfind_com_contact_icon_png_666635 = (ImageView) findViewById(R.id.pngfind_com_contact_icon_png_666635);
 		sos = (TextView) findViewById(R.id.sos);

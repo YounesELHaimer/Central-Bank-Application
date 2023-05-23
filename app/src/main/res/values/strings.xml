@@ -48,6 +48,7 @@
     <string name="click_to_login">Click to Login</string>
 
     <string-array name="options">
+        <item>Choisissez votre opérateur</item>
         <item>Maroc Telecom</item>
         <item>Orange</item>
         <item>Inwi</item>

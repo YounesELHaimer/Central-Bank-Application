@@ -1,18 +1,18 @@
 package com.example.centralbank;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.PhoneAuthCredential;
@@ -25,6 +25,7 @@ public class PhoneActivity extends AppCompatActivity {
     private EditText etPhone;
     private Spinner spinner;
     ProgressBar progressBar;
+    private TextView bonjour;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,30 +34,30 @@ public class PhoneActivity extends AppCompatActivity {
 
         etPhone = findViewById(R.id.phone);
         spinner = findViewById(R.id.spinner);
+        bonjour = findViewById(R.id.textView);
 
         String name = getIntent().getStringExtra("firstName");
 
         String lastName = getIntent().getStringExtra("lastName");
 
-        TextView textView = findViewById(R.id.loginNow);
+        bonjour.setText("Bonjour, "+name+"!");
+
+        String[] options = getResources().getStringArray(R.array.options);
+
+        CustomSpinnerAdapter adapter = new CustomSpinnerAdapter(this, android.R.layout.simple_spinner_item, options);
+        spinner.setAdapter(adapter);
 
 
-        textView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), first_page_activity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
-
-        Button btnNext = findViewById(R.id.btn_Nex);
+        RelativeLayout btnNext = findViewById(R.id.btn_Nex);
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 String phone = etPhone.getText().toString().trim();
                 String selectedOption = spinner.getSelectedItem().toString();
+
+
+
 
                 if (TextUtils.isEmpty(phone)) {
                     etPhone.setError("Phone number is required");
@@ -124,7 +125,7 @@ public class PhoneActivity extends AppCompatActivity {
 
         });
 
-        Button btnPrev = findViewById(R.id.btn_prev);
+        RelativeLayout btnPrev = findViewById(R.id.btn_prev);
         btnPrev.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

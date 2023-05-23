@@ -1,18 +1,18 @@
 package com.example.centralbank;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -29,7 +29,7 @@ import java.util.concurrent.TimeUnit;
 public class VerificationSms extends AppCompatActivity {
 
     EditText et1, et2, et3, et4, et5, et6;
-    Button btnsubmit;
+    RelativeLayout btnsubmit;
     String getbackendotp;
     ProgressBar progressBar;
 
@@ -280,6 +280,15 @@ public class VerificationSms extends AppCompatActivity {
             }
         });
 
+        RelativeLayout btnPrev = findViewById(R.id.btn_prev);
+        btnPrev.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), PhoneActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
     }
 }
