@@ -19,10 +19,12 @@ import android.text.method.PasswordTransformationMethod;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -112,6 +114,8 @@ public class first_page_activity extends FragmentActivity {
 	private ImageView eye;
 	private EditText password;
 
+	private static final String PREF_SWITCH_STATE = "switch_state";
+
 
 	private static View emp;
 	private static ImageView emp_icon;
@@ -166,10 +170,39 @@ public class first_page_activity extends FragmentActivity {
 
 		progressBar = findViewById(R.id.progressBar);
 
+//
+//		sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+//		editor = sharedPreferences.edit();
+//		String savedUsername = sharedPreferences.getString("username", "");
+		SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+		String savedValue = sharedPreferences.getString("savedValue", "");
+		EditText numeroEditText = findViewById(R.id.numero);
+		numeroEditText.setText(savedValue);
 
-		sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
-		editor = sharedPreferences.edit();
-		String savedUsername = sharedPreferences.getString("username", "");
+		Switch mySwitch = findViewById(R.id.Switch);
+		mySwitch.setChecked(sharedPreferences.getBoolean("switchState", false)); // Set the switch state
+
+		mySwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+			@Override
+			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+				String value = numeroEditText.getText().toString();
+
+				SharedPreferences.Editor editor = sharedPreferences.edit();
+				editor.putBoolean("switchState", isChecked); // Save the switch state
+
+				if (isChecked) {
+					// Save the value to SharedPreferences only if the switch is checked
+					editor.putString("savedValue", value);
+				} else {
+					// Clear the saved value from SharedPreferences
+					editor.remove("savedValue");
+				}
+				editor.apply();
+			}
+		});
+
+
+
 
 
 
@@ -291,9 +324,44 @@ public class first_page_activity extends FragmentActivity {
 			BiometricPrompt.AuthenticationCallback authenticationCallback = new BiometricPrompt.AuthenticationCallback() {
 				@Override
 				public void onAuthenticationSucceeded(BiometricPrompt.AuthenticationResult result) {
-					Intent nextScreen = new Intent(getApplicationContext(), page_home_activity.class);
-					onStop();
-					startActivity(nextScreen);
+
+					String numero = editTextEmail.getText().toString();
+
+					if(TextUtils.isEmpty(numero)){
+						Toast.makeText(first_page_activity.this,"Enter account number",Toast.LENGTH_SHORT).show();
+						return;
+					}
+					DatabaseReference usersRef = FirebaseDatabase.getInstance().getReference().child("users");
+					usersRef.orderByChild("numeroDeCompte").equalTo(numero).addListenerForSingleValueEvent(new ValueEventListener() {
+						@Override
+						public void onDataChange(DataSnapshot dataSnapshot) {
+							if (dataSnapshot.exists()) {
+								for (DataSnapshot userSnapshot : dataSnapshot.getChildren()) {
+									// Retrieve the email from the user data
+									String email = userSnapshot.child("email").getValue(String.class);
+
+									Intent nextScreen = new Intent(getApplicationContext(), page_home_activity.class);
+									nextScreen.putExtra("email", email);
+									nextScreen.putExtra("numeroDeCompte", numero);
+									onStop();
+									startActivity(nextScreen);									// ...
+								}
+							} else {
+								// User with the provided numeroDeCompte does not exist
+								// Handle the case when the user is not found
+								// ...
+							}
+						}
+
+						@Override
+						public void onCancelled(DatabaseError databaseError) {
+							// Handle potential errors or interruptions in the database operation
+							// ...
+						}
+					});
+
+
+
 				}
 
 				@Override
@@ -386,6 +454,7 @@ public class first_page_activity extends FragmentActivity {
 							// Pass the email as an extra to the next activity
 							Intent intent = new Intent(getApplicationContext(), page_home_activity.class);
 							intent.putExtra("email", email);
+							intent.putExtra("numeroDeCompte", numerodecompte);
 							startActivity(intent);
 							finish();
 						} else {

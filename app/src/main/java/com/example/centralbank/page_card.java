@@ -55,6 +55,8 @@ public class page_card extends AppCompatActivity {
         Switch switchPaiementSansContact = findViewById(R.id.switch_paiement_sans_contact);
 
         String email = getIntent().getStringExtra("email");
+        String numeroDeCompte = getIntent().getStringExtra("numeroDeCompte");
+
 
 
 // Add a ValueEventListener to listen for changes in the card details
@@ -123,6 +125,8 @@ public class page_card extends AppCompatActivity {
 
                 Intent nextScreen = new Intent(getApplicationContext(), page_home_activity.class);
                 nextScreen.putExtra("email", email);
+                nextScreen.putExtra("numeroDeCompte", numeroDeCompte);
+
                 startActivity(nextScreen);
 
 
@@ -136,6 +140,7 @@ public class page_card extends AppCompatActivity {
 
                 Intent nextScreen = new Intent(getApplicationContext(), page_virement_activity.class);
                 nextScreen.putExtra("email", email);
+                nextScreen.putExtra("numeroDeCompte", numeroDeCompte);
                 startActivity(nextScreen);
 
 
@@ -148,6 +153,7 @@ public class page_card extends AppCompatActivity {
 
                 Intent nextScreen = new Intent(getApplicationContext(), page_card.class);
                 nextScreen.putExtra("email", email);
+                nextScreen.putExtra("numeroDeCompte", numeroDeCompte);
                 startActivity(nextScreen);
 
             }
@@ -174,6 +180,7 @@ public class page_card extends AppCompatActivity {
                     public void onClick(View v) {
                         Intent nextScreen = new Intent(getApplicationContext(), first_page_activity.class);
                         nextScreen.putExtra("email", email);
+                        nextScreen.putExtra("numeroDeCompte", numeroDeCompte);
                         startActivity(nextScreen);
                     }
                 });
@@ -195,6 +202,7 @@ public class page_card extends AppCompatActivity {
 
                 Intent nextScreen = new Intent(getApplicationContext(), page_rib.class);
                 nextScreen.putExtra("email", email);
+                nextScreen.putExtra("numeroDeCompte", numeroDeCompte);
                 startActivity(nextScreen);
 
 
@@ -207,6 +215,7 @@ public class page_card extends AppCompatActivity {
 
                 Intent nextScreen = new Intent(getApplicationContext(), page_settings.class);
                 nextScreen.putExtra("email", email);
+                nextScreen.putExtra("numeroDeCompte", numeroDeCompte);
                 startActivity(nextScreen);
 
 

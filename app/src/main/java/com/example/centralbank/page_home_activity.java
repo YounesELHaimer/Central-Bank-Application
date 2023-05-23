@@ -2,6 +2,7 @@ package com.example.centralbank;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -13,7 +14,15 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 
 	public class page_home_activity extends AppCompatActivity {
@@ -78,78 +87,75 @@ import java.util.HashMap;
 			drawerLayout = findViewById(R.id.drawer_layout);
 
 			email = getIntent().getStringExtra("email");
+			String numeroDeCompte = getIntent().getStringExtra("numeroDeCompte");
+			TextView rib = findViewById(R.id.rib);
+			rib.setText(numeroDeCompte);
 
 			L = findViewById(R.id.listView);
 
-			ArrayList<HashMap<String, String>> Element = new ArrayList<HashMap<String, String>>();
-			HashMap<String, String> map;
+			ArrayList<HashMap<String, String>> Element = new ArrayList<>();
 
-			map = new HashMap<String, String>();
-			map.put("date", "17 Avril");
-			map.put("type_de_la_transactions", "Type de la transaction");
-			map.put("sold_mad", "+ 1394 MAD");
-			Element.add(map);
+			DatabaseReference virementsRef = FirebaseDatabase.getInstance().getReference().child("virements");
 
-			map = new HashMap<String, String>();
-			map.put("date", "17 Avril");
-			map.put("type_de_la_transactions", "Type de la transaction");
-			map.put("sold_mad", "+ 14 MAD");
-			Element.add(map);
+			virementsRef.addValueEventListener(new ValueEventListener() {
+				@Override
+				public void onDataChange(DataSnapshot dataSnapshot) {
+					Element.clear(); // Clear the existing data in Element ArrayList
 
-			map = new HashMap<String, String>();
-			map.put("date", "17 Avril 2013");
-			map.put("type_de_la_transactions", "Type de la transaction");
-			map.put("sold_mad", "+ 139384 MAD");
-			Element.add(map);
+					for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+						HashMap<String, String> map = new HashMap<>();
 
-			map = new HashMap<String, String>();
-			map.put("date", "17 Avril");
-			map.put("type_de_la_transactions", "Type de la transaction");
-			map.put("sold_mad", "+ 1394 MAD");
-			Element.add(map);
+						// Fetch values from snapshot and add them to the map
+						// Fetch values from snapshot and add them to the map
+						String typeDeTransaction = snapshot.child("typeDeTransaction").getValue(String.class);
+						Float soldMadFloat = snapshot.child("montant").getValue(Float.class);
+						String soldMad = String.valueOf(soldMadFloat); // Convert the Float value to String
 
-			map = new HashMap<String, String>();
-			map.put("date", "17 Avril");
-			map.put("type_de_la_transactions", "Type de la transaction");
-			map.put("sold_mad", "+ 1394 MAD");
-			Element.add(map);
+						Date completeDate = snapshot.child("date").getValue(Date.class);
 
-			map = new HashMap<String, String>();
-			map.put("date", "17 Avril");
-			map.put("type_de_la_transactions", "Type de la transaction");
-			map.put("sold_mad", "+ 1394 MAD");
-			Element.add(map);
+// Create a Calendar instance and set it to the completeDate
+						Calendar calendar = Calendar.getInstance();
+						calendar.setTime(completeDate);
 
-			map = new HashMap<String, String>();
-			map.put("date", "17 Avril");
-			map.put("type_de_la_transactions", "Type de la transaction");
-			map.put("sold_mad", "+ 1394 MAD");
-			Element.add(map);
+// Extract the day, month, and year from the Calendar
+						int day = calendar.get(Calendar.DAY_OF_MONTH);
+						int month = calendar.get(Calendar.MONTH) + 1; // Note: Month starts from 0, so add 1 to get the actual month value
+						int year = calendar.get(Calendar.YEAR);
 
-			map = new HashMap<String, String>();
-			map.put("date", "17 Avril");
-			map.put("type_de_la_transactions", "Type de la transaction");
-			map.put("sold_mad", "+ 1394 MAD");
-			Element.add(map);
-
-			map = new HashMap<String, String>();
-			map.put("date", "17 Avril");
-			map.put("type_de_la_transactions", "Type de la transaction");
-			map.put("sold_mad", "+ 1394 MAD");
-			Element.add(map);
-
-			map = new HashMap<String, String>();
-			map.put("date", "17 Avril");
-			map.put("type_de_la_transactions", "Type de la transaction");
-			map.put("sold_mad", "+ 1394 MAD");
-			Element.add(map);
+// Create a formatted date string with only the day, month, and year
+						String formattedDate = day + "/" + month + "/" + year;
 
 
 
-			SimpleAdapter Adp = new SimpleAdapter (this.getBaseContext(), Element,
-					R.layout.affichage_listview, new String[] {"date", "type_de_la_transactions","sold_mad"},
-					new int[] {R.id.date, R.id.type_de_la_transactions,R.id.sold_mad});
-			L.setAdapter(Adp);
+
+						// Add the formatted date to the map
+						map.put("date", formattedDate);
+						map.put("type_de_la_transactions", typeDeTransaction);
+						map.put("sold_mad", soldMad);
+
+						Element.add(map);
+					}
+
+					// Call a method or update UI with the populated Element ArrayList
+					// ...
+
+					// Set up the adapter only after data retrieval is complete
+					SimpleAdapter Adp = new SimpleAdapter(page_home_activity.this, Element,
+							R.layout.affichage_listview, new String[]{"date", "type_de_la_transactions", "sold_mad"},
+							new int[]{R.id.date, R.id.type_de_la_transactions, R.id.sold_mad});
+					L.setAdapter(Adp);
+
+					Log.d("FirebaseData", "Data retrieval successful. Element size: " + Element.size());
+				}
+
+				@Override
+				public void onCancelled(DatabaseError databaseError) {
+					// Error handling
+					// ...
+					Log.e("FirebaseData", "Data retrieval cancelled. Error: " + databaseError.getMessage());
+				}
+			});
+
 
 			eye.setOnClickListener(new View.OnClickListener() {
 				@Override
@@ -171,6 +177,8 @@ import java.util.HashMap;
 
 					Intent nextScreen = new Intent(getApplicationContext(), page_card.class);
 					nextScreen.putExtra("email", email);
+					nextScreen.putExtra("numeroDeCompte", numeroDeCompte);
+
 
 					startActivity(nextScreen);
 
@@ -183,6 +191,8 @@ import java.util.HashMap;
 
 					Intent nextScreen = new Intent(getApplicationContext(), page_virement_activity.class);
 					nextScreen.putExtra("email", email);
+					nextScreen.putExtra("numeroDeCompte", numeroDeCompte);
+
 					startActivity(nextScreen);
 
 
@@ -209,6 +219,8 @@ import java.util.HashMap;
 						public void onClick(View v) {
 							Intent nextScreen = new Intent(getApplicationContext(), first_page_activity.class);
 							nextScreen.putExtra("email", email);
+							nextScreen.putExtra("numeroDeCompte", numeroDeCompte);
+
 							startActivity(nextScreen);
 						}
 					});
@@ -231,6 +243,8 @@ import java.util.HashMap;
 
 					Intent nextScreen = new Intent(getApplicationContext(), page_rib.class);
 					nextScreen.putExtra("email", email);
+					nextScreen.putExtra("numeroDeCompte", numeroDeCompte);
+
 					startActivity(nextScreen);
 
 
@@ -244,6 +258,8 @@ import java.util.HashMap;
 
 					Intent nextScreen = new Intent(getApplicationContext(), page_settings.class);
 					nextScreen.putExtra("email", email);
+					nextScreen.putExtra("numeroDeCompte", numeroDeCompte);
+
 					startActivity(nextScreen);
 
 

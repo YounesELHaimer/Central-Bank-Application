@@ -47,6 +47,8 @@ public class page_settings extends AppCompatActivity {
         password_container = findViewById(R.id.password_container);
         notif_container = findViewById(R.id.notif_container);
         String email = getIntent().getStringExtra("email");
+        String numeroDeCompte = getIntent().getStringExtra("numeroDeCompte");
+
 
 
 
@@ -82,6 +84,7 @@ public class page_settings extends AppCompatActivity {
                     public void onClick(View v) {
                         Intent nextScreen = new Intent(getApplicationContext(), first_page_activity.class);
                         nextScreen.putExtra("email", email);
+                        nextScreen.putExtra("numeroDeCompte", numeroDeCompte);
                         startActivity(nextScreen);
                     }
                 });
@@ -103,6 +106,7 @@ public class page_settings extends AppCompatActivity {
 
                 Intent nextScreen = new Intent(getApplicationContext(), page_empreinte.class);
                 nextScreen.putExtra("email", email);
+                nextScreen.putExtra("numeroDeCompte", numeroDeCompte);
                 startActivity(nextScreen);
 
 
@@ -219,6 +223,7 @@ public class page_settings extends AppCompatActivity {
 
                 Intent nextScreen = new Intent(getApplicationContext(), page_settings_notif.class);
                 nextScreen.putExtra("email", email);
+                nextScreen.putExtra("numeroDeCompte", numeroDeCompte);
                 startActivity(nextScreen);
 
 

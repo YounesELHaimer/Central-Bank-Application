@@ -20,6 +20,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import org.w3c.dom.Text;
+
 public class page_rib extends AppCompatActivity {
 
     private ImageView home;
@@ -50,6 +52,11 @@ public class page_rib extends AppCompatActivity {
         progressDialog.setCancelable(false);
 
         String email = getIntent().getStringExtra("email");
+        String numeroDeCompte = getIntent().getStringExtra("numeroDeCompte");
+
+        TextView rib = findViewById(R.id.numero_de_compte);
+        rib.setText(numeroDeCompte);
+
 
         code_banque = findViewById(R.id.code_banque_chiffre);
         code_ville_chiffre = findViewById(R.id.code_ville_chiffre);
@@ -98,6 +105,7 @@ public class page_rib extends AppCompatActivity {
 
                 Intent nextScreen = new Intent(getApplicationContext(), page_home_activity.class);
                 nextScreen.putExtra("email", email);
+                nextScreen.putExtra("numeroDeCompte", numeroDeCompte);
                 startActivity(nextScreen);
 
 
@@ -111,6 +119,7 @@ public class page_rib extends AppCompatActivity {
 
                 Intent nextScreen = new Intent(getApplicationContext(), page_virement_activity.class);
                 nextScreen.putExtra("email", email);
+                nextScreen.putExtra("numeroDeCompte", numeroDeCompte);
                 startActivity(nextScreen);
 
 
@@ -123,6 +132,7 @@ public class page_rib extends AppCompatActivity {
 
                 Intent nextScreen = new Intent(getApplicationContext(), page_card.class);
                 nextScreen.putExtra("email", email);
+                nextScreen.putExtra("numeroDeCompte", numeroDeCompte);
                 startActivity(nextScreen);
 
             }
@@ -149,6 +159,7 @@ public class page_rib extends AppCompatActivity {
                     public void onClick(View v) {
                         Intent nextScreen = new Intent(getApplicationContext(), first_page_activity.class);
                         nextScreen.putExtra("email", email);
+                        nextScreen.putExtra("numeroDeCompte", numeroDeCompte);
                         startActivity(nextScreen);
                     }
                 });
@@ -170,6 +181,7 @@ public class page_rib extends AppCompatActivity {
 
                 Intent nextScreen = new Intent(getApplicationContext(), page_rib.class);
                 nextScreen.putExtra("email", email);
+                nextScreen.putExtra("numeroDeCompte", numeroDeCompte);
                 startActivity(nextScreen);
 
 
@@ -182,6 +194,7 @@ public class page_rib extends AppCompatActivity {
 
                 Intent nextScreen = new Intent(getApplicationContext(), page_settings.class);
                 nextScreen.putExtra("email", email);
+                nextScreen.putExtra("numeroDeCompte", numeroDeCompte);
                 startActivity(nextScreen);
 
 
@@ -194,6 +207,7 @@ public class page_rib extends AppCompatActivity {
                 progressDialog.show();
                 Intent nextScreen = new Intent(getApplicationContext(), rip_pdf.class);
                 nextScreen.putExtra("email", email);
+                nextScreen.putExtra("numeroDeCompte", numeroDeCompte);
                 startActivity(nextScreen);
                 progressDialog.dismiss();
 
