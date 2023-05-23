@@ -47,6 +47,8 @@
     <color name="dark_blue">#00427A</color>
     <color name="light_blue">#005FAF</color>
     <color name="gray_exp">#E6E6E6</color>
+    <color name="gray_hint">#575757</color>
+    <color name="hint_color">#999999</color>
 
 
 

@@ -1,16 +1,14 @@
 package com.example.centralbank;
 
 
-
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
+import android.widget.RelativeLayout;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class firstpageRegister extends AppCompatActivity {
 
@@ -23,17 +21,9 @@ public class firstpageRegister extends AppCompatActivity {
 
         etFirstName = findViewById(R.id.name);
         etLastName = findViewById(R.id.LastName);
-        TextView textView = findViewById(R.id.loginNow);
 
-        Button btnNext = findViewById(R.id.btn_Nex);
-        textView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), first_page_activity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
+        RelativeLayout btnNext = findViewById(R.id.btn_Nex);
+
         btnNext.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -55,7 +45,7 @@ public class firstpageRegister extends AppCompatActivity {
             }
         });
 
-        Button btnPrev = findViewById(R.id.btn_prev);
+        RelativeLayout btnPrev = findViewById(R.id.btn_prev);
         btnPrev.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
