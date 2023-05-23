@@ -17,6 +17,7 @@
 
 package com.example.centralbank;
 
+	import android.annotation.SuppressLint;
 	import android.app.Activity;
 	import android.content.Intent;
 	import android.os.Bundle;
@@ -24,9 +25,11 @@ package com.example.centralbank;
 	import android.view.View;
 	import android.widget.EditText;
 	import android.widget.ImageView;
+	import android.widget.ProgressBar;
 	import android.widget.RadioButton;
 	import android.widget.RadioGroup;
 	import android.widget.RelativeLayout;
+	import android.widget.TextView;
 	import android.widget.Toast;
 
 	import androidx.annotation.NonNull;
@@ -43,6 +46,8 @@ package com.example.centralbank;
 	import com.google.firebase.database.FirebaseDatabase;
 	import com.google.firebase.database.Query;
 	import com.google.firebase.database.ValueEventListener;
+
+	import org.w3c.dom.Text;
 
 	import java.util.concurrent.TimeUnit;
 
@@ -83,6 +88,11 @@ package com.example.centralbank;
 		home10 = findViewById(R.id.home10);
 		String email = getIntent().getStringExtra("email");
 		String numeroDeCompte = getIntent().getStringExtra("numeroDeCompte");
+		TextView numero_de_compte = findViewById(R.id.numero_de_compte);
+		numero_de_compte.setText(numeroDeCompte);
+
+		@SuppressLint({"MissingInflatedId", "LocalSuppress"}) ProgressBar progressBar=findViewById(R.id.probar1);
+
 
 
 		rectangle_4 = (View) findViewById(R.id.rectangle_4);
@@ -112,6 +122,38 @@ package com.example.centralbank;
 
 		EditText montantEditText = findViewById(R.id.montant);
 
+		TextView compte_cheque_partic = findViewById(R.id.compte_cheque_partic);
+		TextView solde1 = findViewById(R.id.solde);
+
+
+		DatabaseReference usersRef = FirebaseDatabase.getInstance().getReference().child("users");
+		Query query = usersRef.orderByChild("email").equalTo(email);
+
+		query.addListenerForSingleValueEvent(new ValueEventListener() {
+			@Override
+			public void onDataChange(DataSnapshot dataSnapshot) {
+				for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+					// Retrieve the user data
+					String name = snapshot.child("name").getValue(String.class);
+					String lastName = snapshot.child("lastName").getValue(String.class);
+					Float solde = snapshot.child("Solde").getValue(Float.class);
+
+					// Use the retrieved data as needed
+					String userData = "Mr " + name + " " + lastName ;
+					// ...
+					solde1.setText(solde +" MAD");
+					compte_cheque_partic.setText(userData);
+
+				}
+			}
+
+			@Override
+			public void onCancelled(DatabaseError databaseError) {
+				// Error handling
+				// ...
+			}
+		});
+
 
 
 
@@ -123,6 +165,8 @@ package com.example.centralbank;
 				
 				Intent nextScreen = new Intent(getApplicationContext(), page_home_activity.class);
 				nextScreen.putExtra("email", email);
+				nextScreen.putExtra("numeroDeCompte", numeroDeCompte);
+
 				startActivity(nextScreen);
 			
 		
@@ -135,6 +179,8 @@ package com.example.centralbank;
 
 				Intent nextScreen = new Intent(getApplicationContext(), page_card.class);
 				nextScreen.putExtra("email", email);
+				nextScreen.putExtra("numeroDeCompte", numeroDeCompte);
+
 				startActivity(nextScreen);
 
 			}
@@ -161,6 +207,8 @@ package com.example.centralbank;
 					public void onClick(View v) {
 						Intent nextScreen = new Intent(getApplicationContext(), first_page_activity.class);
 						nextScreen.putExtra("email", email);
+						nextScreen.putExtra("numeroDeCompte", numeroDeCompte);
+
 						startActivity(nextScreen);
 					}
 				});
@@ -182,6 +230,8 @@ package com.example.centralbank;
 
 				Intent nextScreen = new Intent(getApplicationContext(), page_rib.class);
 				nextScreen.putExtra("email", email);
+				nextScreen.putExtra("numeroDeCompte", numeroDeCompte);
+
 				startActivity(nextScreen);
 
 
@@ -195,6 +245,8 @@ package com.example.centralbank;
 
 				Intent nextScreen = new Intent(getApplicationContext(), page_settings.class);
 				nextScreen.putExtra("email", email);
+				nextScreen.putExtra("numeroDeCompte", numeroDeCompte);
+
 				startActivity(nextScreen);
 
 			}
@@ -233,6 +285,8 @@ package com.example.centralbank;
 		button.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
+				progressBar.setVisibility(View.VISIBLE);
+
 				String email = getIntent().getStringExtra("email");
 				String numeroDeCompteBenef = numeroDeCompteEditText.getText().toString();
 
@@ -262,6 +316,7 @@ package com.example.centralbank;
 											@Override
 											public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
 												Toast.makeText(page_virement_activity.this, "Success", Toast.LENGTH_SHORT).show();
+												progressBar.setVisibility(View.GONE);
 
 
 											}
@@ -284,6 +339,8 @@ package com.example.centralbank;
 												nextScreen.putExtra("montantStr", montantStr);
 												nextScreen.putExtra("phone", etPhone);
 												nextScreen.putExtra("backendotp", backendotp);
+												nextScreen.putExtra("name", compte_cheque_partic.getText().toString().trim());
+
 
 												startActivity(nextScreen);
 

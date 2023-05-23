@@ -581,11 +581,21 @@
 							android:textSize="14sp" />
 					</RelativeLayout>
 
+
+
+
 					<RelativeLayout android:id="@+id/button"
 						android:layout_marginTop="500dp"
 						android:layout_width="380dp"
 						android:layout_height="wrap_content"
 						>
+						<ProgressBar
+							android:layout_width="35dp"
+							android:layout_height="35dp"
+							android:layout_gravity="center"
+
+							android:visibility="gone"
+							android:id="@+id/probar1" />
 
 						<View   android:id="@+id/rectangle_2"
 							android:background="@drawable/rectangle_1_ek1_shape"
@@ -593,6 +603,7 @@
 							android:layout_marginTop="0dp"
 							android:layout_width="380dp"
 							android:layout_height="40dp" />
+
 
 						<TextView android:id="@+id/suivant_1"
 							android:textStyle="bold"
@@ -606,6 +617,7 @@
 							android:layout_centerHorizontal="true"
 							android:text="Suivant"
 							/>
+
 
 
 					</RelativeLayout>
