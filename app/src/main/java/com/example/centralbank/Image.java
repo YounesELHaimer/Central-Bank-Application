@@ -1,26 +1,25 @@
 package com.example.centralbank;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-import androidx.core.content.FileProvider;
-
 import android.Manifest;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.core.content.FileProvider;
 
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DataSnapshot;
@@ -75,7 +74,7 @@ public class Image extends AppCompatActivity {
         captureImage2 = findViewById(R.id.imageView4);
         captureImage3 = findViewById(R.id.imageView7);
 
-        Button btnNext = findViewById(R.id.save);
+        RelativeLayout btnNext = findViewById(R.id.save);
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -84,8 +83,15 @@ public class Image extends AppCompatActivity {
                 intent.putExtra("lastName", lastName);
                 intent.putExtra("name", name);
                 startActivity(intent);
-                finish();
+            }
+        });
 
+        findViewById(R.id.btn_prev).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),register.class);
+                startActivity(intent);
+                finish();
             }
         });
 

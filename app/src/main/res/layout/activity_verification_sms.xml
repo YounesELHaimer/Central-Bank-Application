@@ -78,7 +78,7 @@
                 android:layout_marginTop="25dp"
                 android:layout_marginEnd="50dp"
                 android:gravity="center"
-                android:textSize="15sp"
+                android:textSize="14sp"
                 android:text="Un SMS contenant un code de validation"
                 android:layout_centerHorizontal="true"
                 android:textColor="@color/black"/>
@@ -91,7 +91,7 @@
                 android:layout_marginTop="50dp"
                 android:layout_marginEnd="50dp"
                 android:gravity="center"
-                android:textSize="15sp"
+                android:textSize="14sp"
                 android:textStyle="bold"
                 android:text="a éte envoyé au "
                 android:layout_centerHorizontal="true"
@@ -130,7 +130,8 @@
                     android:textColor="@color/colortextfirst"
                     android:textSize="24sp"
                     android:textStyle="bold"
-                    tools:ignore="Lable1For"/>
+                    tools:ignore="Lable1For"
+                    app:hideLineWhenFilled="true"/>
 
                 <EditText
                     android:background="@drawable/backgroundbox"
@@ -146,7 +147,8 @@
                     android:textColor="@color/colortextfirst"
                     android:textSize="24sp"
                     android:textStyle="bold"
-                    tools:ignore="Lable1For"/>
+                    tools:ignore="Lable1For"
+                    app:hideLineWhenFilled="true"/>
 
                 <EditText
                     android:background="@drawable/backgroundbox"
@@ -162,7 +164,8 @@
                     android:textColor="@color/colortextfirst"
                     android:textSize="24sp"
                     android:textStyle="bold"
-                    tools:ignore="Lable1For"/>
+                    tools:ignore="Lable1For"
+                    app:hideLineWhenFilled="true"/>
 
                 <EditText
                     android:background="@drawable/backgroundbox"
@@ -178,7 +181,8 @@
                     android:textColor="@color/colortextfirst"
                     android:textSize="24sp"
                     android:textStyle="bold"
-                    tools:ignore="Lable1For"/>
+                    tools:ignore="Lable1For"
+                    app:hideLineWhenFilled="true"/>
 
                 <EditText
                     android:background="@drawable/backgroundbox"
@@ -194,7 +198,8 @@
                     android:textColor="@color/colortextfirst"
                     android:textSize="24sp"
                     android:textStyle="bold"
-                    tools:ignore="Lable1For"/>
+                    tools:ignore="Lable1For"
+                    app:hideLineWhenFilled="true"/>
 
                 <EditText
                     android:background="@drawable/backgroundbox"
@@ -209,7 +214,8 @@
                     android:textColor="@color/colortextfirst"
                     android:textSize="24sp"
                     android:textStyle="bold"
-                    tools:ignore="Lable1For"/>
+                    tools:ignore="Lable1For"
+                    app:hideLineWhenFilled="true"/>
 
 
             </LinearLayout>

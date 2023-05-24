@@ -223,14 +223,13 @@
                     android:id="@+id/date_exp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
+                    android:layout_marginLeft="140dp"
                     android:layout_marginTop="130dp"
                     android:text="05/29"
                     android:textColor="@color/white"
                     android:textSize="16dp"
                     android:textStyle="bold"
                     android:letterSpacing="0.2"
-                    android:layout_alignRight="@id/id_name"
 
                     />
 
@@ -238,7 +237,7 @@
                     android:id="@+id/exp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="110dp"
+                    android:layout_marginLeft="145dp"
                     android:layout_marginTop="132dp"
                     android:text="Exp :"
                     android:textColor="@color/gray_exp"

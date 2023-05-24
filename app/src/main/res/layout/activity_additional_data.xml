@@ -1,113 +1,283 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:padding="16dp"
-    android:background="#FFFFFF">
+    tools:context=".PhoneActivity">
 
-    <TextView
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Additional Data"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:paddingBottom="16dp" />
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Address"
-        android:textStyle="bold"
-        android:textColor="#000000"
-        android:paddingBottom="8dp" />
 
-    <EditText
-        android:id="@+id/editTextAddress"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Enter address"
-        android:background="#F3F3F3"
-        android:textColor="#000000"
-        android:padding="8dp" />
+        <View   android:id="@+id/rectangle_5"
+            android:background="@drawable/rectangle_5_shape"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="0dp"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Date of Birth"
-        android:textStyle="bold"
-        android:textColor="#000000"
-        android:paddingTop="16dp"
-        android:paddingBottom="8dp" />
+        <ImageView android:id="@+id/free_sample_by_wix"
+            android:src="@drawable/logo"
+            android:contentDescription="free_sample_by_wix"
+            android:layout_marginLeft="139dp"
+            android:layout_marginTop="10dp"
+            android:layout_width="134dp"
+            android:layout_height="40dp" />
 
-    <EditText
-        android:id="@+id/editTextDOB"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Enter date of birth"
-        android:background="#F3F3F3"
-        android:textColor="#000000"
-        android:padding="8dp" />
+        <View
+            android:id="@+id/_bg__page_home"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="60dp"
+            android:background="@drawable/_bg__page_inscription_shape" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Family Status"
-        android:textStyle="bold"
-        android:textColor="#000000"
-        android:paddingTop="16dp"
-        android:paddingBottom="8dp" />
 
-    <EditText
-        android:id="@+id/editTextFamilyStatus"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Enter family status"
-        android:background="#F3F3F3"
-        android:textColor="#000000"
-        android:padding="8dp" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Professional Status"
-        android:textStyle="bold"
-        android:textColor="#000000"
-        android:paddingTop="16dp"
-        android:paddingBottom="8dp" />
-
-    <EditText
-        android:id="@+id/editTextProfessionalStatus"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Enter professional status"
-        android:background="#F3F3F3"
-        android:textColor="#000000"
-        android:padding="8dp" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center">
-
-        <Button
-            android:id="@+id/btn_prev"
-            android:layout_margin="10dp"
-            android:background="@null"
-            android:text="Previous"
+        <RelativeLayout
+            android:id="@+id/LinearLayout_Email"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_marginTop="220dp"
+            android:layout_centerVertical="true"
+            >
 
-        <Button
-            android:id="@+id/btn_Next"
-            android:layout_margin="10dp"
-            android:text="Next"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/textView2"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:textSize="18sp"
+                android:layout_marginTop="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Données supplementaires :"
+                android:textStyle="bold"
+                android:textColor="@color/blue_string"
+                android:layout_marginBottom="20dp"/>
 
-    </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="250dp"
+                android:padding="20dp">
+
+                <RelativeLayout android:id="@+id/nv_pwd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    >
+
+                    <View
+                        android:background="@drawable/rectangle_pwd_settings"
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp" />
+
+                    <EditText
+                        android:id="@+id/editTextAddress"
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="0dp"
+                        android:background="@android:color/transparent"
+                        android:hint="Entrez votre Addresse"
+                        android:inputType="text"
+                        android:textSize="15sp" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:background="@drawable/rectangle_pwd_settings" />
+
+                    <EditText
+                        android:id="@+id/editTextDOB"
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="0dp"
+                        android:background="@android:color/transparent"
+                        android:hint="Entrez votre date de naissance"
+                        android:inputType="date"
+                        android:textSize="15sp" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:background="@drawable/rectangle_pwd_settings" />
+
+                    <EditText
+                        android:id="@+id/editTextFamilyStatus"
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="0dp"
+                        android:background="@android:color/transparent"
+                        android:hint="Entrez votre statut familiale"
+                        android:inputType="text"
+                        android:textSize="15sp" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:background="@drawable/rectangle_pwd_settings" />
+
+                    <EditText
+                        android:id="@+id/editTextProfessionalStatus"
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="0dp"
+                        android:background="@android:color/transparent"
+                        android:hint="Entrez votre statut professionnel"
+                        android:inputType="text"
+                        android:textSize="15sp" />
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:paddingBottom="20dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            >
+
+
+
+            <RelativeLayout android:id="@+id/btn_prev"
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="0dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="15dp"
+                >
+
+                <View
+                    android:id="@+id/white_bg"
+                    android:layout_width="140dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="0dp"
+                    android:background="@drawable/button_annuler_dialog" />
+
+                <TextView
+                    android:id="@+id/annuler"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_gravity="center_horizontal|center"
+                    android:layout_marginLeft="46dp"
+                    android:layout_marginTop="13dp"
+                    android:gravity="center"
+                    android:text="Précédent"
+                    android:textColor="@color/blue_string"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+
+            </RelativeLayout>
+
+
+
+            <!--Button
+                android:id="@+id/btn_prev"
+                android:layout_margin="10dp"
+                android:text="Previous"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" /-->
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <ProgressBar
+                    android:id="@+id/progressBar"
+                    android:layout_width="wrap_content"
+                    android:visibility="gone"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_height="wrap_content"/>
+
+
+                <RelativeLayout android:id="@+id/btn_Next"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
+
+
+
+                    <View   android:id="@+id/blue_bg"
+                        android:background="@drawable/button_ok_dialog"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp" />
+
+                    <TextView android:id="@+id/ok"
+                        android:textStyle="bold"
+                        android:layout_centerInParent="true"
+                        android:layout_gravity="center_horizontal|center"
+                        android:gravity="center"
+                        android:textSize="18sp"
+                        android:textColor="@color/creer_un_compte_color"
+                        android:layout_marginLeft="46dp"
+                        android:layout_marginTop="13dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="34dp"
+                        android:text="Suivant"
+                        />
+
+                </RelativeLayout>
+
+
+            </RelativeLayout>
+        </LinearLayout>
+
+
+    </RelativeLayout>
 
 </LinearLayout>

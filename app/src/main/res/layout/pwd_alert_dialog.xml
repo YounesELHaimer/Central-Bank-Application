@@ -45,10 +45,11 @@
 
         <ImageView android:id="@+id/HiddenEye1"
             android:src="@drawable/eye_off"
-            android:layout_marginLeft="290dp"
             android:layout_marginTop="6dp"
             android:layout_width="28dp"
-            android:layout_height="28dp"/>
+            android:layout_height="28dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="25dp"/>
 
     </RelativeLayout>
 
@@ -81,10 +82,11 @@
 
         <ImageView android:id="@+id/HiddenEye2"
             android:src="@drawable/eye_off"
-            android:layout_marginLeft="290dp"
             android:layout_marginTop="6dp"
             android:layout_width="28dp"
-            android:layout_height="28dp"/>
+            android:layout_height="28dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="25dp"/>
 
     </RelativeLayout>
 
@@ -120,7 +122,9 @@
             android:layout_marginLeft="290dp"
             android:layout_marginTop="6dp"
             android:layout_width="28dp"
-            android:layout_height="28dp"/>
+            android:layout_height="28dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="25dp"/>
 
     </RelativeLayout>
 

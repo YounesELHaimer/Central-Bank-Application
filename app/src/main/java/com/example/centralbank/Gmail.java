@@ -1,39 +1,25 @@
 package com.example.centralbank;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-
-import javax.mail.Message;
-import javax.mail.Session;
-import javax.mail.PasswordAuthentication;
-
-
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
+import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
-import com.android.volley.AuthFailureError;
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.chaos.view.PinView;
-import com.google.android.material.textfield.TextInputEditText;
 
-
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Properties;
 import java.util.Random;
 
-
 import javax.mail.Authenticator;
+import javax.mail.Message;
 import javax.mail.MessagingException;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
@@ -43,8 +29,8 @@ import javax.mail.internet.MimeMessage;
 public class Gmail extends AppCompatActivity {
     private static final String SMTP_SERVER = "smtp.gmail.com";
     private static final int SMTP_PORT = 587;
-    TextInputEditText editText;
-    Button button, confirmbtn;
+    EditText editText;
+    RelativeLayout button, confirmbtn;
     int code;
     PinView pinView;
 
@@ -74,7 +60,7 @@ public class Gmail extends AppCompatActivity {
             public void onClick(View view) {
                 try {
                     String stringSenderEmail = "hpotterba422@gmail.com";
-                     stringReceiverEmail = editText.getText().toString().trim();;
+                    stringReceiverEmail = editText.getText().toString().trim();;
                     String stringPasswordSenderEmail = "byxvqhljrzsracor";
 
 
@@ -112,7 +98,10 @@ public class Gmail extends AppCompatActivity {
                     });
                     thread.start();
                     findViewById(R.id.LinearLayout_Email).setVisibility(View.GONE);
+                    findViewById(R.id.les_buttons_1).setVisibility(View.GONE);
                     findViewById(R.id.LinearLayout_PinView).setVisibility(View.VISIBLE);
+                    findViewById(R.id.les_buttons_2).setVisibility(View.VISIBLE);
+
 
 
 
@@ -145,6 +134,24 @@ public class Gmail extends AppCompatActivity {
                 } else {
                     Toast.makeText(Gmail.this, "failed", Toast.LENGTH_SHORT).show();
                 }
+            }
+        });
+
+        findViewById(R.id.btn_prev).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), PhoneActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        findViewById(R.id.btn_prev1).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                findViewById(R.id.LinearLayout_Email).setVisibility(View.VISIBLE);
+                findViewById(R.id.les_buttons_1).setVisibility(View.VISIBLE);
+                findViewById(R.id.LinearLayout_PinView).setVisibility(View.GONE);
+                findViewById(R.id.les_buttons_2).setVisibility(View.GONE);
             }
         });
 

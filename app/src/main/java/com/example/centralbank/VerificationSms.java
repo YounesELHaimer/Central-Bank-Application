@@ -55,7 +55,8 @@ public class VerificationSms extends AppCompatActivity {
 
         //get mobile number from mainActivty to this
         TextView textView = findViewById(R.id.txtmobileno);
-        textView.setText(String.format(
+        String text = textView.getText().toString();
+        textView.setText(String.format(text +
                 "+212-%S",getIntent().getStringExtra("phone")
         ));
 

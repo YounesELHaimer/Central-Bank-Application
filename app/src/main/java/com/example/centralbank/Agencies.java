@@ -1,16 +1,16 @@
 package com.example.centralbank;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -62,7 +62,17 @@ public class Agencies extends AppCompatActivity {
 
         String lastName = getIntent().getStringExtra("lastName");
 
-        Button btnNext = findViewById(R.id.btn_Nex);
+
+        findViewById(R.id.btn_prev).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),Image.class);
+                startActivity(intent);
+            }
+        });
+
+
+        RelativeLayout btnNext = findViewById(R.id.btn_Nex);
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

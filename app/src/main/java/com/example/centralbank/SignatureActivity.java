@@ -1,17 +1,15 @@
 package com.example.centralbank;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.github.gcacace.signaturepad.views.SignaturePad;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -31,7 +29,7 @@ import java.util.Random;
 public class SignatureActivity extends AppCompatActivity {
 
     private SignaturePad signaturePad;
-    private Button btnSave;
+    RelativeLayout btnSave;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +38,24 @@ public class SignatureActivity extends AppCompatActivity {
 
         signaturePad = findViewById(R.id.signaturePad);
         btnSave = findViewById(R.id.btnSave);
+
+        RelativeLayout clearButton = findViewById(R.id.effacer);
+
+        clearButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                signaturePad.clear();
+            }
+        });
+
+        findViewById(R.id.btn_prev).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),AdditionalData.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
 
 

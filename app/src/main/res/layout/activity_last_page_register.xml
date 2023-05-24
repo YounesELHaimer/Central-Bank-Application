@@ -13,6 +13,7 @@
         android:layout_height="wrap_content">
 
 
+
         <View   android:id="@+id/rectangle_5"
             android:background="@drawable/rectangle_5_shape"
             android:layout_marginLeft="0dp"
@@ -37,59 +38,58 @@
             android:layout_marginTop="60dp"
             android:background="@drawable/_bg__page_inscription_shape" />
 
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="120dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="120dp"
+            app:srcCompat="@drawable/handshake_icon"
+            android:layout_centerHorizontal="true"/>
+
         <TextView
-            android:id="@+id/textView"
-            android:layout_width="340dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="90dp"
+            android:layout_marginTop="230dp"
             android:layout_marginBottom="20dp"
             android:gravity="center"
-            android:text="Signez ici pour terminer l'inscription"
+            android:text="SUPER"
             android:textSize="25sp"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:layout_width="360dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="270dp"
+            android:layout_marginBottom="20dp"
+            android:gravity="center"
+            android:text="Merci de vous être inscrit avec nous !"
+            android:textSize="22sp"
             android:textStyle="bold"
             android:layout_centerHorizontal="true"/>
 
-        <com.github.gcacace.signaturepad.views.SignaturePad
-            android:id="@+id/signaturePad"
-            android:layout_width="wrap_content"
-            android:layout_height="570dp"
-            android:layout_marginTop="180dp"
-            android:background="@drawable/rectangle_6_shape"
-            android:layout_marginLeft="40dp"
-            android:layout_centerHorizontal="true"
-            />
-
-        <RelativeLayout android:id="@+id/effacer"
-            android:layout_marginTop="0dp"
-            android:layout_marginLeft="0dp"
-            android:layout_width="140dp"
+        <TextView
+            android:layout_width="360dp"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_alignBottom="@id/signaturePad"
+            android:layout_marginTop="370dp"
             android:layout_marginBottom="20dp"
-            >
+            android:gravity="center"
+            android:text="En tant que client chez central BANK, vous aurez accès à des fonctionnalités, avantages et services exclusifs. Nous apprécions votre confiance en nous et nous nous réjouissons de vous servir."
+            android:textSize="17sp"
+            android:layout_centerHorizontal="true"/>
 
-            <View
-                android:background="@drawable/button_ok_dialog"
-                android:layout_marginLeft="0dp"
-                android:layout_marginTop="0dp"
-                android:layout_width="match_parent"
-                android:layout_height="50dp" />
+        <TextView
+            android:layout_width="360dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="520dp"
+            android:layout_marginBottom="20dp"
+            android:gravity="center"
+            android:text="Afin de vous offrir une expérience fluide, nous vous avons envoyé un e-mail contenant tous les documents importants dont vous aurez besoin. Veuillez vérifier votre boîte de réception pour l'e-mail intitulé 'Documents de création de compte' ou un titre similaire. Cet e-mail vous fournira des informations complètes et des instructions relatives à votre création de compte."
+            android:textSize="17sp"
+            android:layout_centerHorizontal="true"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="34dp"
-                android:layout_centerInParent="true"
-                android:layout_gravity="center_horizontal|center"
-                android:layout_marginLeft="46dp"
-                android:layout_marginTop="13dp"
-                android:gravity="center"
-                android:text="Effacer"
-                android:textColor="@color/creer_un_compte_color"
-                android:textSize="18sp"
-                android:textStyle="bold" />
 
-        </RelativeLayout>
+
 
 
         <ProgressBar
@@ -100,6 +100,7 @@
             android:layout_marginTop="400dp"
             android:visibility="gone"
             android:id="@+id/probar1"/>
+
 
 
         <LinearLayout
@@ -115,37 +116,7 @@
 
 
 
-            <RelativeLayout android:id="@+id/btn_prev"
-                android:layout_marginTop="0dp"
-                android:layout_marginLeft="0dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="15dp"
-                >
 
-                <View
-                    android:id="@+id/white_bg"
-                    android:layout_width="140dp"
-                    android:layout_height="50dp"
-                    android:layout_marginLeft="0dp"
-                    android:background="@drawable/button_annuler_dialog" />
-
-                <TextView
-                    android:id="@+id/annuler"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:layout_gravity="center_horizontal|center"
-                    android:layout_marginLeft="46dp"
-                    android:layout_marginTop="13dp"
-                    android:gravity="center"
-                    android:text="Précédent"
-                    android:textColor="@color/blue_string"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-
-            </RelativeLayout>
 
 
 
@@ -162,7 +133,7 @@
                 >
 
 
-                <RelativeLayout android:id="@+id/btnSave"
+                <RelativeLayout android:id="@+id/btn_Nex"
                     android:layout_marginTop="0dp"
                     android:layout_marginLeft="0dp"
                     android:layout_width="match_parent"
@@ -187,7 +158,7 @@
                         android:layout_marginTop="13dp"
                         android:layout_width="wrap_content"
                         android:layout_height="34dp"
-                        android:text="Suivant"
+                        android:text="Se connecter"
                         />
 
                 </RelativeLayout>
@@ -202,4 +173,3 @@
 
 
 </LinearLayout>
-

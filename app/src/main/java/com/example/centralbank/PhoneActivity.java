@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
@@ -43,8 +44,9 @@ public class PhoneActivity extends AppCompatActivity {
         bonjour.setText("Bonjour, "+name+"!");
 
         String[] options = getResources().getStringArray(R.array.options);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, options);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        CustomSpinnerAdapter adapter = new CustomSpinnerAdapter(this, android.R.layout.simple_spinner_item, options);
         spinner.setAdapter(adapter);
 
 
@@ -55,8 +57,6 @@ public class PhoneActivity extends AppCompatActivity {
 
                 String phone = etPhone.getText().toString().trim();
                 String selectedOption = spinner.getSelectedItem().toString();
-
-
 
 
                 if (TextUtils.isEmpty(phone)) {

@@ -56,7 +56,8 @@
             android:layout_marginTop="250dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Veuillez entre votre numéro de téléphone"
+            android:text="Veuillez entrer votre numéro de téléphone"
+            android:textStyle="bold"
             android:textColor="@color/blue_string"
             android:layout_marginBottom="20dp"/>
 
@@ -113,7 +114,9 @@
                         android:hint="Numéro de téléphone"
                         android:textColorHint="@color/gray_hint"
                         android:inputType="number"
-                        android:textSize="15sp" />
+                        android:textSize="15sp"
+                        android:drawablePadding="5dp"
+                        android:drawableLeft="@drawable/tel_icon"/>
                 </RelativeLayout>
 
             </LinearLayout>
@@ -142,21 +145,33 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
-                    <Spinner
-                        android:id="@+id/spinner"
-                        android:layout_width="match_parent"
-                        android:layout_height="55dp"
-                        android:background="@drawable/rectangle_pwd_settings"
-                        android:popupBackground="#FFFFFF"
-                        android:entries="@array/options"
-                        android:layout_marginTop="140dp"
-                        android:textSize="15sp"
-                        android:dropDownVerticalOffset="55dp"
-                        android:dropDownWidth="315dp"
-                        android:paddingStart="16dp"
-                        android:paddingEnd="16dp"
-                        android:popupElevation="6dp"
-                        />
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="140dp">
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="55dp"
+                            android:background="@drawable/rectangle_pwd_settings" />
+
+                        <Spinner
+                            android:id="@+id/spinner"
+                            android:layout_width="match_parent"
+                            android:layout_height="55dp"
+                            android:popupBackground="#FFFFFF"
+                            android:entries="@array/options"
+                            android:textSize="15sp"
+                            android:dropDownVerticalOffset="0dp"
+                            android:dropDownWidth="280dp"
+                            android:padding="16dp"
+                            android:popupElevation="20dp"
+                            />
+
+
+                    </RelativeLayout>
 
 
                 </com.google.android.material.textfield.TextInputLayout>

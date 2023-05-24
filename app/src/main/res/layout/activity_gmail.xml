@@ -1,99 +1,147 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="15dp"
-    tools:context=".Gmail">
+    tools:context=".PhoneActivity">
 
-    <LinearLayout
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:orientation="vertical">
+        android:layout_height="wrap_content">
 
-        <LinearLayout
+
+        <View   android:id="@+id/rectangle_5"
+            android:background="@drawable/rectangle_5_shape"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="0dp"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            />
+
+        <ImageView android:id="@+id/free_sample_by_wix"
+            android:src="@drawable/logo"
+            android:contentDescription="free_sample_by_wix"
+            android:layout_marginLeft="139dp"
+            android:layout_marginTop="10dp"
+            android:layout_width="134dp"
+            android:layout_height="40dp" />
+
+        <View
+            android:id="@+id/_bg__page_home"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="60dp"
+            android:background="@drawable/_bg__page_inscription_shape" />
+
+
+
+        <RelativeLayout
             android:id="@+id/LinearLayout_Email"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="vertical">
+            android:layout_marginTop="240dp"
+            >
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="OTP verification"
-                android:textColor="@android:color/holo_orange_dark"
-                android:textSize="25sp"
-                android:textStyle="bold" />
-
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:id="@+id/textView2"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:textSize="18sp"
+                android:layout_marginTop="0dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:hint="Email"
-                app:boxStrokeColor="@color/black"
-                app:boxStrokeWidthFocused="2dp"
-                app:endIconMode="clear_text"
-                app:endIconTint="@color/black"
-                app:hintTextColor="@color/black"
-                app:startIconDrawable="@drawable/ic_outline_email_24"
-                app:startIconTint="@color/black">
+                android:text="Veuillez entrer votre adresse e-mail"
+                android:textStyle="bold"
+                android:textColor="@color/blue_string"
+                android:layout_marginBottom="20dp"/>
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/signup_Email"
+            <TextView
+                android:id="@+id/textView3"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:textSize="14sp"
+                android:layout_marginTop="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Un code de vérification vous sera envoyé."
+                android:layout_marginBottom="20dp"/>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="150dp"
+                android:padding="20dp">
+
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:inputType="textEmailAddress"
-                    android:textColor="@color/black"
-                    android:textStyle="bold" />
-            </com.google.android.material.textfield.TextInputLayout>
+                    android:layout_height="wrap_content">
+                    <View
+                        android:background="@drawable/rectangle_pwd_settings"
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp" />
 
-            <Button
-                android:id="@+id/signup_btn"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
-                android:background="@color/purple_500"
-                android:text="verify email address"
+                    <EditText
+                        android:id="@+id/signup_Email"
+                        android:layout_width="366dp"
+                        android:layout_height="48dp"
+                        android:layout_marginLeft="10dp"
+                        android:background="@android:color/transparent"
+                        android:drawableLeft="@drawable/email_icon"
+                        android:drawablePadding="7dp"
+                        android:hint="adresse e-mail"
+                        android:inputType="textEmailAddress"
+                        android:textColorHint="@color/gray_hint"
+                        android:textSize="15sp"
+                        android:layout_centerVertical="true"/>
+                </RelativeLayout>
 
-                android:textColor="@color/white"
-                android:textSize="18sp" />
+            </LinearLayout>
 
-        </LinearLayout>
 
-        <LinearLayout
-            android:visibility="gone"
+
+        </RelativeLayout>
+
+        <RelativeLayout
             android:id="@+id/LinearLayout_PinView"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:orientation="vertical">
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="150dp"
+            android:visibility="gone">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="OTP verification"
-                android:textColor="@android:color/holo_orange_dark"
+                android:layout_marginBottom="20dp"
+                android:gravity="center"
+                android:text="Verification de mon e-mail"
                 android:textSize="25sp"
                 android:textStyle="bold" />
+
 
             <com.chaos.view.PinView
+                android:padding="20dp"
                 android:id="@+id/firstPinView"
                 style="@style/PinWidget.PinView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="244.5dp"
                 android:cursorVisible="true"
                 android:inputType="number"
-                android:itemBackground="#FFFFF7"
-                android:textColor="@color/black"
+                android:itemBackground="@color/white"
+                android:textColor="@color/colortextfirst"
                 android:textSize="18sp"
                 android:textStyle="bold"
+                android:layout_centerHorizontal="true"
                 app:cursorColor="@color/black"
                 app:cursorWidth="2dp"
                 app:hideLineWhenFilled="true"
@@ -101,23 +149,207 @@
                 app:itemHeight="45dp"
                 app:itemRadius="4dp"
                 app:itemWidth="45dp"
-                app:lineColor="@color/black"
+                app:lineColor="@color/gray_string"
                 app:lineWidth="2dp"
                 app:viewType="rectangle" />
+        </RelativeLayout>
 
-            <Button
-                android:id="@+id/signup_confirm"
+        <ProgressBar
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="400dp"
+            android:visibility="gone"
+            android:id="@+id/probar1"/>
+
+
+        <LinearLayout
+            android:id="@+id/les_buttons_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:paddingBottom="20dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:visibility="gone"
+            >
+
+
+
+            <RelativeLayout android:id="@+id/btn_prev1"
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="0dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="15dp"
+                >
+
+                <View
+                    android:layout_width="140dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="0dp"
+                    android:background="@drawable/button_annuler_dialog" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_gravity="center_horizontal|center"
+                    android:layout_marginLeft="46dp"
+                    android:layout_marginTop="13dp"
+                    android:gravity="center"
+                    android:text="Précédent"
+                    android:textColor="@color/blue_string"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+
+            </RelativeLayout>
+
+            <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
-                android:background="@color/purple_500"
-                android:text="Confirm"
+                >
 
-                android:textColor="@color/white"
-                android:textSize="18sp" />
 
+                <RelativeLayout android:id="@+id/signup_confirm"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
+
+                    <View
+                        android:background="@drawable/button_ok_dialog"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp" />
+
+                    <TextView
+                        android:textStyle="bold"
+                        android:layout_centerInParent="true"
+                        android:layout_gravity="center_horizontal|center"
+                        android:gravity="center"
+                        android:textSize="18sp"
+                        android:textColor="@color/creer_un_compte_color"
+                        android:layout_marginLeft="46dp"
+                        android:layout_marginTop="13dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="34dp"
+                        android:text="Confirmer"
+                        />
+
+                </RelativeLayout>
+
+
+            </FrameLayout>
         </LinearLayout>
 
-    </LinearLayout>
 
-</ScrollView>
+
+        <LinearLayout
+            android:id="@+id/les_buttons_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:paddingBottom="20dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            >
+
+
+
+            <RelativeLayout android:id="@+id/btn_prev"
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="0dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="15dp"
+                >
+
+                <View
+                    android:id="@+id/white_bg"
+                    android:layout_width="140dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="0dp"
+                    android:background="@drawable/button_annuler_dialog" />
+
+                <TextView
+                    android:id="@+id/annuler"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_gravity="center_horizontal|center"
+                    android:layout_marginLeft="46dp"
+                    android:layout_marginTop="13dp"
+                    android:gravity="center"
+                    android:text="Précédent"
+                    android:textColor="@color/blue_string"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+
+            </RelativeLayout>
+
+
+
+            <!--Button
+                android:id="@+id/btn_prev"
+                android:layout_margin="10dp"
+                android:text="Previous"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" /-->
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+
+                <RelativeLayout android:id="@+id/signup_btn"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
+
+                    <View
+                        android:id="@+id/blue_bg"
+                        android:background="@drawable/button_ok_dialog"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp" />
+
+                    <TextView android:id="@+id/ok"
+                        android:textStyle="bold"
+                        android:layout_centerInParent="true"
+                        android:layout_gravity="center_horizontal|center"
+                        android:gravity="center"
+                        android:textSize="18sp"
+                        android:textColor="@color/creer_un_compte_color"
+                        android:layout_marginLeft="46dp"
+                        android:layout_marginTop="13dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="34dp"
+                        android:text="Suivant"
+                        />
+
+                </RelativeLayout>
+
+
+            </FrameLayout>
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+
+
+</LinearLayout>

@@ -64,62 +64,87 @@
                 android:textStyle="bold"
                 android:layout_centerHorizontal="true"/>
 
-            <LinearLayout
+            <TextView
+                android:id="@+id/textView"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center_horizontal"
-                android:orientation="vertical">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="185dp"
+                android:layout_marginBottom="20dp"
+                android:gravity="center"
+                android:text="Validation de mon virement"
+                android:textSize="25sp"
+                android:textStyle="bold" />
 
-                <ImageView
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
-                    android:layout_marginTop="190dp"
-                    android:src="@drawable/recived"
-                    android:id="@+id/img_send_otp"/>
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="260dp"
+                android:layout_centerHorizontal="true"
+                android:padding="20dp">
+
+                <View   android:id="@+id/rectangle_6_gray"
+                    android:background="@drawable/rectangle_6_gray"
+                    android:layout_marginTop="6dp"
+                    android:layout_width="360dp"
+                    android:layout_height="360dp"
+                    android:layout_centerHorizontal="true"
+                    />
+
+                <View
+                    android:id="@+id/rectangle_6"
+                    android:layout_width="match_parent"
+                    android:layout_height="360dp"
+                    android:background="@drawable/rectangle_6_shape" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="30dp"
-                    android:text="SMS verification"
-                    android:textSize="20sp"
-                    android:textColor="@color/colortextfirst"
-                    android:textStyle="bold"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
                     android:layout_marginStart="50dp"
                     android:layout_marginLeft="50dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="25dp"
                     android:layout_marginEnd="50dp"
                     android:gravity="center"
                     android:textSize="14sp"
-                    android:text="Please enter SMS sent to your Mobile Number"
-                    android:textColor="@color/colortextsecond"/>
-
+                    android:text="Un SMS contenant un code de validation"
+                    android:layout_centerHorizontal="true"
+                    android:textColor="@color/black"/>
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="50dp"
-                    android:layout_marginLeft="50dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="50dp"
-                    android:gravity="center"
-                    android:textSize="14sp"
-                    android:text=""
                     android:id="@+id/txtmobileno"
-                    android:textColor="@color/colortextsecond"/>
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginEnd="50dp"
+                    android:gravity="center"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:text="a éte envoyé au "
+                    android:layout_centerHorizontal="true"
+                    android:textColor="@color/black"/>
 
-                //#############################
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="85dp"
+                    android:clickable="true"
+                    android:text="Vous n'avez pas reçu votre code ?"
+                    android:textColor="@color/blue_string"
+                    android:textSize="14sp" />
+
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="30dp"
+                    android:layout_marginTop="130dp"
                     android:gravity="center"
                     android:orientation="horizontal"
                     >
                     <EditText
                         android:background="@drawable/backgroundbox"
+                        android:layout_marginRight="10dp"
                         android:layout_width="40dp"
                         android:layout_height="46dp"
                         android:id="@+id/inputotp1"
@@ -131,14 +156,14 @@
                         android:textColor="@color/colortextfirst"
                         android:textSize="24sp"
                         android:textStyle="bold"
-                        tools:ignore="Lable1For"/>
+                        tools:ignore="Lable1For"
+                        app:hideLineWhenFilled="true"/>
 
                     <EditText
                         android:background="@drawable/backgroundbox"
                         android:layout_width="40dp"
                         android:layout_height="46dp"
-                        android:layout_marginStart="4dp"
-                        android:layout_marginLeft="4dp"
+                        android:layout_marginRight="10dp"
                         android:id="@+id/inputotp2"
                         android:gravity="center"
                         android:imeOptions="actionNext"
@@ -148,14 +173,14 @@
                         android:textColor="@color/colortextfirst"
                         android:textSize="24sp"
                         android:textStyle="bold"
-                        tools:ignore="Lable1For"/>
+                        tools:ignore="Lable1For"
+                        app:hideLineWhenFilled="true"/>
 
                     <EditText
                         android:background="@drawable/backgroundbox"
                         android:layout_width="40dp"
                         android:layout_height="46dp"
-                        android:layout_marginStart="4dp"
-                        android:layout_marginLeft="4dp"
+                        android:layout_marginRight="10dp"
                         android:id="@+id/inputotp3"
                         android:gravity="center"
                         android:imeOptions="actionNext"
@@ -165,14 +190,14 @@
                         android:textColor="@color/colortextfirst"
                         android:textSize="24sp"
                         android:textStyle="bold"
-                        tools:ignore="Lable1For"/>
+                        tools:ignore="Lable1For"
+                        app:hideLineWhenFilled="true"/>
 
                     <EditText
                         android:background="@drawable/backgroundbox"
                         android:layout_width="40dp"
                         android:layout_height="46dp"
-                        android:layout_marginStart="4dp"
-                        android:layout_marginLeft="4dp"
+                        android:layout_marginRight="10dp"
                         android:id="@+id/inputotp4"
                         android:gravity="center"
                         android:imeOptions="actionNext"
@@ -182,14 +207,14 @@
                         android:textColor="@color/colortextfirst"
                         android:textSize="24sp"
                         android:textStyle="bold"
-                        tools:ignore="Lable1For"/>
+                        tools:ignore="Lable1For"
+                        app:hideLineWhenFilled="true"/>
 
                     <EditText
                         android:background="@drawable/backgroundbox"
                         android:layout_width="40dp"
                         android:layout_height="46dp"
-                        android:layout_marginStart="4dp"
-                        android:layout_marginLeft="4dp"
+                        android:layout_marginRight="10dp"
                         android:id="@+id/inputotp5"
                         android:gravity="center"
                         android:imeOptions="actionNext"
@@ -199,14 +224,13 @@
                         android:textColor="@color/colortextfirst"
                         android:textSize="24sp"
                         android:textStyle="bold"
-                        tools:ignore="Lable1For"/>
+                        tools:ignore="Lable1For"
+                        app:hideLineWhenFilled="true"/>
 
                     <EditText
                         android:background="@drawable/backgroundbox"
                         android:layout_width="40dp"
                         android:layout_height="46dp"
-                        android:layout_marginStart="4dp"
-                        android:layout_marginLeft="4dp"
                         android:id="@+id/inputotp6"
                         android:gravity="center"
                         android:imeOptions="actionNext"
@@ -216,75 +240,84 @@
                         android:textColor="@color/colortextfirst"
                         android:textSize="24sp"
                         android:textStyle="bold"
-                        tools:ignore="Lable1For"/>
-
-
-
-
+                        tools:ignore="Lable1For"
+                        app:hideLineWhenFilled="true"/>
 
 
                 </LinearLayout>
 
-                //#############################
-
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <RelativeLayout android:id="@+id/btnsubmit"
+                    android:layout_marginTop="210dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_width="220dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:gravity="center"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Did't recive SMS ?"
-                        android:textSize="14sp"
-                        android:textColor="@color/colortextsecond"
-                        />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Send SMS again"
-                        android:textColor="@color/colortextfirst"
-                        android:textStyle="bold"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginStart="8dp"
-                        android:textSize="15sp"
-                        android:id="@+id/sendotp_again"/>
-
-
-
-
-
-                </LinearLayout>
-
-                <FrameLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
                     >
-                    <Button
+
+                    <View   android:id="@+id/blue_bg"
+                        android:background="@drawable/button_ok_dialog"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginTop="0dp"
                         android:layout_width="match_parent"
+                        android:layout_height="50dp" />
+
+                    <TextView android:id="@+id/ok"
+                        android:textStyle="bold"
+                        android:layout_centerInParent="true"
+                        android:layout_gravity="center_horizontal|center"
+                        android:gravity="center"
+                        android:textSize="18sp"
+                        android:textColor="@color/creer_un_compte_color"
+                        android:layout_marginLeft="46dp"
+                        android:layout_marginTop="13dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="34dp"
+                        android:text="Valider"
+                        />
+
+                </RelativeLayout>
+
+
+                <RelativeLayout android:id="@+id/sendotp_again"
+                    android:layout_marginTop="280dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_width="220dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    >
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginLeft="0dp"
+                        android:background="@drawable/button_annuler_dialog" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Verfiy"
-                        android:id="@+id/btnsubmit"
-                        android:layout_margin="30dp"
-                        android:background="@drawable/backgroundbutton"
-                        android:textColor="@color/colortextfirst"
-                        android:textStyle="bold"/>
-
-                    <ProgressBar
-                        android:layout_width="35dp"
-                        android:layout_height="35dp"
-                        android:layout_gravity="center"
-                        android:visibility="gone"
-                        android:id="@+id/probar2"/>
-
-                </FrameLayout>
+                        android:layout_centerInParent="true"
+                        android:layout_gravity="center_horizontal|center"
+                        android:layout_marginTop="13dp"
+                        android:gravity="center"
+                        android:text="Renvoyer le code"
+                        android:textColor="@color/blue_string"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
 
 
+                </RelativeLayout>
 
 
-            </LinearLayout>
+            </RelativeLayout>
+
+            <ProgressBar
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="460dp"
+                android:layout_centerHorizontal="true"
+                android:visibility="gone"
+                android:id="@+id/probar2"/>
 
             <ImageView android:id="@+id/_transaction__2_"
                 android:src="@drawable/virements_icon_round"

@@ -4,8 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -48,8 +48,16 @@ public class AdditionalData extends AppCompatActivity {
 
         String lastName = getIntent().getStringExtra("lastName");
 
+        findViewById(R.id.btn_prev).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),Image.class);
+                startActivity(intent);
+            }
+        });
+
         // Update the user's additional data in the database
-        Button btnSaveData = findViewById(R.id.btn_Next);
+        RelativeLayout btnSaveData = findViewById(R.id.btn_Next);
         btnSaveData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

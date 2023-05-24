@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -44,7 +43,7 @@ public class virement_verification extends AppCompatActivity {
     private ImageView card;
     private ImageView home10;
     EditText et1, et2, et3, et4, et5, et6;
-    Button btnsubmit;
+    RelativeLayout btnsubmit;
     String getbackendotp;
     ProgressBar progressBar;
 
