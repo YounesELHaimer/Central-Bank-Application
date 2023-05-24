@@ -18,6 +18,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import org.w3c.dom.Text;
@@ -64,6 +65,35 @@ public class page_rib extends AppCompatActivity {
         numero_de_compte_chiffre = findViewById(R.id.numero_de_compte_chiffre);
         chiffres_cles_chiffre = findViewById(R.id.chiffres_cles_chiffre);
         TextView name = findViewById(R.id.nom_client);
+        TextView solde1 = findViewById(R.id.solde);
+
+        DatabaseReference usersRef = FirebaseDatabase.getInstance().getReference().child("users");
+        Query query = usersRef.orderByChild("email").equalTo(email);
+
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    // Retrieve the user data
+                    Float solde = snapshot.child("Solde").getValue(Float.class);
+
+                    // Use the retrieved data as needed
+
+                    // ...
+                    solde1.setText(solde +" MAD");
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // Error handling
+                // ...
+            }
+        });
+
+
+
+
 
         DatabaseReference ribsRef = FirebaseDatabase.getInstance().getReference().child("ribs");
 

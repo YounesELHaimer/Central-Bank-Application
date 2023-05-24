@@ -1,9 +1,11 @@
 package com.example.centralbank;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
@@ -18,6 +20,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -88,6 +91,7 @@ import java.util.HashMap;
 
 			email = getIntent().getStringExtra("email");
 			String numeroDeCompte = getIntent().getStringExtra("numeroDeCompte");
+			String numeroDeCompteBenef = getIntent().getStringExtra("numeroDeCompteBenef");
 			TextView rib = findViewById(R.id.rib);
 			rib.setText(numeroDeCompte);
 
@@ -105,7 +109,9 @@ import java.util.HashMap;
 					for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
 						HashMap<String, String> map = new HashMap<>();
 
-						// Fetch values from snapshot and add them to the map
+						String numeroDeCompteValue = snapshot.child("numeroDeCompte").getValue(String.class);
+						String numeroDeCompteBenefValue = snapshot.child("numeroDeCompteBenef").getValue(String.class);
+
 						// Fetch values from snapshot and add them to the map
 						String typeDeTransaction = snapshot.child("typeDeTransaction").getValue(String.class);
 						Float soldMadFloat = snapshot.child("montant").getValue(Float.class);
@@ -113,25 +119,28 @@ import java.util.HashMap;
 
 						Date completeDate = snapshot.child("date").getValue(Date.class);
 
-// Create a Calendar instance and set it to the completeDate
+						// Create a Calendar instance and set it to the completeDate
 						Calendar calendar = Calendar.getInstance();
 						calendar.setTime(completeDate);
 
-// Extract the day, month, and year from the Calendar
+						// Extract the day, month, and year from the Calendar
 						int day = calendar.get(Calendar.DAY_OF_MONTH);
 						int month = calendar.get(Calendar.MONTH) + 1; // Note: Month starts from 0, so add 1 to get the actual month value
 						int year = calendar.get(Calendar.YEAR);
 
-// Create a formatted date string with only the day, month, and year
+						// Create a formatted date string with only the day, month, and year
 						String formattedDate = day + "/" + month + "/" + year;
 
-			L.setDivider(getResources().getDrawable(R.drawable.divider_empty));
-
-
-						// Add the formatted date to the map
+						// Add the formatted date and other details to the map
 						map.put("date", formattedDate);
-						map.put("type_de_la_transactions", typeDeTransaction);
-						map.put("sold_mad", soldMad);
+
+						if (numeroDeCompteValue.equals(numeroDeCompte)) {
+							map.put("type_de_la_transactions", " envoye a " + snapshot.child("nameBenef").getValue(String.class));
+							map.put("sold_mad", "- " + soldMad + " MAD");
+						} else if (numeroDeCompteBenefValue.equals(numeroDeCompte)) {
+							map.put("type_de_la_transactions", " envoye par " + snapshot.child("name").getValue(String.class));
+							map.put("sold_mad", "+ " + soldMad + " MAD");
+						}
 
 						Element.add(map);
 					}
@@ -142,7 +151,24 @@ import java.util.HashMap;
 					// Set up the adapter only after data retrieval is complete
 					SimpleAdapter Adp = new SimpleAdapter(page_home_activity.this, Element,
 							R.layout.affichage_listview, new String[]{"date", "type_de_la_transactions", "sold_mad"},
-							new int[]{R.id.date, R.id.type_de_la_transactions, R.id.sold_mad});
+							new int[]{R.id.date, R.id.type_de_la_transactions, R.id.sold_mad}) {
+
+						@Override
+						public View getView(int position, View convertView, ViewGroup parent) {
+							View view = super.getView(position, convertView, parent);
+
+							TextView soldMadTextView = view.findViewById(R.id.sold_mad);
+							String soldMadValue = Element.get(position).get("sold_mad");
+
+							// Check if the soldMadValue is negative (starts with "-")
+							if (soldMadValue.startsWith("-")) {
+								soldMadTextView.setTextColor(Color.RED);
+							}
+
+							return view;
+						}
+					};
+
 					L.setAdapter(Adp);
 
 					Log.d("FirebaseData", "Data retrieval successful. Element size: " + Element.size());
@@ -152,31 +178,51 @@ import java.util.HashMap;
 				public void onCancelled(DatabaseError databaseError) {
 					// Error handling
 					// ...
-					Log.e("FirebaseData", "Data retrieval cancelled. Error: " + databaseError.getMessage());
 				}
 			});
 
-			SimpleAdapter Adp = new SimpleAdapter (this.getBaseContext(), Element,
-					R.layout.affichage_listview, new String[] {"date", "type_de_la_transactions","sold_mad"},
-					new int[] {R.id.date, R.id.type_de_la_transactions,R.id.sold_mad});
 
-			L.setAdapter(Adp);
 
-			eye.setOnClickListener(new View.OnClickListener() {
+			DatabaseReference usersRef = FirebaseDatabase.getInstance().getReference().child("users");
+			Query query = usersRef.orderByChild("email").equalTo(email);
+
+			query.addListenerForSingleValueEvent(new ValueEventListener() {
 				@Override
-				public void onClick(View v) {
-					if(solde.getText().toString() == "*,**"){
-						solde.setText("10000 MAD");
-						solde.setTextSize(18);
-						eye.setImageResource(R.drawable.blue_eye_);
-					}
-					else{
-						solde.setText("*,**");
-						eye.setImageResource(R.drawable.red_eye_off);
-					}
+				public void onDataChange(DataSnapshot dataSnapshot) {
+					for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+						// Retrieve the user data
+						Float solde1 = snapshot.child("Solde").getValue(Float.class);
 
+						// Use the retrieved data as needed
+						eye.setOnClickListener(new View.OnClickListener() {
+							@Override
+							public void onClick(View v) {
+								if(solde.getText().toString() == "*,**"){
+									solde.setText(solde1+" MAD");
+									solde.setTextSize(18);
+									eye.setImageResource(R.drawable.blue_eye_);
+								}
+								else{
+									solde.setText("*,**");
+									eye.setImageResource(R.drawable.red_eye_off);
+								}
+
+							}
+						});
+
+						// ...
+					}
+				}
+
+				@Override
+				public void onCancelled(DatabaseError databaseError) {
+					// Error handling
+					// ...
 				}
 			});
+
+
+
 
 			card.setOnClickListener(new View.OnClickListener() {
 				public void onClick(View v) {

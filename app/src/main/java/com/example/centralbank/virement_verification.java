@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -72,6 +73,7 @@ public class virement_verification extends AppCompatActivity {
 
         String email = getIntent().getStringExtra("email");
         String numeroDeCompte = getIntent().getStringExtra("numeroDeCompte");
+        String numeroDeCompteBenef = getIntent().getStringExtra("numeroDeCompteBenef");
         String montantStr = getIntent().getStringExtra("montantStr");
 
 
@@ -126,7 +128,7 @@ public class virement_verification extends AppCompatActivity {
                                             FirebaseDatabase database = FirebaseDatabase.getInstance();
                                             DatabaseReference usersRef = database.getReference("users");
                                             // Find the user with the specified numeroDeCompte
-                                            usersRef.orderByChild("numeroDeCompte").equalTo(numeroDeCompte).addListenerForSingleValueEvent(new ValueEventListener() {
+                                            usersRef.orderByChild("numeroDeCompte").equalTo(numeroDeCompteBenef).addListenerForSingleValueEvent(new ValueEventListener() {
                                                 @Override
                                                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                                                     if (dataSnapshot.exists()) {
@@ -212,32 +214,61 @@ public class virement_verification extends AppCompatActivity {
                                                     // Handle the error or show an error message here
                                                 }
                                             });
-                                            DatabaseReference virementsRef = FirebaseDatabase.getInstance().getReference().child("virements");
+                                            usersRef.orderByChild("numeroDeCompte").equalTo(numeroDeCompteBenef).addListenerForSingleValueEvent(new ValueEventListener() {
+                                                @Override
+                                                public void onDataChange(DataSnapshot dataSnapshot) {
+                                                    if (dataSnapshot.exists()) {
+                                                        // Retrieve the first matching user (assuming unique `numeroDeCompte`)
+                                                        DataSnapshot userSnapshot = dataSnapshot.getChildren().iterator().next();
 
-                                            String typeDeTransaction = "Virement mobile";
-                                            Date currentDate = new Date();
+                                                        // Retrieve the nameBenef value
+                                                        String name1 = userSnapshot.child("name").getValue(String.class);
+                                                        String name2 = userSnapshot.child("lastName").getValue(String.class);
+                                                        String nameBenef = "Mr " + name1 + " " + name2;
 
-                                            Virement virement = new Virement(typeDeTransaction, montant, currentDate);
+                                                        // Use the nameBenef value as needed
+                                                        DatabaseReference virementsRef = FirebaseDatabase.getInstance().getReference().child("virements");
 
-                                            virementsRef.push().setValue(virement)
-                                                    .addOnSuccessListener(aVoid -> {
-                                                        // Virement successfully written to the database
-                                                        // ...
-                                                    })
-                                                    .addOnFailureListener(e -> {
-                                                        // Error occurred while writing virement to the database
-                                                        // ...
-                                                    });
+                                                        String name = getIntent().getStringExtra("name");
+                                                        String typeDeTransaction = "Virement mobile";
+                                                        Date currentDate = new Date();
+
+                                                        Virement virement = new Virement(typeDeTransaction, montant, currentDate, name, numeroDeCompte , numeroDeCompteBenef ,nameBenef );
+
+                                                        virementsRef.push().setValue(virement)
+                                                                .addOnSuccessListener(aVoid -> {
+                                                                    // Virement successfully written to the database
+                                                                    // ...
+                                                                })
+                                                                .addOnFailureListener(e -> {
+                                                                    // Error occurred while writing virement to the database
+                                                                    // ...
+                                                                });
+
+                                                        Log.d("FirebaseData", "nameBenef: " + nameBenef);
+                                                    } else {
+                                                        Log.d("FirebaseData", "No user found with numeroDeCompteBenef: " + numeroDeCompteBenef);
+                                                    }
+                                                }
+
+                                                @Override
+                                                public void onCancelled(DatabaseError databaseError) {
+                                                    // Error handling
+                                                    // ...
+                                                }
+                                            });
+
                                             Toast.makeText(virement_verification.this, "Success", Toast.LENGTH_SHORT).show();
-                                            Intent intent = new Intent(getApplicationContext(), page_virement_activity.class);
+                                            Intent intent = new Intent(getApplicationContext(), page_home_activity.class);
 
                                             intent.putExtra("email", email);
                                             intent.putExtra("numeroDeCompte", numeroDeCompte);
+                                            intent.putExtra("numeroDeCompteBenef", numeroDeCompteBenef);
 
 
                                             startActivity(intent);
-                                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                                            startActivity(intent);
+//                                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+//                                            startActivity(intent);
                                         } else {
                                             Toast.makeText(virement_verification.this, "Enter corrent SMS", Toast.LENGTH_SHORT).show();
                                         }
