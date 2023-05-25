@@ -54,4 +54,30 @@
         <item>Inwi</item>
     </string-array>
 
+    <string-array name="options_fam">
+        <item>Choisissez votre situation familiale</item>
+        <item>Marié(e)</item>
+        <item>Divorcé(e)</item>
+        <item>Veuf(ve)</item>
+        <item>Célibataire</item>
+    </string-array>
+
+    <string-array name="options_prof">
+        <item>Choisissez votre statut professionnel</item>
+        <item>Étudiant(e)</item>
+        <item>Employé(e)</item>
+        <item>Indépendant(e)</item>
+        <item>Entrepreneur(e)</item>
+        <item>Fonctionnaire</item>
+        <item>Artiste</item>
+        <item>Chercheur(e)</item>
+        <item>Consultant(e)</item>
+        <item>Médecin</item>
+        <item>Avocat(e)</item>
+        <item>Ingénieur(e)</item>
+        <item>Enseignant(e)</item>
+        <item>Scientifique</item>
+        <item>Autre</item>
+    </string-array>
+
 </resources>

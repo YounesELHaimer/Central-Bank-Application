@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.firebase.database.DataSnapshot;
@@ -25,6 +26,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 
@@ -97,6 +99,8 @@ import java.util.HashMap;
 
 			L = findViewById(R.id.listView);
 
+			L.setDivider(getResources().getDrawable(R.drawable.divider_empty));
+
 			ArrayList<HashMap<String, String>> Element = new ArrayList<>();
 
 			DatabaseReference virementsRef = FirebaseDatabase.getInstance().getReference().child("virements");
@@ -137,39 +141,51 @@ import java.util.HashMap;
 						if (numeroDeCompteValue.equals(numeroDeCompte)) {
 							map.put("type_de_la_transactions", " envoye a " + snapshot.child("nameBenef").getValue(String.class));
 							map.put("sold_mad", "- " + soldMad + " MAD");
+							Element.add(map);
 						} else if (numeroDeCompteBenefValue.equals(numeroDeCompte)) {
 							map.put("type_de_la_transactions", " envoye par " + snapshot.child("name").getValue(String.class));
 							map.put("sold_mad", "+ " + soldMad + " MAD");
+							Element.add(map);
 						}
-
-						Element.add(map);
 					}
+
+					// Reverse the order of elements in the ArrayList
+					Collections.reverse(Element);
 
 					// Call a method or update UI with the populated Element ArrayList
 					// ...
 
 					// Set up the adapter only after data retrieval is complete
-					SimpleAdapter Adp = new SimpleAdapter(page_home_activity.this, Element,
-							R.layout.affichage_listview, new String[]{"date", "type_de_la_transactions", "sold_mad"},
-							new int[]{R.id.date, R.id.type_de_la_transactions, R.id.sold_mad}) {
+					if (!Element.isEmpty()) {
+						SimpleAdapter Adp = new SimpleAdapter(page_home_activity.this, Element,
+								R.layout.affichage_listview, new String[]{"date", "type_de_la_transactions", "sold_mad"},
+								new int[]{R.id.date, R.id.type_de_la_transactions, R.id.sold_mad}) {
 
-						@Override
-						public View getView(int position, View convertView, ViewGroup parent) {
-							View view = super.getView(position, convertView, parent);
+							@Override
+							public View getView(int position, View convertView, ViewGroup parent) {
+								View view = super.getView(position, convertView, parent);
 
-							TextView soldMadTextView = view.findViewById(R.id.sold_mad);
-							String soldMadValue = Element.get(position).get("sold_mad");
+								TextView soldMadTextView = view.findViewById(R.id.sold_mad);
+								String soldMadValue = Element.get(position).get("sold_mad");
 
-							// Check if the soldMadValue is negative (starts with "-")
-							if (soldMadValue.startsWith("-")) {
-								soldMadTextView.setTextColor(Color.RED);
+								// Check if the soldMadValue is negative (starts with "-")
+								if (soldMadValue.startsWith("-")) {
+									soldMadTextView.setTextColor(Color.BLACK);
+								}
+								else if (soldMadValue.startsWith("+")) {
+									soldMadTextView.setTextColor(ContextCompat.getColor(page_home_activity.this, R.color.sold_mad_color));
+								}
+
+								return view;
 							}
+						};
 
-							return view;
-						}
-					};
-
-					L.setAdapter(Adp);
+						L.setAdapter(Adp);
+					} else {
+						// Handle the case when there are no virements available
+						// You can hide or show a message, or perform any other desired action
+						// For example, if you have a TextView for displaying a message:
+					}
 
 					Log.d("FirebaseData", "Data retrieval successful. Element size: " + Element.size());
 				}
@@ -180,7 +196,6 @@ import java.util.HashMap;
 					// ...
 				}
 			});
-
 
 
 			DatabaseReference usersRef = FirebaseDatabase.getInstance().getReference().child("users");

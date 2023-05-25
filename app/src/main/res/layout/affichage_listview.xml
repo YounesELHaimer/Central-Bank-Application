@@ -21,121 +21,46 @@
             android:textSize="17sp"
             android:textStyle="bold" />
 
-        <!--View   android:id="@+id/rectangle_7"
-            android:background="@drawable/rectangle_7_shape"
-            android:layout_marginLeft="0dp"
-            android:layout_marginTop="0dp"
-            android:layout_width="376dp"
-            android:layout_height="57dp" />
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp">
 
-        <View   android:id="@+id/rectangle_12"
-            android:background="@drawable/rectangle_12_shape"
-            android:layout_marginLeft="3dp"
-            android:layout_marginTop="10dp"
-            android:layout_width="73dp"
-            android:layout_height="40dp" />
+                <View
+                    android:id="@+id/rectangle_7"
+                    android:layout_width="376dp"
+                    android:layout_height="80dp"
+                    android:layout_marginLeft="0dp"
+                    android:background="@drawable/rectangle_7_shape" />
 
-        <TextView android:id="@+id/date"
-            android:textStyle="bold"
-            android:layout_gravity="center_horizontal|center"
-            android:gravity="center"
-            android:textSize="12sp"
-            android:textColor="@color/______color"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="11dp"
-            android:layout_width="70dp"
-            android:layout_height="22dp"
-            android:text="@string/_17_avril_string"
-            />
+                <TextView android:id="@+id/type_de_la_transactions"
+                    android:textSize="16sp"
+                    android:textColor="@color/mes_derni_res__transactions_color"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="48dp"
+                    android:layout_width="230dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="@string/type_de_la_transactions_string"
+                    android:gravity="center_vertical"
+                    />
 
-        <TextView android:id="@+id/annee"
-            android:textStyle="bold"
-            android:layout_gravity="center_horizontal|center"
-            android:gravity="center"
-            android:textSize="12sp"
-            android:textColor="@color/______color"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="25dp"
-            android:layout_width="70dp"
-            android:layout_height="22dp"
-            android:text="@string/_2023_string"
-            />
+                <TextView android:id="@+id/sold_mad"
+                    android:layout_width="130dp"
+                    android:layout_height="22dp"
+                    android:textStyle="bold"
+                    android:gravity="right|center_vertical"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="17sp"
+                    android:textColor="@color/sold_mad_color"
+                    android:layout_marginLeft="235dp"
+                    android:text="+ 1000000 MAD"
+                    android:layout_centerVertical="true"
+                    />
 
-        <ImageView android:id="@+id/trac__1"
-            android:src="@drawable/trac__1"
-            android:contentDescription="trac__1"
-            android:layout_marginLeft="73dp"
-            android:layout_marginTop="9dp"
-            android:layout_width="1dp"
-            android:layout_height="40dp" />
-
-        <View   android:id="@+id/rectangle_13"
-            android:background="@drawable/rectangle_13_shape"
-            android:layout_marginLeft="77dp"
-            android:layout_marginTop="11dp"
-            android:layout_width="209dp"
-            android:layout_height="35dp" />
-
-        <TextView android:id="@+id/type_de_la_transactions"
-            android:textSize="12sp"
-            android:textColor="@color/mes_derni_res__transactions_color"
-            android:layout_marginLeft="80dp"
-            android:layout_marginTop="18dp"
-            android:layout_width="217dp"
-            android:layout_height="22dp"
-            android:text="@string/type_de_la_transactions_string"
-            />
-
-        <View   android:id="@+id/rectangle_14"
-            android:background="@drawable/rectangle_14_shape"
-            android:layout_marginLeft="290dp"
-            android:layout_marginTop="11dp"
-            android:layout_width="80dp"
-            android:layout_height="35dp" />
-
-        <TextView android:id="@+id/sold_mad"
-            android:textStyle="bold"
-            android:layout_gravity="center_vertical|end"
-            android:gravity="end"
-            android:textSize="12sp"
-            android:textColor="@color/sold_mad_color"
-            android:layout_marginLeft="287dp"
-            android:layout_marginTop="18dp"
-            android:layout_width="79dp"
-            android:layout_height="22dp"
-            android:text="@string/sold_mad_string"
-            /-->
+        </RelativeLayout>
 
 
-        <View
-            android:id="@+id/rectangle_7"
-            android:layout_width="376dp"
-            android:layout_height="57dp"
-            android:layout_marginLeft="0dp"
-            android:layout_marginTop="30dp"
-            android:background="@drawable/rectangle_7_shape" />
 
-        <TextView android:id="@+id/type_de_la_transactions"
-            android:textSize="17sp"
-            android:textColor="@color/mes_derni_res__transactions_color"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="48dp"
-            android:layout_width="217dp"
-            android:layout_height="22dp"
-            android:text="@string/type_de_la_transactions_string"
-            />
-
-        <TextView android:id="@+id/sold_mad"
-            android:layout_width="130dp"
-            android:layout_height="22dp"
-            android:textStyle="bold"
-            android:gravity="right"
-            android:layout_gravity="center_vertical"
-            android:textSize="17sp"
-            android:textColor="@color/sold_mad_color"
-            android:layout_marginLeft="235dp"
-            android:layout_marginTop="48dp"
-            android:text="+ 1000000 MAD"
-            />
 
 </RelativeLayout>

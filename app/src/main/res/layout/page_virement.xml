@@ -581,21 +581,20 @@
 							android:textSize="14sp" />
 					</RelativeLayout>
 
-
-
+					<ProgressBar
+						android:layout_width="35dp"
+						android:layout_height="35dp"
+						android:layout_gravity="center"
+						android:layout_marginTop="400dp"
+						android:layout_centerHorizontal="true"
+						android:visibility="gone"
+						android:id="@+id/probar2"/>
 
 					<RelativeLayout android:id="@+id/button"
 						android:layout_marginTop="500dp"
 						android:layout_width="380dp"
 						android:layout_height="wrap_content"
 						>
-						<ProgressBar
-							android:layout_width="35dp"
-							android:layout_height="35dp"
-							android:layout_gravity="center"
-
-							android:visibility="gone"
-							android:id="@+id/probar1" />
 
 						<View   android:id="@+id/rectangle_2"
 							android:background="@drawable/rectangle_1_ek1_shape"
@@ -621,42 +620,6 @@
 
 
 					</RelativeLayout>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 				</RelativeLayout>
 			</RelativeLayout>

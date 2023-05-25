@@ -21,7 +21,6 @@ package com.example.centralbank;
 	import android.app.Activity;
 	import android.content.Intent;
 	import android.os.Bundle;
-	import android.text.TextUtils;
 	import android.view.View;
 	import android.widget.EditText;
 	import android.widget.ImageView;
@@ -35,8 +34,6 @@ package com.example.centralbank;
 	import androidx.annotation.NonNull;
 	import androidx.appcompat.app.AlertDialog;
 
-	import com.google.android.gms.tasks.OnFailureListener;
-	import com.google.android.gms.tasks.OnSuccessListener;
 	import com.google.firebase.FirebaseException;
 	import com.google.firebase.auth.PhoneAuthCredential;
 	import com.google.firebase.auth.PhoneAuthProvider;
@@ -46,8 +43,6 @@ package com.example.centralbank;
 	import com.google.firebase.database.FirebaseDatabase;
 	import com.google.firebase.database.Query;
 	import com.google.firebase.database.ValueEventListener;
-
-	import org.w3c.dom.Text;
 
 	import java.util.concurrent.TimeUnit;
 
@@ -91,7 +86,7 @@ package com.example.centralbank;
 		TextView numero_de_compte = findViewById(R.id.numero_de_compte);
 		numero_de_compte.setText(numeroDeCompte);
 
-		@SuppressLint({"MissingInflatedId", "LocalSuppress"}) ProgressBar progressBar=findViewById(R.id.probar1);
+		@SuppressLint({"MissingInflatedId", "LocalSuppress"}) ProgressBar progressBar=findViewById(R.id.probar2);
 
 
 

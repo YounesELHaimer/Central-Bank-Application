@@ -157,7 +157,7 @@ public class page_settings extends AppCompatActivity {
                 button_ok.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        String email = "badralqaraoui@gmail.com";  // Email to search for in the database
+                        String email = getIntent().getStringExtra("email");  // Email to search for in the database
                         String oldPassword = ancien_pwd.getText().toString();
                         String newPassword = nv_pwd.getText().toString();
                         String confirmPassword = confirmer_pwd.getText().toString();
@@ -197,7 +197,7 @@ public class page_settings extends AppCompatActivity {
                                 }
 
                                 // No user found with the specified email or incorrect old password
-                                Toast.makeText(page_settings.this, "Invalid email or old password", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(page_settings.this, "Invalid password or old password", Toast.LENGTH_SHORT).show();
                             }
 
                             @Override

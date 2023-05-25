@@ -4,8 +4,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
+import android.widget.Spinner;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,6 +22,10 @@ import com.google.firebase.database.ValueEventListener;
 public class AdditionalData extends AppCompatActivity {
 
     private EditText editTextAddress, editTextDOB, editTextFamilyStatus, editTextProfessionalStatus;
+    private Spinner spinner_fam;
+    private Spinner spinner_prof;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,8 +38,29 @@ public class AdditionalData extends AppCompatActivity {
         // Get references to EditText fields
         editTextAddress = findViewById(R.id.editTextAddress);
         editTextDOB = findViewById(R.id.editTextDOB);
-        editTextFamilyStatus = findViewById(R.id.editTextFamilyStatus);
-        editTextProfessionalStatus = findViewById(R.id.editTextProfessionalStatus);
+        //editTextFamilyStatus = findViewById(R.id.editTextFamilyStatus);
+        //editTextProfessionalStatus = findViewById(R.id.editTextProfessionalStatus);
+        spinner_fam = findViewById(R.id.spinner);
+        spinner_prof = findViewById(R.id.spinner_prof);
+
+
+
+        String[] options = getResources().getStringArray(R.array.options_fam);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, options);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        spinner_fam.setAdapter(adapter);
+
+
+        String[] options_prof = getResources().getStringArray(R.array.options_prof);
+        ArrayAdapter<String> adapter_prof = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, options_prof);
+        adapter_prof.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        spinner_prof.setAdapter(adapter_prof);
+
+
+
+
 
         String email = getIntent().getStringExtra("email");
 
@@ -63,8 +90,8 @@ public class AdditionalData extends AppCompatActivity {
             public void onClick(View v) {
                 String address = editTextAddress.getText().toString();
                 String dob = editTextDOB.getText().toString();
-                String familyStatus = editTextFamilyStatus.getText().toString();
-                String professionalStatus = editTextProfessionalStatus.getText().toString();
+                String selectedOptionFam = spinner_fam.getSelectedItem().toString();
+                String selectedOptionProf = spinner_prof.getSelectedItem().toString();
 
                 // Query the users based on the email field
                 Query query = usersRef.orderByChild("email").equalTo(userEmail);
@@ -80,8 +107,8 @@ public class AdditionalData extends AppCompatActivity {
                             // Update the additional data fields
                             userRef.child("address").setValue(address);
                             userRef.child("dateOfBirth").setValue(dob);
-                            userRef.child("familyStatus").setValue(familyStatus);
-                            userRef.child("professionalStatus").setValue(professionalStatus);
+                            userRef.child("familyStatus").setValue(selectedOptionFam);
+                            userRef.child("professionalStatus").setValue(selectedOptionProf);
                         }
                     }
 

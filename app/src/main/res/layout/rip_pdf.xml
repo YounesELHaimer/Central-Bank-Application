@@ -15,7 +15,7 @@
                 android:layout_height="846dp"
                 android:layout_marginLeft="0dp"
                 android:layout_marginTop="0dp"
-                android:background="@drawable/_bg__page_home_shape" />
+                android:background="@color/white" />
 
             <View
                 android:id="@+id/rectangle_1"

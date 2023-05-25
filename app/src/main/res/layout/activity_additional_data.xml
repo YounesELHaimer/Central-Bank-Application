@@ -131,7 +131,22 @@
                         android:layout_height="55dp"
                         android:background="@drawable/rectangle_pwd_settings" />
 
-                    <EditText
+                    <Spinner
+                        android:id="@+id/spinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:popupBackground="#FFFFFF"
+                        android:entries="@array/options_fam"
+                        android:textSize="15sp"
+                        android:dropDownVerticalOffset="0dp"
+                        android:dropDownWidth="280dp"
+                        android:padding="16dp"
+                        android:popupElevation="20dp"
+                        android:layout_centerVertical="true"
+                        />
+
+
+                    <!--EditText
                         android:id="@+id/editTextFamilyStatus"
                         android:layout_width="match_parent"
                         android:layout_height="55dp"
@@ -140,7 +155,7 @@
                         android:background="@android:color/transparent"
                         android:hint="Entrez votre statut familiale"
                         android:inputType="text"
-                        android:textSize="15sp" />
+                        android:textSize="15sp" /-->
 
                 </RelativeLayout>
 
@@ -155,7 +170,21 @@
                         android:layout_height="55dp"
                         android:background="@drawable/rectangle_pwd_settings" />
 
-                    <EditText
+                    <Spinner
+                        android:id="@+id/spinner_prof"
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:popupBackground="#FFFFFF"
+                        android:entries="@array/options_prof"
+                        android:textSize="15sp"
+                        android:dropDownVerticalOffset="0dp"
+                        android:dropDownWidth="280dp"
+                        android:padding="16dp"
+                        android:popupElevation="20dp"
+                        android:layout_centerVertical="true"
+                        />
+
+                    <!--EditText
                         android:id="@+id/editTextProfessionalStatus"
                         android:layout_width="match_parent"
                         android:layout_height="55dp"
@@ -164,7 +193,7 @@
                         android:background="@android:color/transparent"
                         android:hint="Entrez votre statut professionnel"
                         android:inputType="text"
-                        android:textSize="15sp" />
+                        android:textSize="15sp" /-->
 
                 </RelativeLayout>
 

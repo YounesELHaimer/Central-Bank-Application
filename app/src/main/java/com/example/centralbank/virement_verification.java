@@ -391,6 +391,7 @@ public class virement_verification extends AppCompatActivity {
                     public void onClick(View v) {
                         Intent nextScreen = new Intent(getApplicationContext(), first_page_activity.class);
                         nextScreen.putExtra("email", email);
+                        nextScreen.putExtra("numeroDeCompte", numeroDeCompte);
 
                         startActivity(nextScreen);
                     }

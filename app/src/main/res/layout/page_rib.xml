@@ -424,11 +424,11 @@
 
 
             <ImageView android:id="@+id/telecharger_btn"
-                android:src="@drawable/cercle_download"
+                android:src="@drawable/pdf_icon"
                 android:layout_marginLeft="320dp"
-                android:layout_marginTop="680dp"
-                android:layout_width="65dp"
-                android:layout_height="65dp" />
+                android:layout_marginTop="690dp"
+                android:layout_width="55dp"
+                android:layout_height="55dp" />
 
 
 

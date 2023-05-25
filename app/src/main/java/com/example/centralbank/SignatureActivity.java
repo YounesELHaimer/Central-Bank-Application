@@ -166,6 +166,7 @@ public class SignatureActivity extends AppCompatActivity {
                                                     // Numerodecompte added successfully for the user
                                                     Toast.makeText(SignatureActivity.this, "Numerodecompte added successfully", Toast.LENGTH_SHORT).show();
 
+
                                                     // Proceed with your desired action
                                                     // e.g., start a new activity or perform additional operations
                                                 }
@@ -211,6 +212,7 @@ public class SignatureActivity extends AppCompatActivity {
                                                     // Solde added successfully for the user
                                                     Toast.makeText(SignatureActivity.this, "Solde added successfully", Toast.LENGTH_SHORT).show();
 
+
                                                     // Proceed with your desired action
                                                     // e.g., start a new activity or perform additional operations
                                                 }
@@ -237,12 +239,12 @@ public class SignatureActivity extends AppCompatActivity {
                     });
 
 
-
-                    Intent intent = new Intent(getApplicationContext(), first_page_activity.class);
+                    Intent intent = new Intent(getApplicationContext(), last_page_register.class);
 
 
                     startActivity(intent);
                     finish();
+
                 }
             }
         });
